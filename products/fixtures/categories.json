@@ -1,0 +1,9 @@
+[
+    { "pk": 1, "model": "products.category", "fields": { "name": "frozen", "friendly_name": "Frozen" } },
+    { "pk": 2, "model": "products.category", "fields": { "name": "whole_foods", "friendly_name": "Whole Foods" } },
+    { "pk": 3, "model": "products.category", "fields": { "name": "meat_poultry", "friendly_name": "Meat & Poultry" } },
+    { "pk": 4, "model": "products.category", "fields": { "name": "all_foods", "friendly_name": "All Foods" } },
+    { "pk": 5, "model": "products.category", "fields": { "name": "hot_beverages", "friendly_name": "Hot Beverages" } },
+    { "pk": 6, "model": "products.category", "fields": { "name": "cold_drinks", "friendly_name": "Cold Drinks" } },
+    { "pk": 7, "model": "products.category", "fields": { "name": "all_drinks", "friendly_name": "All Drinks" } }
+]

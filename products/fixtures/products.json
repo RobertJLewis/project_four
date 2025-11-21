@@ -1,0 +1,33 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "sku": "7up-0-pink-2l",
+            "name": "7Up Zero Sugar Pink Lemonade Bottle 2L",
+            "description": "Refreshing pink lemonade flavoured 7Up with zero sugar. Sparkling soft drink in a 2L bottle, perfect for sharing and serving chilled.",
+            "price": 1.99,
+            "category": 6,
+            "rating": 4.5,
+            "image_url": "https://example.com/images/7up-zero-pink-2l.jpg",
+            "image": "media/7_up_zero_sugar_pink_lemonade_Bottle_2L.webp"
+        }
+    },
+
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "be-chick-dip-697g",
+            "name": "Birds Eye Chicken Dippers 697g",
+            "description": "Crispy and tender chicken dippers made with 100% chicken breast. Ideal for quick meals and family favourites. Cook from frozen for convenience.",
+            "price": 4.49,
+            "category": 1,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/birds-eye-dippers-697g.jpg",
+            "image": "media/birds_eye_chicken_dippers_697g .webp"
+        }
+    },
+
+
+]
