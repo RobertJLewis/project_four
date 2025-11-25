@@ -25,9 +25,1322 @@
             "category": 1,
             "rating": 4.6,
             "image_url": "https://example.com/images/birds-eye-dippers-697g.jpg",
-            "image": "media/birds_eye_chicken_dippers_697g .webp"
+            "image": "media/birds_eye_chicken_dippers_697g.webp"
         }
     },
 
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "sku": "be-gar-peas-800g",
+            "name": "Birds Eye Garden Peas 800g",
+            "description": "Naturally sweet and tender garden peas, frozen for freshness. Perfect as a side dish or for adding to everyday meals.",
+            "price": 2.49,
+            "category": 1,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/birds-eye-garden-peas-800g.jpg",
+            "image": "media/birds_eye_garden_peas_800g.webp"
+        }
+    },
+
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "sku": "be-sweetcorn-640g",
+            "name": "Birds Eye Supersweet Sweetcorn 640g",
+            "description": "Deliciously juicy supersweet sweetcorn, picked and frozen at its freshest. Perfect for salads, side dishes, and everyday cooking.",
+            "price": 2.79,
+            "category": 1,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/birds-eye-supersweet-sweetcorn-640g.jpg",
+            "image": "media/birds_eye_supersweet_sweetcorn_640g.webp"
+        }
+    },
+
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "sku": "buxton-water-500ml",
+            "name": "Buxton Still Natural Mineral Water 500ml",
+            "description": "Refreshing still natural mineral water from the Buxton Peak District. Pure, crisp taste—perfect for hydration on the go.",
+            "price": 0.79,
+            "category": 6,
+            "rating": 4.4,
+            "image_url": "https://example.com/images/buxton-still-natural-mineral-water-500ml.jpg",
+            "image": "media/buxton_still_natural_mineral_water.webp"
+        }
+    },
+
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "sku": "cadbury-hot-choc-500g",
+            "name": "Cadbury Drinking Chocolate Hot Chocolate Tub 500g",
+            "description": "Smooth and creamy Cadbury drinking chocolate, perfect for making deliciously rich hot chocolate. Enjoy warm and comforting moments anytime.",
+            "price": 3.99,
+            "category": 3,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/cadbury-drinking-chocolate-500g.jpg",
+            "image": "media/cadbury_drinking_chocolate_hot_chocolate_tub_500g.webp"
+        }
+    },
+
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "sku": "cadbury-highlights-200ml",
+            "name": "Cadbury Highlights Milk Chocolate Drink 200ml",
+            "description": "Deliciously smooth milk chocolate drink from Cadbury, perfect for kids and adults alike. Convenient and ready to enjoy anytime.",
+            "price": 1.29,
+            "category": 3,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/cadbury-highlights-milk-chocolate-drink-200ml.jpg",
+            "image": "media/cadbury_highlights_milk_chocolate_drink.webp"
+        }
+    },
+
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "sku": "cadbury-original-hot-choc-500g",
+            "name": "Cadbury Original Drinking Hot Chocolate 500g",
+            "description": "Classic Cadbury drinking chocolate, rich and smooth, perfect for warming up on chilly days. Ideal for sharing or enjoying solo.",
+            "price": 3.99,
+            "category": 3,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/cadbury-original-drinking-hot-chocolate-500g.jpg",
+            "image": "media/cadbury_original_drinking_hot_chocolate.webp"
+        }
+    },
+
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "sku": "chicago-cown-cheese-pizza-550g",
+            "name": "Chicago Cown Cheese Pizza Cheesy Stuffed Crust Takeaway 550g",
+            "description": "Delicious cheesy stuffed crust pizza with rich tomato sauce and melted mozzarella. Perfect for a quick and satisfying takeaway-style meal at home.",
+            "price": 5.49,
+            "category": 2,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/chicago-cown-cheese-pizza-550g.jpg",
+            "image": "media/chicago_cown_cheese_pizza_cheesy_stuffed_crust_takeaway.webp"
+        }
+    },
+
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
+            "sku": "chicago-town-meat-supreme-550g",
+            "name": "Chicago Town Meat Supreme Pizza Subs 550g",
+            "description": "Loaded with savory meat toppings and melted cheese on a soft pizza base. Perfect for a quick meal or sharing with family and friends.",
+            "price": 5.99,
+            "category": 2,
+            "rating": 4.5,
+            "image_url": "https://example.com/images/chicago-town-meat-supreme-pizza-550g.jpg",
+            "image": "media/chicago_town_meat_supreme_pizza_subs.webp"
+        }
+    },
+
+    {
+        "pk": 11,
+        "model": "products.product",
+        "fields": {
+            "sku": "chicago-town-triple-cheese-250g",
+            "name": "Chicago Town Triple Cheese and Tomato Subs Pizza 250g",
+            "description": "A cheesy delight with triple cheese and rich tomato sauce on a soft pizza base. Perfect for a quick snack or light meal.",
+            "price": 3.49,
+            "category": 2,
+            "rating": 4.4,
+            "image_url": "https://example.com/images/chicago-town-triple-cheese-250g.jpg",
+            "image": "media/chicago_town_triple_cheese_and_tomato_subs_pizza_250g.webp"
+        }
+    },
+
+    {
+        "pk": 12,
+        "model": "products.product",
+        "fields": {
+            "sku": "coca-cola-zero-2l",
+            "name": "Coca-Cola Zero Sugar Bottle 2L",
+            "description": "Classic Coca-Cola taste with zero sugar, in a 2L bottle. Perfect for sharing or enjoying chilled anytime.",
+            "price": 1.99,
+            "category": 6,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/coca-cola-zero-2l.jpg",
+            "image": "media/coca_cola_zero_sugar_2L.webp"
+        }
+    },
+
+    {
+        "pk": 13,
+        "model": "products.product",
+        "fields": {
+            "sku": "cocoa-canopy-dark-hot-choc-500g",
+            "name": "Cocoa Canopy Rich Dark Drinking Hot Chocolate 500g",
+            "description": "Intensely rich and smooth dark hot chocolate, perfect for warming up on cold days. Ideal for indulgent treats or sharing with friends and family.",
+            "price": 4.49,
+            "category": 3,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/cocoa-canopy-rich-dark-drinking-hot-chocolate-500g.jpg",
+            "image": "media/cocoa_canopy_rich_dark_drinking_hot_chocolate.webp"
+        }
+    },
+
+    {
+        "pk": 14,
+        "model": "products.product",
+        "fields": {
+            "sku": "cocoa-canopy-milk-hot-choc-500g",
+            "name": "Cocoa Canopy Smooth Milk Drinking Hot Chocolate 500g",
+            "description": "Smooth and creamy milk hot chocolate, perfect for a comforting drink anytime. Ideal for sharing or enjoying on your own.",
+            "price": 4.29,
+            "category": 3,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/cocoa-canopy-smooth-milk-drinking-hot-chocolate-500g.jpg",
+            "image": "media/cocoa_canopy_smooth_milk_drinking_hot_chocolate.webp"
+        }
+    },
+
+    {
+        "pk": 15,
+        "model": "products.product",
+        "fields": {
+            "sku": "costa-rich-hot-choc-500g",
+            "name": "Costa Rich and Creamy Hot Chocolate 500g",
+            "description": "Indulgent and creamy Costa hot chocolate, perfect for a rich and comforting drink. Ideal for warming up on chilly days.",
+            "price": 4.99,
+            "category": 3,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/costa-rich-and-creamy-hot-chocolate-500g.jpg",
+            "image": "media/costa_rich_and_creamy_hot_chocolate.webp"
+        }
+    },
+
+    {
+        "pk": 16,
+        "model": "products.product",
+        "fields": {
+            "sku": "cravendale-whole-milk-2l",
+            "name": "Cravendale Filtered Fresh Whole Milk 2L",
+            "description": "Fresh and filtered whole milk, designed to stay fresher for longer. Perfect for daily use in cereals, cooking, and drinks.",
+            "price": 2.19,
+            "category": 6,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/cravendale-filtered-fresh-whole-milk-2l.jpg",
+            "image": "media/cravendale_filtered_fresh_whole_milk_fresher_for_longer_2l.webp"
+        }
+    },
+
+    {
+        "pk": 17,
+        "model": "products.product",
+        "fields": {
+            "sku": "crisp-up-chicken-breast-330g",
+            "name": "Crisp Up Love Me Tenders Chicken Breast Fillet Pieces 330g",
+            "description": "Tender and juicy chicken breast fillet pieces, perfect for quick meals or adding to salads and stir-fries. Ready to cook from frozen for convenience.",
+            "price": 4.79,
+            "category": 1,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/crisp-up-love-me-tenders-chicken-breast-330g.jpg",
+            "image": "media/crisp_up_love_me_tenders_chicken_breast_fillet_pieces_330g.webp"
+        }
+    },
+
+    {
+        "pk": 18,
+        "model": "products.product",
+        "fields": {
+            "sku": "diet-coke-2l",
+            "name": "Diet Coke Bottle 2L",
+            "description": "Classic Diet Coke taste with zero sugar, in a 2L bottle. Perfect for sharing or enjoying chilled anytime.",
+            "price": 1.99,
+            "category": 6,
+            "rating": 4.5,
+            "image_url": "https://example.com/images/diet-coke-2l.jpg",
+            "image": "media/diet_coke_2l.webp"
+        }
+    },
+
+    {
+        "pk": 19,
+        "model": "products.product",
+        "fields": {
+            "sku": "dr-oetker-pepperoni-pizza-355g",
+            "name": "Dr. Oetker Ristorante Pepperoni Salame Pizza 355g",
+            "description": "Crispy base topped with pepperoni salame and melted cheese. Perfect for a quick and delicious meal at home.",
+            "price": 4.99,
+            "category": 2,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/dr-oetker-ristorante-pepperoni-salame-pizza-355g.jpg",
+            "image": "media/dr_oetker_ristorante_pepperoni_salame_pizza.webp"
+        }
+    },
+
+    {
+        "pk": 20,
+        "model": "products.product",
+        "fields": {
+            "sku": "dr-oetker-prosciutto-funghi-350g",
+            "name": "Dr. Oetker Ristorante Prosciutto Funghi Pizza 350g",
+            "description": "Crispy pizza topped with prosciutto, mushrooms, and melted cheese. Perfect for a quick and tasty meal at home.",
+            "price": 4.99,
+            "category": 2,
+            "rating": 4.5,
+            "image_url": "https://example.com/images/dr-oetker-ristorante-prosciutto-funghi-pizza-350g.jpg",
+            "image": "media/dr_oetker_ristorante_prosciutto_funghi_pizza_350g.webp"
+        }
+    },
+
+    {
+        "pk": 21,
+        "model": "products.product",
+        "fields": {
+            "sku": "dr-pepper-zero-cherry-2l",
+            "name": "Dr Pepper Zero Cherry Crush Bottle 2L",
+            "description": "Classic Dr Pepper taste with zero sugar and a cherry twist. Perfect for sharing or enjoying chilled anytime.",
+            "price": 2.19,
+            "category": 6,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/dr-pepper-zero-cherry-crush-2l.jpg",
+            "image": "media/dr_pepper_zero_cherry_crush_2l.webp"
+        }
+    },
+
+    {
+        "pk": 22,
+        "model": "products.product",
+        "fields": {
+            "sku": "drink-me-chai-latte-250ml",
+            "name": "Drink Me Chai Spiced Chai Latte 250ml",
+            "description": "A rich and warming spiced chai latte, perfectly blended for a smooth and comforting drink anytime.",
+            "price": 2.49,
+            "category": 3,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/drink-me-chai-latte-250ml.jpg",
+            "image": "media/drink_me_chai_spiced_chai_latte.webp"
+        }
+    },
+
+    {
+        "pk": 23,
+        "model": "products.product",
+        "fields": {
+            "sku": "fridge-raiders-slow-roast-350g",
+            "name": "Fridge Raiders Slow Roast Meal Deal 350g",
+            "description": "Tender slow-roast meal with rich flavours, perfect for a quick and satisfying lunch or dinner. Convenient and ready to enjoy.",
+            "price": 4.49,
+            "category": 2,
+            "rating": 4.5,
+            "image_url": "https://example.com/images/fridge-raiders-slow-roast-350g.jpg",
+            "image": "media/fridge_raiders_slow_roast_meal_deal.webp"
+        }
+    },
+
+    {
+        "pk": 24,
+        "model": "products.product",
+        "fields": {
+            "sku": "fto-whole-carrot-cake-14slices",
+            "name": "FTO Whole Carrot Cake 14 Slices",
+            "description": "Moist and delicious whole carrot cake, pre-sliced into 14 servings. Perfect for sharing at gatherings or enjoying as a treat anytime.",
+            "price": 6.49,
+            "category": 4,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/fto-whole-carrot-cake-14-slices.jpg",
+            "image": "media/fto_whole_carrot_cake_14_slices.webp"
+        }
+    },
+
+    {
+        "pk": 25,
+        "model": "products.product",
+        "fields": {
+            "sku": "fto-whole-chocolate-fudge-cake-14slices",
+            "name": "FTO Whole Chocolate Fudge Cake 14 Slices",
+            "description": "Rich and indulgent chocolate fudge cake, pre-sliced into 14 servings. Perfect for celebrations or enjoying as a delicious treat anytime.",
+            "price": 6.99,
+            "category": 4,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/fto-whole-chocolate-fudge-cake-14-slices.jpg",
+            "image": "media/fto_whole_chocolate_fudge_cake_14_slices.webp"
+        }
+    },
+
+    {
+        "pk": 26,
+        "model": "products.product",
+        "fields": {
+            "sku": "fto-whole-coffee-walnut-cake-14slices",
+            "name": "FTO Whole Coffee and Walnut Cake 14 Slices",
+            "description": "Moist and flavourful coffee and walnut cake, pre-sliced into 14 servings. Perfect for sharing or enjoying with your favourite cup of coffee.",
+            "price": 6.99,
+            "category": 4,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/fto-whole-coffee-and-walnut-cake-14-slices.jpg",
+            "image": "media/fto_whole_coffee_and_walnut_cake_14_slices.webp"
+        }
+    },
+
+    {
+        "pk": 27,
+        "model": "products.product",
+        "fields": {
+            "sku": "fto-whole-lemon-cake-14slices",
+            "name": "FTO Whole Lemon Cake 14 Slices",
+            "description": "Zesty and moist lemon cake, pre-sliced into 14 servings. Perfect for sharing or enjoying as a light and refreshing treat.",
+            "price": 6.49,
+            "category": 4,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/fto-whole-lemon-cake-14-slices.jpg",
+            "image": "media/fto_whole_lemon_cake_14_slices.webp"
+        }
+    },
+
+    {
+        "pk": 28,
+        "model": "products.product",
+        "fields": {
+            "sku": "fto-whole-lemon-meringue-14slices",
+            "name": "FTO Whole Lemon Meringue Cake 14 Slices",
+            "description": "Delightful lemon meringue cake, pre-sliced into 14 servings. Perfect for celebrations or enjoying as a light, tangy treat.",
+            "price": 6.99,
+            "category": 4,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/fto-whole-lemon-meringue-cake-14-slices.jpg",
+            "image": "media/fto_whole_lemon_meringue_cake_14_slices.webp"
+        }
+    },
+
+    {
+        "pk": 29,
+        "model": "products.product",
+        "fields": {
+            "sku": "fto-whole-victoria-sponge-14slices",
+            "name": "FTO Whole Victoria Sponge Cake 14 Slices",
+            "description": "Classic Victoria sponge cake, pre-sliced into 14 servings. Perfect for sharing, celebrations, or enjoying as a traditional treat.",
+            "price": 6.49,
+            "category": 4,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/fto-whole-victoria-sponge-cake-14-slices.jpg",
+            "image": "media/fto_whole_victoria_sponge_cake_14_slices.webp"
+        }
+    },
+
+    {
+        "pk": 30,
+        "model": "products.product",
+        "fields": {
+            "sku": "galaxy-frothy-hot-choc-500g",
+            "name": "Galaxy Frothy Hot Chocolate 500g",
+            "description": "Rich and creamy Galaxy hot chocolate, perfect for a frothy, indulgent drink anytime. Ideal for warming up on chilly days.",
+            "price": 4.79,
+            "category": 3,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/galaxy-frothy-hot-chocolate-500g.jpg",
+            "image": "media/galaxy_frothy_hot_chocolate.webp"
+        }
+    },
+
+    {
+        "pk": 31,
+        "model": "products.product",
+        "fields": {
+            "sku": "grahams-gold-smooth-500g",
+            "name": "Grahams Gold Smooth 500g",
+            "description": "Smooth and creamy Grahams Gold spread, perfect for baking, cooking, or enjoying on toast. A versatile addition to your kitchen.",
+            "price": 3.99,
+            "category": 4,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/grahams-gold-smooth-500g.jpg",
+            "image": "media/grahams_gold_smooth.webp"
+        }
+    },
+
+    {
+        "pk": 32,
+        "model": "products.product",
+        "fields": {
+            "sku": "kershaws-classic-fish-chips-400g",
+            "name": "Kershaws Classic Fish and Chips 400g",
+            "description": "Classic battered fish and crispy chips, ready to cook for a quick and delicious meal at home. Perfect for family dinners or a comforting treat.",
+            "price": 5.99,
+            "category": 2,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/kershaws-classic-fish-and-chips-400g.jpg",
+            "image": "media/kershaws_classic_fish_and_chips.webp"
+        }
+    },
+
+    {
+        "pk": 33,
+        "model": "products.product",
+        "fields": {
+            "sku": "magnum-salted-caramel-ice-cream-3pack",
+            "name": "Magnum Salted Caramel Ice Cream Sticks 3 Pack",
+            "description": "Indulgent salted caramel ice cream coated in smooth chocolate. Perfect for a delicious treat anytime.",
+            "price": 4.99,
+            "category": 5,
+            "rating": 4.9,
+            "image_url": "https://example.com/images/magnum-salted-caramel-ice-cream-sticks.jpg",
+            "image": "media/magnum_salted_caramel_ice_cream_sticks.webp"
+        }
+    },
+
+    {
+        "pk": 34,
+        "model": "products.product",
+        "fields": {
+            "sku": "mccain-air-fryer-crinkle-chips-650g",
+            "name": "McCain Air Fryer Deep Ridge Crinkle Cut Chips 650g",
+            "description": "Crispy deep ridge crinkle cut chips, perfect for air frying or oven cooking. Ideal for quick and tasty meals.",
+            "price": 3.49,
+            "category": 2,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/mccain-air-fryer-deep-ridge-crinkle-cut-chips-650g.jpg",
+            "image": "media/mccain_air_fryer_deep_ridge_crinkle_cut_chips.webp"
+        }
+    },
+
+    {
+        "pk": 35,
+        "model": "products.product",
+        "fields": {
+            "sku": "mccain-crispy-french-fries-600g",
+            "name": "McCain Crispy French Fries 600g",
+            "description": "Golden and crispy French fries, perfect for oven or air fryer cooking. Ideal for quick meals or as a side dish.",
+            "price": 3.29,
+            "category": 2,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/mccain-crispy-french-fries-600g.jpg",
+            "image": "media/mccain_crispy_french_fries.webp"
+        }
+    },
+
+    {
+        "pk": 36,
+        "model": "products.product",
+        "fields": {
+            "sku": "mccain-home-chips-straight-cut-650g",
+            "name": "McCain Home Chips Straight Cut 650g",
+            "description": "Classic straight cut chips, perfect for oven or air fryer cooking. Ideal for quick meals or as a delicious side dish.",
+            "price": 3.29,
+            "category": 2,
+            "rating": 4.5,
+            "image_url": "https://example.com/images/mccain-home-chips-straight-cut-650g.jpg",
+            "image": "media/mccain_home_chips_straight_cut.webp"
+        }
+    },
+
+    {
+        "pk": 37,
+        "model": "products.product",
+        "fields": {
+            "sku": "mccain-roast-potatoes-750g",
+            "name": "McCain Roast Potatoes 750g",
+            "description": "Golden and crispy roast potatoes, perfect for oven cooking. Ideal for family dinners and Sunday roasts.",
+            "price": 3.99,
+            "category": 2,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/mccain-roast-potatoes-750g.jpg",
+            "image": "media/mccain_roast_potatoes.webp"
+        }
+    },
+
+    {
+        "pk": 38,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-maple-bbq-pork-loin-400g",
+            "name": "Morrisons BBQ 4 Maple BBQ Pork Loin Steaks 400g",
+            "description": "Tender and flavorful maple BBQ pork loin steaks, perfect for grilling or pan-frying. Ideal for quick and delicious meals.",
+            "price": 5.99,
+            "category": 1,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/morrisons-bbq-4-maple-bbq-pork-loin-400g.jpg",
+            "image": "media/morrisons_bbq_4_maple_bbq_pork_loin_steaks_400g.webp"
+        }
+    },
+
+    {
+        "pk": 39,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-chinese-style-pork-loin-400g",
+            "name": "Morrisons BBQ Chinese Style Pork Loin Steaks 400g",
+            "description": "Juicy Chinese-style marinated pork loin steaks, perfect for grilling or pan-frying. Ideal for quick, tasty meals at home.",
+            "price": 5.99,
+            "category": 1,
+            "rating": 4.5,
+            "image_url": "https://example.com/images/morrisons-bbq-chinese-style-pork-loin-400g.jpg",
+            "image": "media/morrisons_bbq_chinese_style_pork_loin_steaks_400g.webp"
+        }
+    },
+
+    {
+        "pk": 40,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-british-chicken-breast-400g",
+            "name": "Morrisons British Chicken Breast Fillets 400g",
+            "description": "Tender British chicken breast fillets, perfect for quick meals, grilling, or adding to salads and stir-fries.",
+            "price": 6.49,
+            "category": 1,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/morrisons-british-chicken-breast-fillets-400g.jpg",
+            "image": "media/morrisons_british_chicken_breast_fillets_400g.webp"
+        }
+    },
+
+    {
+        "pk": 41,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-choc-orange-hot-choc-500g",
+            "name": "Morrisons Chocolate Orange Flavour Hot Chocolate 500g",
+            "description": "Delicious chocolate orange flavoured hot chocolate, perfect for a rich and warming drink anytime.",
+            "price": 4.49,
+            "category": 3,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/morrisons-chocolate-orange-flavour-hot-chocolate-500g.jpg",
+            "image": "media/morrisons_chocolate_orange_flavour_hot_chocolate.webp"
+        }
+    },
+    {
+        "pk": 42,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-drinking-chocolate-500g",
+            "name": "Morrisons Drinking Chocolate 500g",
+            "description": "Smooth and creamy drinking chocolate, perfect for a comforting and indulgent hot drink.",
+            "price": 3.99,
+            "category": 3,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/morrisons-drinking-chocolate-500g.jpg",
+            "image": "media/morrisons_drinking_chocolate.webp"
+        }
+    },
+    {
+        "pk": 43,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-fajita-chicken-slices-200g",
+            "name": "Morrisons Fajita Chicken Slices 200g",
+            "description": "Sliced chicken seasoned for fajitas, perfect for quick meals, wraps, or adding to salads.",
+            "price": 4.29,
+            "category": 1,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/morrisons-fajita-chicken-slices-200g.jpg",
+            "image": "media/morrisons_fajita_chicken_slices.webp"
+        }
+    },
+    {
+        "pk": 44,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-honey-roast-ham-slices-200g",
+            "name": "Morrisons Honey Roast Ham Slices 200g",
+            "description": "Sweet and savoury honey roast ham slices, perfect for sandwiches, salads, or quick meals.",
+            "price": 3.99,
+            "category": 1,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/morrisons-honey-roast-ham-slices-200g.jpg",
+            "image": "media/morrisons_honey_roast_ham_slices.webp"
+        }
+    },
+
+    {
+        "pk": 45,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-lighter-hot-choc-300g",
+            "name": "Morrisons Lighter Hot Chocolate Instant Drink 300g",
+            "description": "Delicious hot chocolate with reduced fat, perfect for a lighter indulgent drink anytime.",
+            "price": 3.49,
+            "category": 3,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/morrisons-lighter-hot-chocolate-instant-drink-300g.jpg",
+            "image": "media/morrisons_lighter_hot_chocolate_instant_drink_300g.webp"
+        }
+    },
+    {
+        "pk": 46,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-roast-chicken-slices-200g",
+            "name": "Morrisons Roast Chicken Slices 200g",
+            "description": "Tender roast chicken slices, perfect for sandwiches, salads, and quick meals.",
+            "price": 4.49,
+            "category": 1,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/morrisons-roast-chicken-slices-200g.jpg",
+            "image": "media/morrisons_roast_chicken_slices.webp"
+        }
+    },
+    {
+        "pk": 47,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-savers-instant-hot-choc-300g",
+            "name": "Morrisons Savers Instant Hot Chocolate Drink 300g",
+            "description": "Affordable and tasty instant hot chocolate, perfect for warming up with a rich and comforting drink.",
+            "price": 2.49,
+            "category": 3,
+            "rating": 4.5,
+            "image_url": "https://example.com/images/morrisons-savers-instant-hot-chocolate-drink-300g.jpg",
+            "image": "media/morrisons_savers_instant_hot_chocolate_drink.webp"
+        }
+    },
+    {
+        "pk": 48,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-the-best-bacon-6-200g",
+            "name": "Morrisons The Best 6 Air Dried Unsmoked Bacon Rashers 200g",
+            "description": "Premium air-dried unsmoked bacon rashers, perfect for breakfast, sandwiches, or cooking.",
+            "price": 5.49,
+            "category": 1,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/morrisons-the-best-6-air-dried-unsmoked-bacon-rashers-200g.jpg",
+            "image": "media/morrisons_the_best_6_air_dried_unsmoked_bacon_rashers_200g.webp"
+        }
+    },
+
+    {
+        "pk": 49,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-the-best-smoked-bacon-6-240g",
+            "name": "Morrisons The Best 6 Smoked Thick Cut Back Bacon 240g",
+            "description": "Premium smoked thick-cut back bacon rashers, perfect for breakfast or sandwiches.",
+            "price": 5.79,
+            "category": 1,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/morrisons-the-best-6-smoked-thick-cut-back-bacon-240g.jpg",
+            "image": "media/morrisons_the_best_6_smoked_thick_cut_back_bacon_240g.webp"
+        }
+    },
+
+    {
+        "pk": 50,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-the-best-thick-pork-sausages-6-400g",
+            "name": "Morrisons The Best 6 Thick Pork Sausages 400g",
+            "description": "Juicy thick pork sausages, perfect for grilling, frying, or oven cooking. Ideal for family meals.",
+            "price": 5.49,
+            "category": 1,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/morrisons-the-best-6-thick-pork-sausages-400g.jpg",
+            "image": "media/morrisons_the_best_6_thick_pork_sausages_400g.webp"
+        }
+    },
+
+    {
+        "pk": 51,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-the-best-unsmoked-bacon-8-240g",
+            "name": "Morrisons The Best 8 Unsmoked Back Bacon 240g",
+            "description": "High-quality unsmoked back bacon rashers, perfect for breakfast or sandwiches.",
+            "price": 5.99,
+            "category": 1,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/morrisons-the-best-8-unsmoked-back-bacon-240g.jpg",
+            "image": "media/morrisons_the_best_8_unsmoked_back_bacon_240g.webp"
+        }
+    },
+
+    {
+        "pk": 52,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-the-best-pork-chipolatas-12-375g",
+            "name": "Morrisons The Best Pork Chipolatas 12 Pack 375g",
+            "description": "12 premium pork chipolatas, perfect for roasting, barbecues, or as part of a hearty breakfast.",
+            "price": 5.49,
+            "category": 1,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/morrisons-the-best-pork-chipolatas-12-pack-375g.jpg",
+            "image": "media/morrisons_the_best_pork_chipolatas_12_pack_375g.webp"
+        }
+    },
+
+    {
+        "pk": 53,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-the-best-cumberland-sausages-6-400g",
+            "name": "Morrisons The Best Thick 6 Cumberland Sausages 400g",
+            "description": "Thick and juicy Cumberland sausages, ideal for grilling, frying, or oven cooking. Perfect for hearty family meals.",
+            "price": 5.79,
+            "category": 1,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/morrisons-the-best-thick-6-cumberland-sausages-400g.jpg",
+            "image": "media/morrisons_the_best_thick_6_cumberland_sausages_400g.webp"
+        }
+    },
+
+    {
+        "pk": 54,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-butchers-pork-loin-chops-400g",
+            "name": "Morrisons The Butchers on Market Street British Pork Loin Chops 400g",
+            "description": "Tender British pork loin chops, perfect for grilling, frying, or roasting. Ideal for family dinners.",
+            "price": 6.49,
+            "category": 1,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/morrisons-the-butchers-on-market-street-british-pork-loin-chops-400g.jpg",
+            "image": "media/morrisons_the_butchers_on_market_street_british_pork_loin_chops_400g.webp"
+        }
+    },
+    
+    {
+        "pk": 55,
+        "model": "products.product",
+        "fields": {
+            "sku": "morrisons-wafer-thin-honey-cured-ham-170g",
+            "name": "Morrisons Wafer Thin Honey Cured Ham 170g",
+            "description": "Thinly sliced honey cured ham, perfect for sandwiches, salads, or quick meals.",
+            "price": 3.49,
+            "category": 1,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/morrisons-wafer-thin-honey-cured-ham-170g.jpg",
+            "image": "media/morrisons_wafer_thin_honey_cured_ham_170g.webp"
+        }
+    },
+
+    {
+        "pk": 56,
+        "model": "products.product",
+        "fields": {
+            "sku": "oatly-oat-drink-whole-500ml",
+            "name": "Oatly Oat Drink Whole Chilled 500ml",
+            "description": "Creamy whole oat drink, perfect for cereals, coffees, or enjoying on its own. Chilled and ready to drink.",
+            "price": 1.99,
+            "category": 6,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/oatly-oat-drink-whole-chilled-500ml.jpg",
+            "image": "media/oatly_oat_drink_whole_chilled_500ml.webp"
+        }
+    },
+
+    {
+        "pk": 57,
+        "model": "products.product",
+        "fields": {
+            "sku": "options-hazelnut-praline-hot-choc-500g",
+            "name": "Options Hazelnut Praline Hot Chocolate 500g",
+            "description": "Indulgent hazelnut praline hot chocolate, perfect for a rich, creamy, and warming drink anytime.",
+            "price": 4.49,
+            "category": 3,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/options-hazelnut-praline-hot-chocolate-500g.jpg",
+            "image": "media/options_hazelnut_praline_hot_chocolate.webp"
+        }
+    },
+
+    {
+        "pk": 58,
+        "model": "products.product",
+        "fields": {
+            "sku": "options-instant-belgian-hot-choc-11g",
+            "name": "Options Instant Belgian Hot Chocolate Drink 11g",
+            "description": "Quick and convenient single-serve Belgian hot chocolate, perfect for a rich and creamy drink anytime.",
+            "price": 0.79,
+            "category": 3,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/options-instant-belgian-hot-chocolate-drink-11g.jpg",
+            "image": "media/options_instant_belgian_hot_chocolate_drink_11g.webp"
+        }
+    },
+
+    {
+        "pk": 59,
+        "model": "products.product",
+        "fields": {
+            "sku": "ovaltine-chocolate-light-500g",
+            "name": "Ovaltine Chocolate Light 500g",
+            "description": "Light and malty chocolate drink powder, perfect for making a comforting hot or cold drink.",
+            "price": 4.29,
+            "category": 3,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/ovaltine-chocolate-light-500g.jpg",
+            "image": "media/ovaltine_chocolate_light.webp"
+        }
+    },
+
+    {
+        "pk": 60,
+        "model": "products.product",
+        "fields": {
+            "sku": "peperami-hot-salami-25g",
+            "name": "Peperami Hot Salami 25g",
+            "description": "Spicy and savoury Peperami hot salami, perfect as a snack anytime.",
+            "price": 1.19,
+            "category": 1,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/peperami-hot-salami-25g.jpg",
+            "image": "media/peperami_hot_salami.webp"
+        }
+    },
+
+    {
+        "pk": 61,
+        "model": "products.product",
+        "fields": {
+            "sku": "peperami-minis-bbq-100g",
+            "name": "Peperami Minis BBQ 100g",
+            "description": "Mini Peperami sticks with BBQ flavour, perfect for snacking or lunchboxes.",
+            "price": 2.29,
+            "category": 1,
+            "rating": 4.5,
+            "image_url": "https://example.com/images/peperami-minis-bbq-100g.jpg",
+            "image": "media/peperami_minis_bbq.webp"
+        }
+    },
+
+    {
+        "pk": 62,
+        "model": "products.product",
+        "fields": {
+            "sku": "peperami-lunchbox-mini-salami-100g",
+            "name": "Peperami Original Lunchbox Mini Salami 100g",
+            "description": "Original mini Peperami salami sticks, perfect for lunchboxes or snacking on the go.",
+            "price": 2.19,
+            "category": 1,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/peperami-original-lunchbox-mini-salami-100g.jpg",
+            "image": "media/peperami_original_lunchbox_mini_salami.webp"
+        }
+    },
+
+    {
+        "pk": 63,
+        "model": "products.product",
+        "fields": {
+            "sku": "peperami-original-salami-25g",
+            "name": "Peperami Original Salami 25g",
+            "description": "Classic Peperami original salami, perfect as a quick snack or lunch addition.",
+            "price": 1.19,
+            "category": 1,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/peperami-original-salami-25g.jpg",
+            "image": "media/peperami_original_salami.webp"
+        }
+    },
+
+    {
+        "pk": 64,
+        "model": "products.product",
+        "fields": {
+            "sku": "pepsi-max-cherry-no-sugar-330ml",
+            "name": "Pepsi Max Cherry No Sugar Cola Cans 330ml",
+            "description": "Cherry flavoured Pepsi Max with zero sugar, perfect for a refreshing and guilt-free cola experience.",
+            "price": 1.49,
+            "category": 6,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/pepsi-max-cherry-no-sugar-cola-cans-330ml.jpg",
+            "image": "media/pepsi_max_cherry_no_sugar_cola_cans.webp"
+        }
+    },
+
+    {
+        "pk": 65,
+        "model": "products.product",
+        "fields": {
+            "sku": "pepsi-max-no-caffeine-no-sugar-330ml",
+            "name": "Pepsi Max No Caffeine No Sugar Cola Cans 330ml",
+            "description": "Caffeine-free Pepsi Max with zero sugar, perfect for a refreshing cola without the buzz.",
+            "price": 1.49,
+            "category": 6,
+            "rating": 4.5,
+            "image_url": "https://example.com/images/pepsi-max-no-caffeine-no-sugar-cola-cans-330ml.jpg",
+            "image": "media/pepsi_max_no_caffeine_no_sugar_cola_cans.webp"
+        }
+    },
+
+    {
+        "pk": 66,
+        "model": "products.product",
+        "fields": {
+            "sku": "pepsi-max-no-sugar-330ml",
+            "name": "Pepsi Max No Sugar Cola Cans 330ml",
+            "description": "Classic Pepsi Max with zero sugar, perfect for a refreshing and guilt-free cola.",
+            "price": 1.49,
+            "category": 6,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/pepsi-max-no-sugar-cola-cans-330ml.jpg",
+            "image": "media/pepsi_max_no_sugar_cola_cans.webp"
+        }
+    },
+
+    {
+        "pk": 67,
+        "model": "products.product",
+        "fields": {
+            "sku": "pepsi-regular-330ml",
+            "name": "Pepsi Regular Cola 330ml",
+            "description": "Classic Pepsi cola with full flavour, perfect for a refreshing drink anytime.",
+            "price": 1.29,
+            "category": 6,
+            "rating": 4.5,
+            "image_url": "https://example.com/images/pepsi-regular-330ml.jpg",
+            "image": "media/pepsi_regular.webp"
+        }
+    },
+
+    {
+        "pk": 68,
+        "model": "products.product",
+        "fields": {
+            "sku": "pepsi-zero-strawberries-cream-8x330ml",
+            "name": "Pepsi Zero Sugar Strawberries N Cream Flavour 8x330ml",
+            "description": "Strawberries and cream flavoured Pepsi Zero Sugar, perfect for a refreshing and fruity cola experience in multi-pack cans.",
+            "price": 6.49,
+            "category": 6,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/pepsi-zero-sugar-strawberries-n-cream-flavour-8x330ml.jpg",
+            "image": "media/pepsi_zero_sugar_strawberries_n_cream_flavour_8x330ml.webp"
+        }
+    },
+
+    {
+        "pk": 69,
+        "model": "products.product",
+        "fields": {
+            "sku": "quorn-vegetarian-nuggets-300g",
+            "name": "Quorn Vegetarian Nuggets 300g",
+            "description": "Crispy and delicious Quorn vegetarian nuggets, perfect for quick meals or as a snack.",
+            "price": 3.99,
+            "category": 1,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/quorn-vegetarian-nuggets-300g.jpg",
+            "image": "media/quorn_vegetarian_nuggets_300g.webp"
+        }
+    },
+
+    {
+        "pk": 70,
+        "model": "products.product",
+        "fields": {
+            "sku": "r-whites-premium-lemonade-2l",
+            "name": "R Whites Premium Lemonade 2L",
+            "description": "Refreshing and crisp R Whites premium lemonade, perfect for sharing chilled or mixing in drinks.",
+            "price": 1.99,
+            "category": 6,
+            "rating": 4.5,
+            "image_url": "https://example.com/images/r-whites-premium-lemonade-2l.jpg",
+            "image": "media/r_whites_premium_lemonade_2l.webp"
+        }
+    },
+
+    {
+        "pk": 71,
+        "model": "products.product",
+        "fields": {
+            "sku": "red-bull-sugar-free-250ml",
+            "name": "Red Bull Energy Drink Sugar Free 250ml",
+            "description": "Classic Red Bull energy drink with zero sugar, perfect for a boost of energy anytime.",
+            "price": 1.79,
+            "category": 6,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/red-bull-energy-drink-sugar-free-250ml.jpg",
+            "image": "media/red_bull_energy_drink_sugar_free.webp"
+        }
+    },
+
+    {
+        "pk": 72,
+        "model": "products.product",
+        "fields": {
+            "sku": "red-bull-zero-250ml",
+            "name": "Red Bull Energy Drink Zero 250ml",
+            "description": "Red Bull energy drink with zero sugar, providing the classic energy boost without the calories.",
+            "price": 1.79,
+            "category": 6,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/red-bull-energy-drink-zero-250ml.jpg",
+            "image": "media/red_bull_energy_drink_zero.webp"
+        }
+    },
+
+    {
+        "pk": 73,
+        "model": "products.product",
+        "fields": {
+            "sku": "richmond-thick-frozen-pork-sausages-20-pack",
+            "name": "Richmond 20 Thick Frozen Pork Sausages",
+            "description": "Pack of 20 thick pork sausages, perfect for barbecues, grilling, or family meals.",
+            "price": 7.49,
+            "category": 1,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/richmond-20-thick-frozen-pork-sausages.jpg",
+            "image": "media/richmond_20_thick_frozen_pork_sausages.webp"
+        }
+    },
+
+    {
+        "pk": 74,
+        "model": "products.product",
+        "fields": {
+            "sku": "solero-exotic-ice-cream-3pack",
+            "name": "Solero Exotic Ice Cream Sticks 3 Pack",
+            "description": "Three exotic fruit-flavoured ice cream sticks, perfect for a refreshing treat on warm days.",
+            "price": 3.99,
+            "category": 5,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/solero-exotic-ice-cream-sticks-3-pack.jpg",
+            "image": "media/solero_exotic_ice_cream_sticks_3_pack.webp"
+        }
+    },
+
+    {
+        "pk": 75,
+        "model": "products.product",
+        "fields": {
+            "sku": "tango-apple-sugar-free-330ml",
+            "name": "Tango Apple Sugar Free Cans 330ml",
+            "description": "Tango Apple flavoured cola with zero sugar, perfect for a refreshing and guilt-free drink.",
+            "price": 1.29,
+            "category": 6,
+            "rating": 4.5,
+            "image_url": "https://example.com/images/tango-apple-sugar-free-330ml.jpg",
+            "image": "media/tango_apple_sugar_free_cans.webp"
+        }
+    },
+
+    {
+        "pk": 76,
+        "model": "products.product",
+        "fields": {
+            "sku": "tango-strawberry-smash-sugar-free-2l",
+            "name": "Tango Strawberry Smash Sugar Free 2L",
+            "description": "Strawberry flavoured Tango with zero sugar, perfect for sharing chilled or mixing in drinks.",
+            "price": 1.99,
+            "category": 6,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/tango-strawberry-smash-sugar-free-2l.jpg",
+            "image": "media/tango_strawberry_smash_sugar_free_2l.webp"
+        }
+    },
+
+    {
+        "pk": 77,
+        "model": "products.product",
+        "fields": {
+            "sku": "tango-strawberry-smash-sugar-free-8x330ml",
+            "name": "Tango Strawberry Smash Sugar Free 8x330ml",
+            "description": "Strawberry flavoured Tango with zero sugar, perfect for sharing in multi-pack cans or enjoying chilled.",
+            "price": 6.49,
+            "category": 6,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/tango-strawberry-smash-sugar-free-8x330ml.jpg",
+            "image": "media/tango_strawberry_smash_sugar_free_8x330ml.webp"
+        }
+    },
+
+    {
+        "pk": 78,
+        "model": "products.product",
+        "fields": {
+            "sku": "tassimo-cadbury-caramel-hot-choc-10cups",
+            "name": "Tassimo Cadbury Caramel Hot Chocolate 10 Cups",
+            "description": "Rich and creamy caramel Cadbury hot chocolate pods for Tassimo machines, perfect for a comforting drink anytime.",
+            "price": 4.99,
+            "category": 3,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/tassimo-cadbury-caramel-hot-chocolate-10-cups.jpg",
+            "image": "media/tassimo_cadbury_caramel_hot_chocolate_10_cups.webp"
+        }
+    },
+
+    {
+        "pk": 79,
+        "model": "products.product",
+        "fields": {
+            "sku": "tassimo-cadbury-hot-choc-10cups",
+            "name": "Tassimo Cadbury Hot Chocolate 10 Cups",
+            "description": "Classic Cadbury hot chocolate pods for Tassimo machines, perfect for a rich and indulgent drink.",
+            "price": 4.79,
+            "category": 3,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/tassimo-cadbury-hot-chocolate-10-cups.jpg",
+            "image": "media/tassimo_cadbury_hot_chocolate_10_cups.webp"
+        }
+    },
+
+    {
+        "pk": 80,
+        "model": "products.product",
+        "fields": {
+            "sku": "tassimo-cadbury-orange-hot-choc-10cups",
+            "name": "Tassimo Cadbury Orange Hot Chocolate 10 Cups",
+            "description": "Zesty orange flavoured Cadbury hot chocolate pods for Tassimo machines, perfect for a unique and warming drink.",
+            "price": 4.99,
+            "category": 3,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/tassimo-cadbury-orange-hot-chocolate-10-cups.jpg",
+            "image": "media/tassimo_cadbury_orange_hot_chocolate_10_cups.webp"
+        }
+    },
+
+    {
+        "pk": 81,
+        "model": "products.product",
+        "fields": {
+            "sku": "tassimo-cadbury-orange-hot-choc-pods-8",
+            "name": "Tassimo Cadbury Orange Hot Chocolate Pods x8",
+            "description": "Eight Cadbury orange hot chocolate pods for Tassimo machines, perfect for a unique and indulgent drink experience.",
+            "price": 3.99,
+            "category": 3,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/tassimo-cadbury-orange-hot-chocolate-pods-x8.jpg",
+            "image": "media/tassimo_cadbury_orange_hot_chocolate_pods_x8.webp"
+        }
+    },
+
+    {
+        "pk": 82,
+        "model": "products.product",
+        "fields": {
+            "sku": "twinings-swiss-chocolate-drink",
+            "name": "Twinings Swiss Chocolate Drink",
+            "description": "A luxuriously smooth and creamy Swiss-style chocolate drink, perfect for cosy evenings.",
+            "price": 3.49,
+            "category": 3,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/twinings-swiss-chocolate-drink.jpg",
+            "image": "media/twinings_swiss_chocolate_drink.webp"
+        }
+    },
+
+    {
+        "pk": 83,
+        "model": "products.product",
+        "fields": {
+            "sku": "whole-earth-crunchy-peanut-butter-454g",
+            "name": "Whole Earth Crunchy Peanut Butter 454g",
+            "description": "Delicious crunchy peanut butter made with roasted peanuts. No added sugar or artificial ingredients.",
+            "price": 3.79,
+            "category": 4,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/whole-earth-crunchy-peanut-butter-454g.jpg",
+            "image": "media/whole_earth_crunchy_peanut_butter_454g.webp"
+        }
+    },
+
+    {
+        "pk": 84,
+        "model": "products.product",
+        "fields": {
+            "sku": "whole-earth-crunchy-peanut-butter",
+            "name": "Whole Earth Crunchy Peanut Butter",
+            "description": "Natural crunchy peanut butter packed with nutty flavour and texture.",
+            "price": 3.49,
+            "category": 4,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/whole-earth-crunchy-peanut-butter.jpg",
+            "image": "media/whole_earth_crunchy_peanut_butter.webp"
+        }
+    },
+
+    {
+        "pk": 85,
+        "model": "products.product",
+        "fields": {
+            "sku": "whole-earth-smooth-peanut-butter-454g",
+            "name": "Whole Earth Smooth Peanut Butter 454g",
+            "description": "Rich and creamy smooth peanut butter made with natural roasted peanuts.",
+            "price": 3.79,
+            "category": 4,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/whole-earth-smooth-peanut-butter-454g.jpg",
+            "image": "media/whole_earth_smooth_peanut_butter_454g.webp"
+        }
+    },
+
+    {
+        "pk": 86,
+        "model": "products.product",
+        "fields": {
+            "sku": "whole-earth-smooth-peanut-butter",
+            "name": "Whole Earth Smooth Peanut Butter",
+            "description": "Naturally smooth peanut butter with a creamy texture and rich roasted flavour.",
+            "price": 3.49,
+            "category": 4,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/whole-earth-smooth-peanut-butter.jpg",
+            "image": "media/whole_earth_smooth_peanut_butter.webp"
+        }
+    },
+
+    {
+        "pk": 87,
+        "model": "products.product",
+        "fields": {
+            "sku": "whole-galia-melon",
+            "name": "Whole Galia Melon",
+            "description": "Fresh and juicy Galia melon with a sweet and refreshing flavour.",
+            "price": 1.99,
+            "category": 7,
+            "rating": 4.6,
+            "image_url": "https://example.com/images/whole-galia-melon.jpg",
+            "image": "media/whole_galia_melon.webp"
+        }
+    },
+
+    {
+        "pk": 88,
+        "model": "products.product",
+        "fields": {
+            "sku": "whole-honeydew-melon",
+            "name": "Whole Honeydew Melon",
+            "description": "Sweet and refreshing honeydew melon, perfect for snacking or fruit salads.",
+            "price": 1.99,
+            "category": 7,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/whole-honeydew-melon.jpg",
+            "image": "media/whole_honeydew_melon.webp"
+        }
+    },
+
+    {
+        "pk": 89,
+        "model": "products.product",
+        "fields": {
+            "sku": "whole-watermelon",
+            "name": "Whole Watermelon",
+            "description": "Large and refreshing whole watermelon packed with hydrating sweetness.",
+            "price": 3.99,
+            "category": 7,
+            "rating": 4.8,
+            "image_url": "https://example.com/images/whole-watermelon.jpg",
+            "image": "media/whole_watermelon.webp"
+        }
+    },
+
+    {
+        "pk": 90,
+        "model": "products.product",
+        "fields": {
+            "sku": "youngs-chip-shop-xl-beer-batter-fillets",
+            "name": "Young's Chip Shop 2 Extra Large Beer Batter Fillets",
+            "description": "Crispy extra large cod fillets coated in golden beer batter for an authentic chip shop taste.",
+            "price": 5.49,
+            "category": 5,
+            "rating": 4.7,
+            "image_url": "https://example.com/images/youngs-chip-shop-extra-large-beer-batter-fillets.jpg",
+            "image": "media/youngs_chip_shop_2_extra_large_beer_batter_fillets.webp"
+        }
+    }
 
 ]
