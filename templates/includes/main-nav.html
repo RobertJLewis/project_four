@@ -13,25 +13,25 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="foods-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Foods
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Froozen</a>
-                <a href="" class="dropdown-item">Whole Foods</a>
-                <a href="" class="dropdown-item">Meat & Poultry</a>
-                <a href="" class="dropdown-item">All Foods</a>
+            <div class="dropdown-menu border-0" aria-labelledby="foods-link">
+                <a href="{% url 'products' %}?category=frozen" class="dropdown-item">Frozen</a>
+                <a href="{% url 'products' %}?category=whole_foods" class="dropdown-item">Whole Foods</a>
+                <a href="{% url 'products' %}?category=meat_poultry" class="dropdown-item">Meat & Poultry</a>
+                <a href="{% url 'products' %}?category=all_foods" class="dropdown-item">All Foods</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="drink-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Drinks
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">Hot Beverages</a>
-                <a href="" class="dropdown-item">Cold Drinks</a>
-                <a href="" class="dropdown-item">All Drinks</a>
+            <div class="dropdown-menu border-0" aria-labelledby="drink-link">
+                <a href="{% url 'products' %}?category=hot_beverages" class="dropdown-item">Hot Beverages</a>
+                <a href="{% url 'products' %}?category=cold_drinks" class="dropdown-item">Cold Drinks</a>
+                <a href="{% url 'products' %}?category=all_drinks" class="dropdown-item">All Drinks</a>
             </div>
         </li>
 
@@ -40,11 +40,11 @@
                 Special Offers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">Deals</a>
-                <a href="" class="dropdown-item">Clearance</a>
-                <a href="" class="dropdown-item">All Specials</a>
+                <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'products' %}?category=deals" class="dropdown-item">Deals</a>
+                <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
+                <a href="{% url 'products' %}?category=all_specials" class="dropdown-item">All Specials</a>
             </div>
-        </li>
+        </li>        
     </ul>
 </div>
