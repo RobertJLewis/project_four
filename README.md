@@ -16,6 +16,8 @@ From strategy and wireframing to database design, authentication, testing, and d
 
 Welcome to **Project 4**—where digital convenience meets everyday nourishment.
 
+<img src="media/wireframes_mockup.png" alt="wireframes">
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
@@ -306,10 +308,24 @@ Access control in Project 4 follows a simple but effective role-based model: all
 
 ### Wireframes
 
+<img src="media/wireframes_one.png" alt="wireframes number one">
+<img src="media/wireframes_two.png" alt="wireframes number two">
+
 The wireframes for Project 4 were developed early in the design process to map out core user interactions and layout structure before any code was written. They reflect a mobile-first approach, prioritising clarity, usability, and alignment with the intended navigation flow. The homepage wireframe features only a full-width hero image and a persistent top navigation bar—intentionally minimal to encourage users to explore via category links rather than overwhelming them with content. Subsequent wireframes detail the product listing pages, showing a responsive grid of product cards displaying name, image, price, and rating, with filtering options accessible through the same navigation bar used on the homepage. The product detail page wireframe includes space for a larger image, description, price, and an “Add to Cart” button. The checkout flow is represented by a single dedicated screen that integrates Stripe Elements for secure card input, preceded by a cart summary view. All wireframes were sketched digitally using basic shapes and placeholders to focus on layout, hierarchy, and user flow—not visual design. These low-fidelity blueprints ensured that development remained focused on functionality and user experience, directly informing the final HTML structure and Django template organisation.
+
+
+
 
 ## Surface Plane (UI Design)
 
+<img src="media/mobile_first_design.png" alt="mobile first design">
+<img src="media/search_feature.png" alt="search feature">
+<img src="media/verify_email_address.png" alt="verify email">
+<img src="media/dynamic_filtering.png" alt="filtering feature">
+<img src="media/all_products_nav.png" alt="all products">
+
+
+media/verify_email_address.png
 ### Colour Scheme
 
 The colour scheme for Project 4 is intentionally minimal and high-contrast, built primarily around **pure white (#FFFFFF) and black (#000000)** to create a clean, modern, and distraction-free shopping experience. This stark palette ensures maximum readability and puts full focus on product content and navigation. The only deliberate accent is a **vibrant yellow hero image** on the homepage, which serves as a bold visual anchor and emotional hook—evoking energy, freshness, and appetite without introducing additional UI colours. No other coloured elements are used in buttons, text, or backgrounds; interactive states (like hover effects) are indicated through subtle changes in opacity or underlines rather than colour shifts. This restrained approach reinforces simplicity, aligns with the project’s minimalist philosophy, and ensures strong accessibility through consistent contrast.
