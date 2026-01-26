@@ -376,7 +376,7 @@ Core business logic is embedded within views and model methods, following Django
 
 A comprehensive testing strategy was applied throughout the development of Project 4 to ensure reliability, usability, and correctness. Full details of all test activities—including manual test cases, automated unit/integration tests, and front-end validation checks—are documented in a dedicated file:
 
-➡️ **[View full testing report](./testing.md)**
+➡️ **[View full testing report](TESTING.md)**
 
 This includes:
 - **Manual Testing**: Step-by-step user journey validation (e.g., browsing categories, adding to cart, completing Stripe checkout)
