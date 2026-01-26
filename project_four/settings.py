@@ -27,7 +27,7 @@ SECRET_KEY = '123456789abcdefgHIJKLMNOPQRSTUVWXYZ1234567890abCDEFGHIJ'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1', # vs code preview
