@@ -32,7 +32,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1', # vs code preview
     'localhost', # listen for stripe webhooks
-    'git.heroku.com/project-four.git' # heroku application
+    'project-four-2edb93e4645a.herokuapp.com' # heroku application
 ]
 
 
