@@ -155,10 +155,10 @@ if os.environ.get('USE_AWS') == 'TRUE':
     }
 
     STATICFILES_LOCATION = 'static'
-    MEDIAFILES_LOCATION = ''
+    MEDIAFILES_LOCATION = 'media'
 
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    DEFAULT_FILE_STORAGE = 'project_four.custom_storages.MediaStorage'
 
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
