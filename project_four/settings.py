@@ -55,12 +55,14 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
-    'profiles',
+    'profiles.apps.ProfilesConfig', 
+
     # Other
     'crispy_forms',
-    'crispy_bootstrap4',  # ← ADD THIS LINE
+    'crispy_bootstrap4',
     'storages',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
