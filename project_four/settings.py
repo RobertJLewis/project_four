@@ -27,7 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEVELOPMENT', '').lower() in ('1', 'true', 'yes')
 WHITE_NOISE_INSTALLED = importlib.util.find_spec('whitenoise') is not None
-USE_AWS = os.environ.get('use_aws') == 'TRUE'
+AWS_FLAG = os.environ.get('USE_AWS', os.environ.get('use_aws', ''))
+USE_AWS = AWS_FLAG.lower() in ('1', 'true', 'yes')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
