@@ -29,6 +29,10 @@ DEBUG = os.environ.get('DEVELOPMENT', '').lower() in ('1', 'true', 'yes')
 WHITE_NOISE_INSTALLED = importlib.util.find_spec('whitenoise') is not None
 AWS_FLAG = os.environ.get('USE_AWS', os.environ.get('use_aws', ''))
 USE_AWS = AWS_FLAG.lower() in ('1', 'true', 'yes')
+if not DEBUG and not WHITE_NOISE_INSTALLED:
+    raise ImproperlyConfigured(
+        'WhiteNoise must be installed when DEBUG is False.'
+    )
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -222,19 +226,12 @@ if USE_AWS:
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
-    # Static and media files
-    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    STATICFILES_LOCATION = 'static'
+    # Media files only (leave static files on WhiteNoise/collectstatic)
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     MEDIAFILES_LOCATION = '' # it was 'media' but had error with images - dont repeat!
 
-    # Override static and media URLs in production
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-elif not DEBUG and not WHITE_NOISE_INSTALLED:
-    raise ImproperlyConfigured(
-        'WhiteNoise is required in production when use_aws is not TRUE.'
-    )
+    # Override media URL in production
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
 
 
 # Stripe
