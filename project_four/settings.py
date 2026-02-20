@@ -14,6 +14,7 @@ import os
 import importlib.util
 import dj_database_url
 from pathlib import Path
+from django.core.exceptions import ImproperlyConfigured
 if os.path.isfile('env.py'):
     import env # flake8 will throw an error here, but it is necessary to import env.py
 
@@ -23,13 +24,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/ß
 
-# SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.environ.get('SECRET_KEY')
-SECRET_KEY = os.environ.get('SECRET_KEY')
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEVELOPMENT', '').lower() in ('1', 'true', 'yes')
 WHITE_NOISE_INSTALLED = importlib.util.find_spec('whitenoise') is not None
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get('SECRET_KEY')
+if not SECRET_KEY:
+    if DEBUG:
+        SECRET_KEY = 'dev-only-insecure-secret-key-change-before-production'
+    else:
+        raise ImproperlyConfigured(
+            'SECRET_KEY is required when DEBUG is False.'
+        )
 
 ALLOWED_HOSTS = [
     '127.0.0.1', # vs code preview
