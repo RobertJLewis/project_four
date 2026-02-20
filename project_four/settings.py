@@ -27,6 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEVELOPMENT', '').lower() in ('1', 'true', 'yes')
 WHITE_NOISE_INSTALLED = importlib.util.find_spec('whitenoise') is not None
+USE_AWS = os.environ.get('use_aws') == 'TRUE'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -206,7 +207,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-if os.environ.get('use_aws')=='TRUE':
+if USE_AWS:
         # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
@@ -229,6 +230,10 @@ if os.environ.get('use_aws')=='TRUE':
     # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+elif not DEBUG and not WHITE_NOISE_INSTALLED:
+    raise ImproperlyConfigured(
+        'WhiteNoise is required in production when use_aws is not TRUE.'
+    )
 
 
 # Stripe
