@@ -2,6 +2,16 @@
 
 {% load static %}
 
+{% block extra_css %}
+    {{ block.super }}
+    <style>
+        body {
+            background: url("{% static 'images/homepage_background_cropped.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
