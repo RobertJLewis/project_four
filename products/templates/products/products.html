@@ -65,6 +65,15 @@
                                 {% endif %}
                                 <div class="card-body pb-0">
                                     <p class="mb-0">{{ product.name }}</p>
+                                    {% if product.offers.first %}
+                                    <p class="small text-danger mb-0">
+                                        {% if product.offers.first.multi_buy_qty and product.offers.first.multi_buy_price %}
+                                            Any {{ product.offers.first.multi_buy_qty }} for £{{ product.offers.first.multi_buy_price }}
+                                        {% else %}
+                                            {{ product.offers.first.name }}
+                                        {% endif %}
+                                    </p>
+                                    {% endif %}
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
