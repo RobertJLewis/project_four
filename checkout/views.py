@@ -40,6 +40,11 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
+        current_bag = bag_contents(request)
+        price_map = {}
+        for item in current_bag['bag_items']:
+            key = (str(item['item_id']), item.get('size'))
+            price_map[key] = item['price_each']
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -63,20 +68,24 @@ def checkout(request):
                 try:
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
+                        price_each = price_map.get((str(item_id), None), product.effective_price)
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=item_data,
                         )
+                        order_line_item.lineitem_total = price_each * item_data
                         order_line_item.save()
                     else:
                         for size, quantity in item_data['items_by_size'].items():
+                            price_each = price_map.get((str(item_id), size), product.effective_price)
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
                                 quantity=quantity,
                                 product_size=size,
                             )
+                            order_line_item.lineitem_total = price_each * quantity
                             order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (

@@ -14,13 +14,14 @@ class ProductAdmin(admin.ModelAdmin):
         'is_new',
         'is_featured',
         'is_deal_of_day',
+        'is_highlighted',
         'stock_quantity',
         'rating',
         'image',
     )
 
     ordering = ('sku',)
-    list_editable = ('is_featured', 'is_deal_of_day', 'is_on_sale', 'is_new')
+    list_editable = ('is_featured', 'is_deal_of_day', 'is_highlighted', 'is_on_sale', 'is_new')
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (

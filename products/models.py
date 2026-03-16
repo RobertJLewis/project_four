@@ -31,6 +31,7 @@ class Product(models.Model):
     is_new = models.BooleanField(default=False)
     is_featured = models.BooleanField(default=False)
     is_deal_of_day = models.BooleanField(default=False)
+    is_highlighted = models.BooleanField(default=False)
     unit_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     unit_label = models.CharField(max_length=32, null=True, blank=True)
     stock_quantity = models.IntegerField(default=0)
@@ -65,6 +66,20 @@ class Product(models.Model):
         if self.has_discount:
             return self.sale_price
         return self.price
+
+    def offer_subtotal(self, quantity):
+        """
+        Calculate subtotal applying the first active multi-buy offer, if any.
+        """
+        offer = self.offers.filter(is_active=True).first()
+        if not offer or not offer.multi_buy_qty or not offer.multi_buy_price:
+            return self.effective_price * quantity
+
+        bundle_qty = offer.multi_buy_qty
+        bundle_price = offer.multi_buy_price
+        bundles = quantity // bundle_qty
+        remainder = quantity % bundle_qty
+        return (bundles * bundle_price) + (remainder * self.effective_price)
 
 
 class Offer(models.Model):

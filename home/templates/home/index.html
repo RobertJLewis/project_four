@@ -98,6 +98,113 @@
             padding-bottom: 16px;
         }
 
+        .category-tiles {
+            padding: 48px 0 72px;
+        }
+
+        .category-hero {
+            padding: 24px 0 8px;
+        }
+
+        .category-hero {
+            padding: 24px 0 8px;
+        }
+
+        .category-hero.full-bleed {
+            padding: 24px 0 8px;
+        }
+
+        .category-hero.full-bleed .container {
+            max-width: none;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .category-hero img {
+            width: 100vw;
+            height: 50vh;
+            display: block;
+            border-radius: 0;
+            object-fit: cover;
+            margin-left: calc(50% - 50vw);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 24px;
+            align-items: start;
+        }
+
+        .category-tile {
+            text-decoration: none;
+            color: #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-tile:hover {
+            transform: translateY(-2px);
+        }
+
+        .story-ring {
+            width: 108px;
+            height: 108px;
+            border-radius: 999px;
+            background: conic-gradient(#ff2a7a, #ff8a00, #ffd54a, #ff2a7a);
+            padding: 3px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .story-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 999px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e5e5e5;
+            overflow: hidden;
+        }
+
+        .story-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-tile:hover .story-ring {
+            transform: scale(1.04);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .story-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 991px) {
+            .category-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 575px) {
+            .category-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .story-ring {
+                width: 92px;
+                height: 92px;
+            }
+        }
+
         .deal-section {
             padding: 48px 0 24px;
         }
@@ -128,6 +235,44 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+
+        .highlight-section {
+            padding: 24px 0 24px;
+        }
+
+        .highlight-card {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 24px;
+            border: 1px solid #d7d7d7;
+            border-radius: 8px;
+            padding: 24px;
+            background: #fff;
+            align-items: center;
+        }
+
+        .highlight-image {
+            width: 100%;
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f8f8;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .highlight-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @media (max-width: 991px) {
+            .highlight-card {
+                grid-template-columns: 1fr;
+            }
         }
 
         .deal-badge {
@@ -230,6 +375,34 @@
     </section>
     {% endif %}
 
+    {% if highlighted_product %}
+    <section class="highlight-section">
+        <div class="container">
+            <h2 class="logo-font text-black mb-3">Highlighted Product</h2>
+            <div class="highlight-card">
+                <a href="{% url 'product_detail' highlighted_product.id %}" class="highlight-image">
+                    {% if highlighted_product.image %}
+                    <img src="{{ highlighted_product.image.url }}" alt="{{ highlighted_product.name }}">
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ highlighted_product.name }}">
+                    {% endif %}
+                </a>
+                <div class="highlight-info">
+                    <h3 class="text-black">{{ highlighted_product.name }}</h3>
+                    <p class="text-muted mb-2">{{ highlighted_product.weight }}</p>
+                    <p class="lead font-weight-bold mb-3">${{ highlighted_product.price|floatformat:2 }}</p>
+                    <form method="POST" action="{% url 'add_to_bag' highlighted_product.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <button class="btn btn-black rounded-0" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
     <section class="home-carousel">
         <div class="container">
             <div class="row align-items-center mb-3">
@@ -313,6 +486,104 @@
                 <p class="text-muted">No featured products yet.</p>
             </div>
             {% endif %}
+        </div>
+    </section>
+
+    <section class="category-hero full-bleed">
+        <div class="container">
+            <img src="{% static 'images/food_banner.png' %}" alt="Shop by Category">
+        </div>
+    </section>
+
+    <section class="category-tiles">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <h2 class="logo-font text-black">Shop by Category</h2>
+                </div>
+            </div>
+            <div class="category-grid">
+                <a class="category-tile" href="{% url 'products' %}?category=whole_foods">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=category_story_products.whole_foods %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <span>WF</span>
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">Whole Foods</span>
+                </a>
+                <a class="category-tile" href="{% url 'products' %}?category=frozen">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=category_story_products.frozen %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <span>FR</span>
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">Frozen</span>
+                </a>
+                <a class="category-tile" href="{% url 'products' %}?category=meat_poultry">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=category_story_products.meat_poultry %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <span>MP</span>
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">Meat &amp; Poultry</span>
+                </a>
+                <a class="category-tile" href="{% url 'products' %}?category=hot_beverages">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=category_story_products.hot_beverages %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <span>HB</span>
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">Hot Beverages</span>
+                </a>
+                <a class="category-tile" href="{% url 'products' %}?category=cold_drinks">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=category_story_products.cold_drinks %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <span>CD</span>
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">Cold Drinks</span>
+                </a>
+            </div>
         </div>
     </section>
 {% endblock %}

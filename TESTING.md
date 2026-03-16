@@ -122,3 +122,4 @@ No critical errors were found.
 ## Conclusion
 
 All core functionality of the application was tested thoroughly through manual testing. The application performs as expected across supported devices and browsers, meeting the requirements of the Full Stack Development Level 5 assignment.
+can
