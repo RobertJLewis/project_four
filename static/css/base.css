@@ -25,6 +25,21 @@ body {
     width: fit-content;
 }
 
+.search-dropdown {
+    min-width: 320px;
+}
+
+.site-logo {
+    height: 65px;
+    width: auto;
+    display: block;
+}
+
+#topnav {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 .shop-now-button {
     background: black;
     color: white;
@@ -337,6 +352,7 @@ input[name='q']::placeholder {
 
 #delivery-banner {
     padding: 0;
+    background: #000;
 }
 
 @media (min-width: 992px) {
