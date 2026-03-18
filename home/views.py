@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Q
 from products.models import Product
 
 # Create your views here.
@@ -17,17 +18,32 @@ def index(request):
         'meat_poultry',
         'hot_beverages',
         'cold_drinks',
+        'all_foods',
+        'all_drinks',
     ]
     category_story_products = {}
     for slug in category_slugs:
         product = Product.objects.filter(category__name=slug).order_by('?').first()
         if product:
             category_story_products[slug] = product
+
+    category_story_products['all_products'] = Product.objects.order_by('?').first()
+    deal_story_products = (
+        Product.objects.filter(is_on_sale=True) |
+        Product.objects.filter(offers__is_active=True)
+    ).distinct().order_by('?')
+    deals_products = (
+        Product.objects.filter(Q(is_on_sale=True) | Q(offers__is_active=True))
+        .distinct()
+        .prefetch_related('offers')
+    )
     context = {
         'deal_product': deal_product,
         'highlighted_product': highlighted_product,
         'featured_products': featured_products,
         'category_story_products': category_story_products,
+        'deal_story_product': deal_story_products.first(),
+        'deals_products': deals_products,
     }
 
     return render(request, 'home/index.html', context)

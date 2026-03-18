@@ -36,6 +36,24 @@ body {
     color: white;
 }
 
+.btn,
+button,
+input[type='submit'] {
+    border-radius: 999px !important;
+}
+
+input,
+select,
+textarea,
+.form-control {
+    border-radius: 999px !important;
+}
+
+textarea,
+textarea.form-control {
+    border-radius: 8px !important;
+}
+
 .btn-outline-black {
     background: white;
     color: black !important; /* use important to override link colors for <a> elements */
@@ -306,9 +324,15 @@ input[name='q']::placeholder {
         font-size: 1rem;
     }
 
-    #delivery-banner h4 {
-        font-size: .9rem;
-    }
+#delivery-banner h4,
+.delivery-banner-text {
+    font-size: 12px !important;
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 6px 0;
+}
 
     .btn.btn-outline-black.rounded-0,
     .btn.btn-black.rounded-0 {

@@ -130,10 +130,23 @@
         }
 
         .category-grid {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: 24px;
-            align-items: start;
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 8px 4px 16px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (min-width: 992px) {
+            .category-grid {
+                justify-content: center;
+            }
+
+            .category-tiles .container {
+                max-width: 90%;
+            }
         }
 
         .category-tile {
@@ -143,6 +156,9 @@
             flex-direction: column;
             align-items: center;
             gap: 10px;
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            position: relative;
         }
 
         .category-tile:hover {
@@ -188,17 +204,20 @@
             line-height: 1.2;
         }
 
-        @media (max-width: 991px) {
-            .category-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
+        .story-tag {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: #b42318;
+            color: #fff;
+            font-size: 0.65rem;
+            padding: 4px 6px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
         }
 
         @media (max-width: 575px) {
-            .category-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
             .story-ring {
                 width: 92px;
                 height: 92px;
@@ -326,6 +345,158 @@
 {% endblock %}
 
 {% block content %}
+    <section class="category-tiles">
+        <div class="container">
+            <div class="category-grid">
+                <a class="category-tile" href="{% url 'products' %}">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=category_story_products.all_products %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <span>AP</span>
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">All Products</span>
+                </a>
+                <a class="category-tile" href="{% url 'products' %}?category=whole_foods">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=category_story_products.whole_foods %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <span>WF</span>
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">Whole Foods</span>
+                </a>
+                <a class="category-tile" href="{% url 'products' %}?category=frozen">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=category_story_products.frozen %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <span>FR</span>
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">Frozen</span>
+                </a>
+                <a class="category-tile" href="{% url 'products' %}?category=meat_poultry">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=category_story_products.meat_poultry %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <span>MP</span>
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">Meat &amp; Poultry</span>
+                </a>
+                <a class="category-tile" href="{% url 'products' %}?category=hot_beverages">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=category_story_products.hot_beverages %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <span>HB</span>
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">Hot Beverages</span>
+                </a>
+                <a class="category-tile" href="{% url 'products' %}?category=cold_drinks">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=category_story_products.cold_drinks %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <span>CD</span>
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">Cold Drinks</span>
+                </a>
+                <a class="category-tile" href="{% url 'products' %}?category=all_foods">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=category_story_products.all_foods %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <span>AF</span>
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">All Foods</span>
+                </a>
+                <a class="category-tile" href="{% url 'products' %}?category=all_drinks">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=category_story_products.all_drinks %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <span>AD</span>
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">All Drinks</span>
+                </a>
+                <a class="category-tile" href="{% url 'products' %}?category=deals">
+                    <span class="story-ring">
+                        <span class="story-inner">
+                            {% with product=deal_story_product %}
+                                {% if product and product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% elif product and product.image_url %}
+                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <img src="{% static 'images/deals_image.jpg' %}" alt="Deals">
+                                {% endif %}
+                            {% endwith %}
+                        </span>
+                    </span>
+                    <span class="story-label">Deals</span>
+                    <span class="story-tag">Sales</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section class="home-hero d-flex align-items-center">
         <div class="container">
             <div class="row">
@@ -489,119 +660,118 @@
         </div>
     </section>
 
+    {% if deals_products %}
+    <section class="home-carousel">
+        <div class="container">
+            <div class="row align-items-center mb-3">
+                <div class="col-12 col-md-6">
+                    <h2 class="logo-font text-black mb-2 mb-md-0">Deals</h2>
+                </div>
+                <div class="col-12 col-md-6 text-md-right">
+                    <div class="carousel-controls">
+                        <button class="carousel-btn" type="button" data-direction="left" aria-label="Scroll left">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn" type="button" data-direction="right" aria-label="Scroll right">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-viewport" id="deals-carousel">
+                <div class="carousel-track">
+                    {% for product in deals_products %}
+                    <div class="carousel-card">
+                        <div class="card-badges">
+                            {% if product.is_new %}
+                            <span class="badge badge-new">New</span>
+                            {% endif %}
+                            {% if product.is_on_sale %}
+                            <span class="badge badge-sale">Sale</span>
+                            {% endif %}
+                            {% if product.offers.first %}
+                            <span class="badge badge-offer">{{ product.offers.first.badge_text|default:"Special Offer" }}</span>
+                            {% endif %}
+                        </div>
+                        <a href="{% url 'product_detail' product.id %}" class="carousel-image">
+                            {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                            {% else %}
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                            {% endif %}
+                        </a>
+                        <div class="carousel-meta">
+                            {% if product.weight %}
+                            <p class="product-weight">{{ product.weight }}</p>
+                            {% endif %}
+                            <p class="product-name text-black">{{ product.name }}</p>
+                            <div class="product-price">
+                                {% if product.has_discount %}
+                                    <span class="price-current">${{ product.sale_price }}</span>
+                                    <span class="price-original">${{ product.price }}</span>
+                                {% else %}
+                                    <span class="price-current">${{ product.price }}</span>
+                                {% endif %}
+                            </div>
+                            {% if product.offers.first %}
+                            <div class="offer-text">
+                                {% if product.offers.first.multi_buy_qty and product.offers.first.multi_buy_price %}
+                                    Any {{ product.offers.first.multi_buy_qty }} for £{{ product.offers.first.multi_buy_price }}
+                                {% else %}
+                                    {{ product.offers.first.name }}
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            {% if product.unit_price and product.unit_label %}
+                            <div class="unit-price">${{ product.unit_price }} / {{ product.unit_label }}</div>
+                            {% endif %}
+                            <div class="product-actions">
+                                <form method="POST" action="{% url 'add_to_bag' product.id %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="quantity" value="1">
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    <button class="btn btn-success btn-sm rounded-0" type="submit">Add to Cart</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
     <section class="category-hero full-bleed">
         <div class="container">
             <img src="{% static 'images/food_banner.png' %}" alt="Shop by Category">
         </div>
     </section>
 
-    <section class="category-tiles">
-        <div class="container">
-            <div class="row mb-3">
-                <div class="col-12">
-                    <h2 class="logo-font text-black">Shop by Category</h2>
-                </div>
-            </div>
-            <div class="category-grid">
-                <a class="category-tile" href="{% url 'products' %}?category=whole_foods">
-                    <span class="story-ring">
-                        <span class="story-inner">
-                            {% with product=category_story_products.whole_foods %}
-                                {% if product and product.image %}
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                                {% elif product and product.image_url %}
-                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
-                                {% else %}
-                                <span>WF</span>
-                                {% endif %}
-                            {% endwith %}
-                        </span>
-                    </span>
-                    <span class="story-label">Whole Foods</span>
-                </a>
-                <a class="category-tile" href="{% url 'products' %}?category=frozen">
-                    <span class="story-ring">
-                        <span class="story-inner">
-                            {% with product=category_story_products.frozen %}
-                                {% if product and product.image %}
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                                {% elif product and product.image_url %}
-                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
-                                {% else %}
-                                <span>FR</span>
-                                {% endif %}
-                            {% endwith %}
-                        </span>
-                    </span>
-                    <span class="story-label">Frozen</span>
-                </a>
-                <a class="category-tile" href="{% url 'products' %}?category=meat_poultry">
-                    <span class="story-ring">
-                        <span class="story-inner">
-                            {% with product=category_story_products.meat_poultry %}
-                                {% if product and product.image %}
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                                {% elif product and product.image_url %}
-                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
-                                {% else %}
-                                <span>MP</span>
-                                {% endif %}
-                            {% endwith %}
-                        </span>
-                    </span>
-                    <span class="story-label">Meat &amp; Poultry</span>
-                </a>
-                <a class="category-tile" href="{% url 'products' %}?category=hot_beverages">
-                    <span class="story-ring">
-                        <span class="story-inner">
-                            {% with product=category_story_products.hot_beverages %}
-                                {% if product and product.image %}
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                                {% elif product and product.image_url %}
-                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
-                                {% else %}
-                                <span>HB</span>
-                                {% endif %}
-                            {% endwith %}
-                        </span>
-                    </span>
-                    <span class="story-label">Hot Beverages</span>
-                </a>
-                <a class="category-tile" href="{% url 'products' %}?category=cold_drinks">
-                    <span class="story-ring">
-                        <span class="story-inner">
-                            {% with product=category_story_products.cold_drinks %}
-                                {% if product and product.image %}
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                                {% elif product and product.image_url %}
-                                <img src="{{ product.image_url }}" alt="{{ product.name }}">
-                                {% else %}
-                                <span>CD</span>
-                                {% endif %}
-                            {% endwith %}
-                        </span>
-                    </span>
-                    <span class="story-label">Cold Drinks</span>
-                </a>
-            </div>
-        </div>
-    </section>
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
     <script>
         (function () {
-            const viewport = document.getElementById('featured-carousel');
-            const buttons = document.querySelectorAll('.carousel-btn');
-            if (!viewport || !buttons.length) return;
-
-            buttons.forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    const direction = btn.getAttribute('data-direction');
-                    const amount = direction === 'left' ? -320 : 320;
-                    viewport.scrollBy({ left: amount, behavior: 'smooth' });
+            function bindCarousel(viewportId, buttonScope) {
+                const viewport = document.getElementById(viewportId);
+                if (!viewport) return;
+                const buttons = buttonScope.querySelectorAll('.carousel-btn');
+                if (!buttons.length) return;
+                buttons.forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        const direction = btn.getAttribute('data-direction');
+                        const amount = direction === 'left' ? -320 : 320;
+                        viewport.scrollBy({ left: amount, behavior: 'smooth' });
+                    });
                 });
+            }
+
+            document.querySelectorAll('.home-carousel').forEach((section) => {
+                const viewport = section.querySelector('.carousel-viewport');
+                if (!viewport) return;
+                bindCarousel(viewport.id, section);
             });
         })();
     </script>
