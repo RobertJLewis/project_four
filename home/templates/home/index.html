@@ -420,12 +420,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="carousel-viewport" id="featured-carousel">
-            {% if featured_products %}
-            <div class="carousel-track">
-                {% for product in featured_products %}
-                <div class="carousel-card">
+            <div class="carousel-viewport" id="featured-carousel">
+                {% if featured_products %}
+                <div class="carousel-track">
+                    {% for product in featured_products %}
+                    <div class="carousel-card">
                     <div class="card-badges">
                         {% if product.is_new %}
                         <span class="badge badge-new">New</span>
@@ -479,13 +478,14 @@
                         </div>
                     </div>
                 </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="container">
+                    <p class="text-muted">No featured products yet.</p>
+                </div>
+                {% endif %}
             </div>
-            {% else %}
-            <div class="container">
-                <p class="text-muted">No featured products yet.</p>
-            </div>
-            {% endif %}
         </div>
     </section>
 
