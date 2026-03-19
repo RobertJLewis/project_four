@@ -128,6 +128,7 @@ body {
 button,
 input[type='submit'] {
     border-radius: 999px !important;
+    text-transform: uppercase;
 }
 
 input,
@@ -592,9 +593,22 @@ input[name='q']::placeholder {
 
 .product-price {
     display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 6px;
+}
+
+.price-line {
+    display: flex;
     align-items: baseline;
     gap: 8px;
-    margin-bottom: 6px;
+}
+
+.price-label {
+    font-size: 0.75rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .price-current {
@@ -606,6 +620,18 @@ input[name='q']::placeholder {
     color: #9aa0a6;
     text-decoration: line-through;
     font-size: 0.85rem;
+}
+
+.price-discount {
+    color: #b42318;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: rgba(180, 35, 24, 0.12);
+    border: 1px solid rgba(180, 35, 24, 0.4);
+    padding: 2px 6px;
+    border-radius: 999px;
 }
 
 .unit-price {

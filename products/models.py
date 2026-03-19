@@ -60,6 +60,13 @@ class Product(models.Model):
         return None
 
     @property
+    def percent_off(self):
+        if self.has_discount and self.price:
+            discount = (self.price - self.sale_price) / self.price * Decimal('100')
+            return int(discount.quantize(Decimal('1')))
+        return 0
+
+    @property
     def effective_price(self):
         if self.is_deal_of_day:
             return self.deal_price

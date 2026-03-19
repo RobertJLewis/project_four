@@ -122,6 +122,80 @@
             padding: 12px;
         }
 
+        .split-tiles {
+            padding: 40px 0;
+        }
+
+        .split-tiles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .split-tile {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40vh;
+            border-radius: 18px;
+            color: #111;
+            text-decoration: none;
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .split-tile-food {
+            background-image: url("{% static 'images/food_square.png' %}");
+        }
+
+        .split-tile-drink {
+            background-image: url("{% static 'images/drink_image_square.jpg' %}");
+        }
+
+        .split-tile span {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.4rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: #fff;
+            font-family: "Brush Script MT", "Segoe Script", "Lucida Handwriting", "Apple Chancery", cursive;
+            text-transform: none;
+            text-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.6),
+                0 14px 36px rgba(0, 0, 0, 0.5);
+        }
+
+        .split-tile:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 0 12px rgba(255, 42, 122, 0.45),
+                0 0 22px rgba(255, 138, 0, 0.35),
+                0 16px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        @media (max-width: 767px) {
+            .split-tiles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .split-tile {
+                height: 40vh;
+            }
+        }
+
         .carousel-meta {
             display: flex;
             flex-direction: column;
@@ -162,7 +236,7 @@
         }
 
         .category-hero.full-bleed {
-            padding: 24px 0 8px;
+            padding: 24px 0 48px;
         }
 
         .category-hero.full-bleed .container {
@@ -173,11 +247,34 @@
 
         .category-hero img {
             width: 100%;
-            height: 50vh;
+            height: 60vh;
             display: block;
             border-radius: 18px;
             object-fit: cover;
+            object-position: center;
             margin: 0 auto;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .category-hero img:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 0 12px rgba(255, 42, 122, 0.45),
+                0 0 22px rgba(255, 138, 0, 0.35),
+                0 16px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .hero-banner {
+            position: relative;
+        }
+
+        .hero-banner .hero-cta {
+            position: absolute;
+            right: 24px;
+            bottom: 24px;
+            z-index: 2;
+            font-size: 1.25rem;
+            padding: 14px 28px;
         }
 
         .category-grid {
@@ -698,10 +795,17 @@
                         <p class="product-name text-black">{{ product.name }}</p>
                         <div class="product-price">
                             {% if product.has_discount %}
-                                <span class="price-current">${{ product.sale_price }}</span>
-                                <span class="price-original">${{ product.price }}</span>
+                                <div class="price-line">
+                                    <span class="price-label">RRP:</span>
+                                    <span class="price-original">${{ product.price|floatformat:2 }}</span>
+                                </div>
+                                <div class="price-line">
+                                    <span class="price-label">Now:</span>
+                                    <span class="price-current">${{ product.sale_price|floatformat:2 }}</span>
+                                    <span class="price-discount">{{ product.percent_off }}% Off</span>
+                                </div>
                             {% else %}
-                                <span class="price-current">${{ product.price }}</span>
+                                <span class="price-current">${{ product.price|floatformat:2 }}</span>
                             {% endif %}
                         </div>
                         {% if product.offers.first %}
@@ -733,6 +837,19 @@
                     <p class="text-muted">No featured products yet.</p>
                 </div>
                 {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <section class="split-tiles">
+        <div class="container">
+            <div class="split-tiles-grid">
+                <a class="split-tile split-tile-food" href="{% url 'products' %}?category=all_foods">
+                    <span>Food</span>
+                </a>
+                <a class="split-tile split-tile-drink" href="{% url 'products' %}?category=all_drinks">
+                    <span>Drinks</span>
+                </a>
             </div>
         </div>
     </section>
@@ -784,10 +901,17 @@
                             <p class="product-name text-black">{{ product.name }}</p>
                             <div class="product-price">
                                 {% if product.has_discount %}
-                                    <span class="price-current">${{ product.sale_price }}</span>
-                                    <span class="price-original">${{ product.price }}</span>
+                                    <div class="price-line">
+                                        <span class="price-label">RRP:</span>
+                                        <span class="price-original">${{ product.price|floatformat:2 }}</span>
+                                    </div>
+                                    <div class="price-line">
+                                        <span class="price-label">Now:</span>
+                                        <span class="price-current">${{ product.sale_price|floatformat:2 }}</span>
+                                        <span class="price-discount">{{ product.percent_off }}% Off</span>
+                                    </div>
                                 {% else %}
-                                    <span class="price-current">${{ product.price }}</span>
+                                    <span class="price-current">${{ product.price|floatformat:2 }}</span>
                                 {% endif %}
                             </div>
                             {% if product.offers.first %}
@@ -821,7 +945,10 @@
 
     <section class="category-hero full-bleed">
         <div class="container">
-            <img src="{% static 'images/food_banner.png' %}" alt="Shop by Category">
+            <div class="hero-banner">
+                <img src="{% static 'images/vegetables_banner.jpg' %}" alt="Shop by Category">
+                <a href="{% url 'products' %}" class="btn btn-black rounded-0 hero-cta">Shop Now</a>
+            </div>
         </div>
     </section>
 
