@@ -99,7 +99,7 @@
         }
 
         .category-tiles {
-            padding: 16px 0 48px;
+            padding: 8px 0 48px;
         }
 
         .category-hero {
@@ -166,12 +166,36 @@
         }
 
         .story-ring {
-            width: 108px;
-            height: 108px;
+            --story-size: 108px;
+            --story-orbit: calc(var(--story-size) / 2 - 6px);
+            width: var(--story-size);
+            height: var(--story-size);
             border-radius: 999px;
             background: conic-gradient(#ff2a7a, #ff8a00, #ffd54a, #ff2a7a);
             padding: 3px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+        }
+
+        .story-ring::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            background: #ff2a7a;
+            box-shadow:
+                0 0 6px rgba(255, 42, 122, 0.9),
+                0 0 14px rgba(255, 138, 0, 0.6),
+                -6px 0 12px rgba(255, 42, 122, 0.35),
+                -14px 0 20px rgba(255, 213, 74, 0.25);
+            transform: rotate(0deg) translateX(var(--story-orbit));
+            transform-origin: 0 0;
+            opacity: 0;
+            animation: story-orbit 3s linear infinite;
+            transition: opacity 0.2s ease;
         }
 
         .story-inner {
@@ -197,6 +221,20 @@
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
         }
 
+        .category-tile:hover .story-ring::after {
+            opacity: 1;
+        }
+
+        @keyframes story-orbit {
+            from {
+                transform: rotate(0deg) translateX(var(--story-orbit));
+            }
+            to {
+                transform: rotate(360deg) translateX(var(--story-orbit));
+            }
+        }
+
+
         .story-label {
             font-size: 0.9rem;
             font-weight: 600;
@@ -219,8 +257,7 @@
 
         @media (max-width: 575px) {
             .story-ring {
-                width: 92px;
-                height: 92px;
+                --story-size: 92px;
             }
         }
 

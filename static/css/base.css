@@ -40,6 +40,72 @@ body {
     padding-right: 10%;
 }
 
+#topnav .nav-left {
+    position: relative;
+}
+
+#topnav .dropdown-menu {
+    width: fit-content;
+    min-width: 200px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    top: 100%;
+    margin-top: 8px;
+}
+
+#topnav .dropdown-menu.search-dropdown {
+    min-width: 320px;
+    right: auto !important;
+    left: 0 !important;
+    margin-left: 0;
+    transform: none;
+}
+
+#topnav .dropdown {
+    position: relative;
+}
+
+#topnav .dropdown-menu[aria-labelledby="user-options"] {
+    margin-top: 8px;
+}
+
+#topnav .dropdown-menu[aria-labelledby="user-options"] {
+    right: 0;
+    left: auto;
+}
+
+#main-nav .navbar-nav {
+    align-items: flex-start;
+}
+
+@media (min-width: 992px) {
+    #main-nav {
+        width: fit-content;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 8px;
+        background: #fff;
+        padding: 8px 12px;
+        border-radius: 12px;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+        z-index: 1030;
+    }
+
+    .nav-row {
+        height: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    .nav-row .navbar {
+        height: 0;
+        padding: 0;
+    }
+}
+
 .shop-now-button {
     background: black;
     color: white;

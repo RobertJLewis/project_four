@@ -54,7 +54,7 @@
       </div>
     </div>
     <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
-      <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+      <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 nav-left">
         <ul class="list-inline list-unstyled text-left my-0">
           <li class="list-inline-item">
             <button class="navbar-toggler border-0 p-0 text-black" type="button" data-toggle="collapse"
@@ -70,7 +70,7 @@
                 <div><i class="fas fa-search fa-lg"></i></div>
               </div>
             </a>
-            <div class="dropdown-menu dropdown-menu-right p-3 border-0 search-dropdown" aria-labelledby="search-options">
+            <div class="dropdown-menu p-3 border-0 search-dropdown" aria-labelledby="search-options">
               <form method="GET" action="{% url 'products' %}">
                 <div class="input-group">
                   <input class="form-control border border-black rounded-0" type="text" name="q"
@@ -87,6 +87,7 @@
             </div>
           </li>
         </ul>
+        {% include 'includes/main-nav.html' %}
       </div>
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center">
         <a href="{% url 'home' %}" class="nav-link main-logo-link d-inline-block">
@@ -133,10 +134,9 @@
         </ul>
       </div>
     </div>
-    <div class="row bg-white">
+    <div class="row bg-white nav-row">
       <nav class="navbar navbar-light w-100">
         {% include 'includes/mobile-top-header.html' %}
-        {% include 'includes/main-nav.html' %}
       </nav>
     </div>
   </header>
