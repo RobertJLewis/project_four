@@ -753,7 +753,7 @@
                                 {% elif product and product.image_url %}
                                 <img src="{{ product.image_url }}" alt="{{ product.name }}">
                                 {% else %}
-                                <img src="{% static 'images/deals_image.jpg' %}" alt="Deals">
+                                <span>Deals</span>
                                 {% endif %}
                             {% endwith %}
                         </span>
