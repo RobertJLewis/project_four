@@ -78,6 +78,10 @@ def all_products(request):
         .order_by('?')
         .first()
     )
+    product_names = (
+        Product.objects.only('id', 'name')
+        .order_by('?')[:80]
+    )
 
     context = {
         'products': products,
@@ -87,6 +91,7 @@ def all_products(request):
         'category_story_products': category_story_products,
         'deal_story_product': deal_story_product,
         'selected_category': selected_category,
+        'product_names': product_names,
     }
 
     return render(request, 'products/products.html', context)

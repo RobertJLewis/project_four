@@ -207,6 +207,60 @@ textarea.form-control {
     font-size: 1.1rem;
 }
 
+.product-ticker {
+    width: 90%;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.ticker-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 36px;
+    padding: 10px 16px;
+    white-space: nowrap;
+    animation: ticker-scroll 506s linear infinite;
+}
+
+.ticker-item {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+}
+
+.ticker-item:hover,
+.ticker-item:focus {
+    color: #111;
+    text-decoration: none;
+}
+
+.ticker-sep {
+    font-size: 0.85rem;
+    color: #9aa0a6;
+    letter-spacing: 0.1em;
+}
+
+@keyframes ticker-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.product-page-spacing,
+.product-detail-page {
+    padding-bottom: 56px;
+}
+
 /* Instagram-style category tiles */
 .category-tiles {
     padding: 14px 0 32px;
