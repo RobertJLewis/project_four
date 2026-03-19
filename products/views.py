@@ -15,6 +15,7 @@ def all_products(request):
     products = Product.objects.all().prefetch_related('offers')
     query = None
     categories = None
+    selected_category = 'all_products'
     sort = None
     direction = None
 
@@ -35,6 +36,8 @@ def all_products(request):
             
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
+            if categories:
+                selected_category = categories[0]
             if 'deals' in categories:
                 products = products.filter(
                     Q(is_on_sale=True) | Q(offers__is_active=True)
@@ -54,12 +57,36 @@ def all_products(request):
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
+    category_slugs = [
+        'whole_foods',
+        'frozen',
+        'meat_poultry',
+        'hot_beverages',
+        'cold_drinks',
+        'all_foods',
+        'all_drinks',
+    ]
+    category_story_products = {}
+    for slug in category_slugs:
+        product = Product.objects.filter(category__name=slug).order_by('?').first()
+        if product:
+            category_story_products[slug] = product
+    category_story_products['all_products'] = Product.objects.order_by('?').first()
+    deal_story_product = (
+        Product.objects.filter(Q(is_on_sale=True) | Q(offers__is_active=True))
+        .distinct()
+        .order_by('?')
+        .first()
+    )
 
     context = {
         'products': products,
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'category_story_products': category_story_products,
+        'deal_story_product': deal_story_product,
+        'selected_category': selected_category,
     }
 
     return render(request, 'products/products.html', context)
