@@ -38,11 +38,14 @@ body {
 #topnav {
     padding-left: 10%;
     padding-right: 10%;
+    padding-top: 6px;
+    padding-bottom: 0;
 }
 
 #topnav .nav-left {
     position: relative;
 }
+
 
 #topnav .dropdown-menu {
     width: fit-content;
@@ -64,6 +67,10 @@ body {
 
 #topnav .dropdown {
     position: relative;
+}
+
+#topnav .nav-link {
+    padding: 0.25rem 0.5rem;
 }
 
 #topnav .dropdown-menu[aria-labelledby="user-options"] {
@@ -374,14 +381,14 @@ input[name='q']::placeholder {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 120px;
     }
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 116px;
+        padding-top: 92px;
     }
 
     body {

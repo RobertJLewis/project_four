@@ -99,7 +99,7 @@
         }
 
         .category-tiles {
-            padding: 8px 0 48px;
+            padding: 14px 0 52px;
         }
 
         .category-hero {
@@ -133,8 +133,8 @@
             display: flex;
             gap: 20px;
             overflow-x: auto;
-            overflow-y: hidden;
-            padding: 8px 4px 16px;
+            overflow-y: visible;
+            padding: 22px 4px 24px;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
@@ -177,26 +177,6 @@
             position: relative;
         }
 
-        .story-ring::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 12px;
-            height: 12px;
-            border-radius: 999px;
-            background: #ff2a7a;
-            box-shadow:
-                0 0 6px rgba(255, 42, 122, 0.9),
-                0 0 14px rgba(255, 138, 0, 0.6),
-                -6px 0 12px rgba(255, 42, 122, 0.35),
-                -14px 0 20px rgba(255, 213, 74, 0.25);
-            transform: rotate(0deg) translateX(var(--story-orbit));
-            transform-origin: 0 0;
-            opacity: 0;
-            animation: story-orbit 3s linear infinite;
-            transition: opacity 0.2s ease;
-        }
 
         .story-inner {
             width: 100%;
@@ -218,21 +198,13 @@
 
         .category-tile:hover .story-ring {
             transform: scale(1.04);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+            box-shadow:
+                0 0 12px rgba(255, 42, 122, 0.45),
+                0 0 22px rgba(255, 138, 0, 0.35),
+                0 8px 18px rgba(0, 0, 0, 0.12);
         }
 
-        .category-tile:hover .story-ring::after {
-            opacity: 1;
-        }
 
-        @keyframes story-orbit {
-            from {
-                transform: rotate(0deg) translateX(var(--story-orbit));
-            }
-            to {
-                transform: rotate(360deg) translateX(var(--story-orbit));
-            }
-        }
 
 
         .story-label {
@@ -388,7 +360,7 @@
                 <a class="category-tile" href="{% url 'products' %}">
                     <span class="story-ring">
                         <span class="story-inner">
-                            {% with product=category_story_products.all_products %}
+                                                                                                                                            {% with product=category_story_products.all_products %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -404,7 +376,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=whole_foods">
                     <span class="story-ring">
                         <span class="story-inner">
-                            {% with product=category_story_products.whole_foods %}
+                                                                                                                                            {% with product=category_story_products.whole_foods %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -420,7 +392,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=frozen">
                     <span class="story-ring">
                         <span class="story-inner">
-                            {% with product=category_story_products.frozen %}
+                                                                                                                                            {% with product=category_story_products.frozen %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -436,7 +408,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=meat_poultry">
                     <span class="story-ring">
                         <span class="story-inner">
-                            {% with product=category_story_products.meat_poultry %}
+                                                                                                                                            {% with product=category_story_products.meat_poultry %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -452,7 +424,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=hot_beverages">
                     <span class="story-ring">
                         <span class="story-inner">
-                            {% with product=category_story_products.hot_beverages %}
+                                                                                                                                            {% with product=category_story_products.hot_beverages %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -468,7 +440,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=cold_drinks">
                     <span class="story-ring">
                         <span class="story-inner">
-                            {% with product=category_story_products.cold_drinks %}
+                                                                                                                                            {% with product=category_story_products.cold_drinks %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -484,7 +456,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=all_foods">
                     <span class="story-ring">
                         <span class="story-inner">
-                            {% with product=category_story_products.all_foods %}
+                                                                                                                                            {% with product=category_story_products.all_foods %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -500,7 +472,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=all_drinks">
                     <span class="story-ring">
                         <span class="story-inner">
-                            {% with product=category_story_products.all_drinks %}
+                                                                                                                                            {% with product=category_story_products.all_drinks %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -516,7 +488,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=deals">
                     <span class="story-ring">
                         <span class="story-inner">
-                            {% with product=deal_story_product %}
+                                                                                                                                            {% with product=deal_story_product %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
