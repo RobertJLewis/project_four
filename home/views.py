@@ -12,6 +12,9 @@ def index(request):
         Product.objects.order_by('?')
         .prefetch_related('offers')[:12]
     )
+    product_names = list(
+        Product.objects.values_list('name', flat=True).order_by('name')
+    )
     category_slugs = [
         'whole_foods',
         'frozen',
@@ -44,6 +47,7 @@ def index(request):
         'category_story_products': category_story_products,
         'deal_story_product': deal_story_products.first(),
         'deals_products': deals_products,
+        'product_names': product_names,
     }
 
     return render(request, 'home/index.html', context)
