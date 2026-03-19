@@ -13,7 +13,7 @@ def index(request):
         .prefetch_related('offers')[:12]
     )
     product_names = list(
-        Product.objects.values_list('name', flat=True).order_by('name')
+        Product.objects.values('id', 'name').order_by('?')
     )
     category_slugs = [
         'whole_foods',

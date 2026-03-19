@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Iosevka+Charon:wght@300;400;500;600;700&display=swap');
+
 html {
     height: 100%;
 }
@@ -5,7 +7,7 @@ html {
 body {
     min-height: 100vh;
     color: #555;
-    font-family: 'Lato';
+    font-family: 'Iosevka Charon', sans-serif;
 }
 
 /* from Bulma */
@@ -176,6 +178,21 @@ textarea.form-control {
 
 .bg-black {
     background: #000 !important;
+}
+
+.footer-link {
+    color: #111;
+    text-decoration: none;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+    color: #111;
+    text-decoration: none;
+}
+
+.footer-social .footer-link {
+    font-size: 1.1rem;
 }
 
 .overlay {

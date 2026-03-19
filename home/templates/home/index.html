@@ -55,6 +55,13 @@
             color: #111;
             text-transform: uppercase;
             letter-spacing: 0.06em;
+            text-decoration: none;
+        }
+
+        .ticker-item:hover,
+        .ticker-item:focus {
+            color: #111;
+            text-decoration: none;
         }
 
         .ticker-sep {
@@ -171,7 +178,7 @@
             font-weight: 700;
             letter-spacing: 0.06em;
             color: #fff;
-            font-family: "Brush Script MT", "Segoe Script", "Lucida Handwriting", "Apple Chancery", cursive;
+            font-family: "Snell Roundhand", "Zapfino", "Segoe Script", "Lucida Handwriting", "Apple Chancery", cursive;
             text-transform: none;
             text-shadow:
                 0 8px 20px rgba(0, 0, 0, 0.6),
@@ -287,6 +294,101 @@
             -webkit-overflow-scrolling: touch;
         }
 
+        .neon-frame-section {
+            padding: 4px 0 6px;
+        }
+
+        .neon-frame {
+            position: relative;
+            width: fit-content;
+            height: 36px;
+            margin: 0 auto;
+            display: grid;
+            place-items: center;
+            padding: 0 18px;
+            box-shadow: none;
+        }
+
+        .neon-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 3px;
+            border-radius: 0;
+            background: transparent;
+            animation: none;
+            box-shadow: none;
+            -webkit-mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .neon-frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 0;
+            background: transparent;
+            filter: none;
+            opacity: 0;
+        }
+
+        .neon-frame-text {
+            position: relative;
+            z-index: 1;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+            text-transform: none;
+            color: #1b1b1b;
+            font-family: "Snell Roundhand", "Zapfino", "Segoe Script", "Lucida Handwriting", "Apple Chancery", cursive;
+            text-shadow: none;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #1b1b1b;
+            animation: typewriter 5.5s steps(24, end) infinite, caret-blink 0.8s step-end infinite;
+            text-align: center;
+            padding: 0 16px;
+        }
+
+        @keyframes typewriter {
+            0% {
+                width: 0;
+            }
+            40% {
+                width: 100%;
+            }
+            70% {
+                width: 100%;
+            }
+            100% {
+                width: 0;
+            }
+        }
+
+        @keyframes caret-blink {
+            0%, 50% {
+                border-color: transparent;
+            }
+            51%, 100% {
+                border-color: #1b1b1b;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .neon-frame {
+                height: 32px;
+                width: 92%;
+            }
+
+            .neon-frame-text {
+                font-size: 0.6rem;
+            }
+        }
+
         @media (min-width: 992px) {
             .category-grid {
                 justify-content: center;
@@ -311,6 +413,7 @@
 
         .category-tile:hover {
             transform: translateY(-2px);
+            text-decoration: none;
         }
 
         .story-ring {
@@ -360,6 +463,14 @@
             font-weight: 600;
             text-align: center;
             line-height: 1.2;
+            color: #111;
+            text-decoration: none;
+        }
+
+        .category-tile:hover .story-label,
+        .category-tile:focus .story-label {
+            color: #111;
+            text-decoration: none;
         }
 
         .story-tag {
@@ -660,7 +771,7 @@
                 <div class="row">
                     <div class="col-7 col-md-6">
                         <h1 class="display-4 logo-font text-black">
-                            The new collections are here
+                            Elevate Your Everyday
                         </h1>
                         <div class="my-5">
                             <h4>
@@ -677,11 +788,11 @@
     <section class="product-ticker" aria-label="Product name ticker">
         <div class="ticker-track">
             {% for name in product_names %}
-                <span class="ticker-item">{{ name }}</span>
+                <a class="ticker-item" href="{% url 'product_detail' name.id %}">{{ name.name }}</a>
                 <span class="ticker-sep" aria-hidden="true">◆</span>
             {% endfor %}
             {% for name in product_names %}
-                <span class="ticker-item" aria-hidden="true">{{ name }}</span>
+                <a class="ticker-item" href="{% url 'product_detail' name.id %}" aria-hidden="true">{{ name.name }}</a>
                 <span class="ticker-sep" aria-hidden="true">◆</span>
             {% endfor %}
         </div>
