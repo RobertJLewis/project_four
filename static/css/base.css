@@ -185,6 +185,18 @@ textarea.form-control {
     text-decoration: none;
 }
 
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-logo {
+    height: 65px;
+    width: auto;
+    display: inline-block;
+}
+
 .footer-link:hover,
 .footer-link:focus {
     color: #111;
@@ -236,14 +248,31 @@ textarea.form-control {
     padding: 3px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
+    overflow: hidden;
 }
 
 .category-tile.is-active .story-ring {
-    background: conic-gradient(#39ff14, #00c853, #39ff14);
+    background: transparent;
+    box-shadow: none;
+    outline: 3px solid rgba(57, 255, 20, 1);
+    outline-offset: 2px;
 }
 
 .category-tile.is-active .story-inner {
-    border-color: rgba(57, 255, 20, 0.6);
+    border-color: rgba(255, 255, 255, 0);
+}
+
+.category-tile.is-active .story-ring::before,
+.category-tile.is-active .story-ring::after {
+    content: none;
+}
+
+.lightning-ring-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
 .story-inner {
@@ -285,6 +314,18 @@ textarea.form-control {
 .category-tile:focus .story-label {
     color: #111;
     text-decoration: none;
+}
+
+.category-page-title {
+    text-align: center;
+    margin: 10px auto 0;
+}
+
+.category-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin: 0;
 }
 
 .story-tag {
