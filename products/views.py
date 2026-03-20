@@ -43,6 +43,14 @@ def all_products(request):
                     Q(is_on_sale=True) | Q(offers__is_active=True)
                 ).distinct()
                 categories = Category.objects.filter(name__in=[c for c in categories if c != 'deals'])
+            elif 'all_foods' in categories:
+                food_categories = ['whole_foods', 'frozen', 'meat_poultry']
+                products = products.filter(category__name__in=food_categories)
+                categories = Category.objects.filter(name__in=food_categories)
+            elif 'all_drinks' in categories:
+                drink_categories = ['hot_beverages', 'cold_drinks']
+                products = products.filter(category__name__in=drink_categories)
+                categories = Category.objects.filter(name__in=drink_categories)
             else:
                 products = products.filter(category__name__in=categories)
                 categories = Category.objects.filter(name__in=categories)
@@ -63,8 +71,6 @@ def all_products(request):
         'meat_poultry',
         'hot_beverages',
         'cold_drinks',
-        'all_foods',
-        'all_drinks',
     ]
     category_story_products = {}
     for slug in category_slugs:
@@ -72,6 +78,16 @@ def all_products(request):
         if product:
             category_story_products[slug] = product
     category_story_products['all_products'] = Product.objects.order_by('?').first()
+    category_story_products['all_foods'] = (
+        Product.objects.filter(category__name__in=['whole_foods', 'frozen', 'meat_poultry'])
+        .order_by('?')
+        .first()
+    )
+    category_story_products['all_drinks'] = (
+        Product.objects.filter(category__name__in=['hot_beverages', 'cold_drinks'])
+        .order_by('?')
+        .first()
+    )
     deal_story_product = (
         Product.objects.filter(Q(is_on_sale=True) | Q(offers__is_active=True))
         .distinct()

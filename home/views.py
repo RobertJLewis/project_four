@@ -21,8 +21,6 @@ def index(request):
         'meat_poultry',
         'hot_beverages',
         'cold_drinks',
-        'all_foods',
-        'all_drinks',
     ]
     category_story_products = {}
     for slug in category_slugs:
@@ -31,6 +29,16 @@ def index(request):
             category_story_products[slug] = product
 
     category_story_products['all_products'] = Product.objects.order_by('?').first()
+    category_story_products['all_foods'] = (
+        Product.objects.filter(category__name__in=['whole_foods', 'frozen', 'meat_poultry'])
+        .order_by('?')
+        .first()
+    )
+    category_story_products['all_drinks'] = (
+        Product.objects.filter(category__name__in=['hot_beverages', 'cold_drinks'])
+        .order_by('?')
+        .first()
+    )
     deal_story_products = (
         Product.objects.filter(is_on_sale=True) |
         Product.objects.filter(offers__is_active=True)
