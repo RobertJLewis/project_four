@@ -211,10 +211,10 @@
                         </p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row product-grid-row">
                     {% for product in products %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="card product-tile h-100 w-100">
                                 {% if product.image %}
                                 <a href="{% url 'product_detail' product.id %}">
                                     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -224,10 +224,10 @@
                                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
-                                <div class="card-body pb-0">
-                                    <p class="mb-0">{{ product.name }}</p>
+                                <div class="card-body text-center">
+                                    <p class="mb-1 product-name">{{ product.name }}</p>
                                     {% if product.offers.first %}
-                                    <p class="small text-danger mb-0">
+                                    <p class="small text-danger mb-0 offer-text">
                                         {% if product.offers.first.multi_buy_qty and product.offers.first.multi_buy_price %}
                                             Any {{ product.offers.first.multi_buy_qty }} for £{{ product.offers.first.multi_buy_price }}
                                         {% else %}
@@ -236,7 +236,7 @@
                                     </p>
                                     {% endif %}
                                 </div>
-                                <div class="card-footer bg-white pt-0 border-0 text-left">
+                                <div class="card-footer bg-white pt-0 border-0 text-center">
                                     <div class="row">
                                         <div class="col">
                                             <div class="product-price">
@@ -267,9 +267,9 @@
                                         <small class="text-muted">No Rating</small>
                                     {% endif %}
                                     <div class="mt-2">
-                                        <form method="POST" action="{% url 'add_to_bag' product.id %}" class="d-flex align-items-center">
+                                        <form method="POST" action="{% url 'add_to_bag' product.id %}" class="d-flex align-items-center justify-content-center">
                                             {% csrf_token %}
-                                            <input class="form-control form-control-sm mr-2" type="number" name="quantity" value="1" min="1" max="99" aria-label="Quantity" style="width: 40%;">
+                                            <input class="form-control form-control-sm mr-2" type="number" name="quantity" value="1" min="1" max="99" aria-label="Quantity" style="width: 34%;">
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                             <button class="btn btn-black btn-sm" type="submit">Add to Cart</button>
                                         </form>
@@ -285,26 +285,6 @@
                                 </div>
                             </div>
                         </div>
-                        {% if forloop.counter|divisibleby:1 %}
-                            <div class="col-12 d-sm-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}                        
-                        {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:4 %}
-                            <div class="col-12 d-none d-xl-block mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
