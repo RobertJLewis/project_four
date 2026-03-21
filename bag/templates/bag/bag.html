@@ -87,6 +87,9 @@
                                 <div class="col-12 col-sm-6 order-sm-last">
                                     <p class="my-0">Price Each: ${{ item.price_each|floatformat:2 }}</p>
                                     <p><strong>Subtotal: </strong>${{ item.price_each | calc_subtotal:item.quantity|floatformat:2 }}</p>
+                                    {% if offer_savings and offer_savings > 0 and item.product.offers.first and item.product.offers.first.multi_buy_qty and item.product.offers.first.multi_buy_price %}
+                                        <p class="bag-multibuy-savings">Multi-buy savings: -${{ offer_savings|floatformat:2 }}</p>
+                                    {% endif %}
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     {% include "bag/quantity-form.html" %}
@@ -131,6 +134,9 @@
                                 <div class="col-12 col-md-3">
                                     <p class="my-0">Price Each: ${{ item.price_each|floatformat:2 }}</p>
                                     <p><strong>Subtotal: </strong>${{ item.price_each | calc_subtotal:item.quantity|floatformat:2 }}</p>
+                                    {% if offer_savings and offer_savings > 0 and item.product.offers.first and item.product.offers.first.multi_buy_qty and item.product.offers.first.multi_buy_price %}
+                                        <p class="bag-multibuy-savings">Multi-buy savings: -${{ offer_savings|floatformat:2 }}</p>
+                                    {% endif %}
                                 </div>
                                 <div class="col-12 col-md-2">
                                     {% include "bag/quantity-form.html" %}

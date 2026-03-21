@@ -1,7 +1,13 @@
 <div class="receipt-line">
     <span>Bag Total</span>
-    <span>${{ total|floatformat:2 }}</span>
+    <span>${{ bag_subtotal|floatformat:2 }}</span>
 </div>
+{% if offer_savings and offer_savings > 0 %}
+<div class="receipt-line receipt-savings">
+    <span>Multi-buy Savings</span>
+    <span>-${{ offer_savings|floatformat:2 }}</span>
+</div>
+{% endif %}
 <div class="receipt-line">
     <span>Delivery</span>
     <span>${{ delivery|floatformat:2 }}</span>

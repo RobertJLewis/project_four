@@ -1,7 +1,31 @@
+{% load bag_tools %}
 <div class="toast custom-toast rounded-0 border-top-0 toast-rounded" data-autohide="false">
     <div class="arrow-up arrow-success"></div>
     <div class="w-100 toast-capper bg-success"></div>
     
+    {% if grand_total and not on_profile_page %}
+        <div class="shipping-tracker bag-shipping-tracker mb-3">
+            <div class="shipping-tracker-banner">
+                Free shipping at ${{ free_delivery_threshold }}
+            </div>
+            {% if free_delivery_delta > 0 %}
+                <div class="shipping-tracker-message">
+                    You are ${{ free_delivery_delta|floatformat:2 }} away from <strong>FREE SHIPPING</strong>!
+                </div>
+            {% else %}
+                <div class="shipping-tracker-message">
+                    You have unlocked <strong>FREE SHIPPING</strong>!
+                </div>
+            {% endif %}
+            <div class="shipping-tracker-bar">
+                {% if free_delivery_delta > 0 %}
+                    <span class="shipping-tracker-fill" style="width: {% widthratio total free_delivery_threshold 100 %}%"></span>
+                {% else %}
+                    <span class="shipping-tracker-fill" style="width: 100%"></span>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
     <div class="toast-header bg-white text-dark">
         <strong class="mr-auto">Success!</strong>
         <button type="button" class="ml-2 mb-1 close text-dark" data-dismiss="toast" aria-label="Close">
@@ -29,18 +53,43 @@
                         </div>
                         <div class="col-9">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                            {% if item.product.has_discount or item.product.offers.first %}
+                                <div class="toast-item-badges">
+                                    {% if item.product.has_discount %}
+                                        <span class="badge badge-sale">Sale</span>
+                                    {% endif %}
+                                    {% if item.product.offers.first %}
+                                        <span class="badge badge-offer">Special Offer</span>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                            <div class="toast-price-stack">
+                                <p class="my-0 small">Qty: {{ item.quantity }}</p>
+                                {% if item.product.has_discount %}
+                                    <p class="my-0 small">Price: ${{ item.product.sale_price|floatformat:2 }}</p>
+                                {% else %}
+                                    <p class="my-0 small">Price: ${{ item.product.price|floatformat:2 }}</p>
+                                {% endif %}
+                                <p class="my-0 small">Subtotal: ${{ item.price_each|calc_subtotal:item.quantity|floatformat:2 }}</p>
+                            </div>
                         </div>
                     </div>
+                    {% if not forloop.last %}
+                        <hr class="bag-item-divider">
+                    {% endif %}
                 {% endfor %}
             </div>
             <div class="row">
                 <div class="col">
                     <strong><p class="mt-3 mb-1 text-black">
                         Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}: 
-                        <span class="float-right">${{ total|floatformat:2 }}</span>
+                        <span class="float-right">${{ bag_subtotal|floatformat:2 }}</span>
                     </p></strong>
+                    {% if offer_savings and offer_savings > 0 %}
+                        <p class="mt-1 mb-2 text-muted">
+                            Multi-buy Savings: <span class="float-right">-${{ offer_savings|floatformat:2 }}</span>
+                        </p>
+                    {% endif %}
                     <a href="{% url 'view_bag' %}" class="btn btn-black btn-block rounded-0">
                         <span class="text-uppercase">Go To Secure Checkout</span>
                         <span class="icon">

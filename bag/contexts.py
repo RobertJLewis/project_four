@@ -10,6 +10,7 @@ def bag_contents(request):
     product_count = 0
     bag = request.session.get('bag', {})
     offer_groups = {}
+    offer_savings = Decimal('0.00')
 
     for item_id, item_data in list(bag.items()):
 
@@ -20,6 +21,16 @@ def bag_contents(request):
 
         if isinstance(item_data, int):
             offer = product.offers.filter(is_active=True).first()
+            item_price = product.effective_price
+            line_subtotal = item_price * item_data
+            total += line_subtotal
+            product_count += item_data
+            bag_items.append({
+                'item_id': item_id,
+                'quantity': item_data,
+                'product': product,
+                'price_each': item_price,
+            })
             if offer and offer.multi_buy_qty and offer.multi_buy_price:
                 offer_groups.setdefault(offer.id, {'offer': offer, 'items': []})
                 offer_groups[offer.id]['items'].append({
@@ -28,21 +39,21 @@ def bag_contents(request):
                     'product': product,
                     'size': None,
                 })
-            else:
-                line_subtotal = product.effective_price * item_data
-                item_price = product.effective_price
-                total += line_subtotal
-                product_count += item_data
-                bag_items.append({
-                    'item_id': item_id,
-                    'quantity': item_data,
-                    'product': product,
-                    'price_each': item_price,
-                })
             
         else:
             for size, quantity in item_data['items_by_size'].items():
                 offer = product.offers.filter(is_active=True).first()
+                item_price = product.effective_price
+                line_subtotal = item_price * quantity
+                total += line_subtotal
+                product_count += quantity
+                bag_items.append({
+                    'item_id': item_id,
+                    'quantity': quantity,
+                    'product': product,
+                    'size': size,
+                    'price_each': item_price,
+                })
                 if offer and offer.multi_buy_qty and offer.multi_buy_price:
                     offer_groups.setdefault(offer.id, {'offer': offer, 'items': []})
                     offer_groups[offer.id]['items'].append({
@@ -51,20 +62,8 @@ def bag_contents(request):
                         'product': product,
                         'size': size,
                     })
-                else:
-                    line_subtotal = product.effective_price * quantity
-                    item_price = product.effective_price
-                    total += line_subtotal
-                    product_count += quantity
-                    bag_items.append({
-                        'item_id': item_id,
-                        'quantity': quantity,
-                        'product': product,
-                        'size': size,
-                        'price_each': item_price,
-                    })
 
-    # Apply mix-and-match offers (split evenly across all eligible items)
+    # Apply mix-and-match offers as a promo discount line
     for group in offer_groups.values():
         offer = group['offer']
         items = group['items']
@@ -81,19 +80,13 @@ def bag_contents(request):
         remainder = total_qty % offer.multi_buy_qty
         avg_price = regular_total / total_qty
         total_cost = (bundles * offer.multi_buy_price) + (remainder * avg_price)
-        blended_price = total_cost / total_qty
+        savings = regular_total - total_cost
+        if savings > 0:
+            offer_savings += savings
 
-        for item in items:
-            line_subtotal = blended_price * item['quantity']
-            total += line_subtotal
-            product_count += item['quantity']
-            bag_items.append({
-                'item_id': item['item_id'],
-                'quantity': item['quantity'],
-                'product': item['product'],
-                'size': item['size'],
-                'price_each': blended_price,
-            })
+    bag_subtotal = total
+    if offer_savings > 0:
+        total -= offer_savings
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
@@ -107,11 +100,13 @@ def bag_contents(request):
     context = {
         'bag_items': bag_items,
         'total': total,
+        'bag_subtotal': bag_subtotal,
         'product_count': product_count,
         'delivery': delivery,
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
+        'offer_savings': offer_savings,
     }
 
     return context
