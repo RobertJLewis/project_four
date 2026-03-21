@@ -141,6 +141,12 @@
             gap: 24px;
         }
 
+        .split-tiles .container {
+            max-width: 90%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
         .split-tile {
             position: relative;
             display: flex;
@@ -150,7 +156,7 @@
             border-radius: 18px;
             color: #111;
             text-decoration: none;
-            background: #fff;
+            background-color: #fff;
             border: 1px solid #e6e6e6;
             box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
             overflow: hidden;
@@ -167,6 +173,43 @@
             background-image: url("{% static 'images/drink_image_square_compressed.png' %}");
         }
 
+        .split-tile-all-products {
+            background-image: url("{% static 'images/all_product_square.webp' %}");
+        }
+
+        .split-tile-whole-foods {
+            background-image: url("{% static 'images/whole_foods_square.webp' %}");
+        }
+
+        .split-tile-frozen {
+            background-image: url("{% static 'images/frozen_square.webp.webp' %}");
+        }
+
+        .split-tile-meat-poultry {
+            background-image: url("{% static 'images/meat_poultry_square.webp' %}");
+        }
+
+        .split-tile-hot-beverages {
+            background-image: url("{% static 'images/hot_beverages_square.webp' %}");
+        }
+
+        .split-tile-cold-drinks {
+            background-image: url("{% static 'images/cold_drinks_square.webp' %}");
+        }
+
+        .split-tile-all-foods {
+            background-image: url("{% static 'images/all_foods_square.webp' %}");
+        }
+
+        .split-tile-all-drinks {
+            background-image: url("{% static 'images/all_drinks_square.webp' %}");
+        }
+
+        .split-tile-deals {
+            background-image: url("{% static 'images/deals_square.webp' %}");
+        }
+
+
         .split-tile span {
             position: absolute;
             bottom: 0;
@@ -176,7 +219,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.4rem;
+            font-size: 1.6rem;
             font-weight: 600;
             letter-spacing: 0.02em;
             color: #fff;
@@ -202,6 +245,10 @@
 
             .split-tile {
                 height: 40vh;
+            }
+
+            .split-tile span {
+                font-size: 1.2rem;
             }
         }
 
@@ -236,8 +283,73 @@
             padding: 14px 0 32px;
         }
 
-        .category-hero {
-            padding: 24px 0 8px;
+        .category-tiles-square {
+            padding: 24px 0 56px;
+        }
+
+        .category-tiles-square .container {
+            max-width: 90%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .category-grid-square {
+            display: grid;
+            gap: 18px;
+        }
+
+        .category-grid-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .category-grid-5 {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            margin-top: 18px;
+        }
+
+        .split-tile-square {
+            height: auto;
+            aspect-ratio: 1 / 1;
+            border-radius: 18px;
+            background-color: #fff;
+            border: 2px solid #d6d6d6;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+            background-size: cover;
+            background-position: center;
+        }
+
+        @media (max-width: 991px) {
+            .category-grid-4,
+            .category-grid-5 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 767px) {
+            .category-grid-4,
+            .category-grid-5 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 991px) {
+            .category-tiles-square .container {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 18px;
+            }
+
+            .category-grid-4,
+            .category-grid-5 {
+                display: contents;
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .category-tiles-square .container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
         }
 
         .category-hero {
@@ -622,7 +734,7 @@
                 <a class="category-tile" href="{% url 'products' %}">
                     <span class="story-ring">
                         <span class="story-inner">
-                                                                                                                                            {% with product=category_story_products.all_products %}
+                            {% with product=category_story_products.all_products %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -638,7 +750,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=whole_foods">
                     <span class="story-ring">
                         <span class="story-inner">
-                                                                                                                                            {% with product=category_story_products.whole_foods %}
+                            {% with product=category_story_products.whole_foods %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -654,7 +766,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=frozen">
                     <span class="story-ring">
                         <span class="story-inner">
-                                                                                                                                            {% with product=category_story_products.frozen %}
+                            {% with product=category_story_products.frozen %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -670,7 +782,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=meat_poultry">
                     <span class="story-ring">
                         <span class="story-inner">
-                                                                                                                                            {% with product=category_story_products.meat_poultry %}
+                            {% with product=category_story_products.meat_poultry %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -686,7 +798,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=hot_beverages">
                     <span class="story-ring">
                         <span class="story-inner">
-                                                                                                                                            {% with product=category_story_products.hot_beverages %}
+                            {% with product=category_story_products.hot_beverages %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -702,7 +814,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=cold_drinks">
                     <span class="story-ring">
                         <span class="story-inner">
-                                                                                                                                            {% with product=category_story_products.cold_drinks %}
+                            {% with product=category_story_products.cold_drinks %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -718,7 +830,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=all_foods">
                     <span class="story-ring">
                         <span class="story-inner">
-                                                                                                                                            {% with product=category_story_products.all_foods %}
+                            {% with product=category_story_products.all_foods %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -734,7 +846,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=all_drinks">
                     <span class="story-ring">
                         <span class="story-inner">
-                                                                                                                                            {% with product=category_story_products.all_drinks %}
+                            {% with product=category_story_products.all_drinks %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -750,7 +862,7 @@
                 <a class="category-tile" href="{% url 'products' %}?category=deals">
                     <span class="story-ring">
                         <span class="story-inner">
-                                                                                                                                            {% with product=deal_story_product %}
+                            {% with product=deal_story_product %}
                                 {% if product and product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                 {% elif product and product.image_url %}
@@ -1090,14 +1202,56 @@
     </section>
     {% endif %}
 
-    <section class="category-hero full-bleed">
+    <section class="category-tiles-square">
         <div class="container">
-            <div class="hero-banner">
-                <img src="{% static 'images/vegetables_banner_compressed.webp' %}" alt="Shop by Category">
-                <a href="{% url 'products' %}" class="btn btn-black rounded-0 hero-cta">Shop Now</a>
+            <div class="category-grid-square category-grid-4">
+                <a class="split-tile split-tile-square split-tile-all-products" href="{% url 'products' %}">
+                    <span>All Products</span>
+                </a>
+                <a class="split-tile split-tile-square split-tile-whole-foods" href="{% url 'products' %}?category=whole_foods">
+                    <span>Whole Foods</span>
+                </a>
+                <a class="split-tile split-tile-square split-tile-frozen" href="{% url 'products' %}?category=frozen">
+                    <span>Frozen</span>
+                </a>
+                <a class="split-tile split-tile-square split-tile-meat-poultry" href="{% url 'products' %}?category=meat_poultry">
+                    <span>Meat &amp; Poultry</span>
+                </a>
+            </div>
+            <div class="category-grid-square category-grid-5">
+                <a class="split-tile split-tile-square split-tile-hot-beverages" href="{% url 'products' %}?category=hot_beverages">
+                    <span>Hot Beverages</span>
+                </a>
+                <a class="split-tile split-tile-square split-tile-cold-drinks" href="{% url 'products' %}?category=cold_drinks">
+                    <span>Cold Drinks</span>
+                </a>
+                <a class="split-tile split-tile-square split-tile-all-foods" href="{% url 'products' %}?category=all_foods">
+                    <span>All Foods</span>
+                </a>
+                <a class="split-tile split-tile-square split-tile-all-drinks" href="{% url 'products' %}?category=all_drinks">
+                    <span>All Drinks</span>
+                </a>
+                <a class="split-tile split-tile-square split-tile-deals" href="{% url 'products' %}?category=deals">
+                    <span>Deals</span>
+                </a>
             </div>
         </div>
     </section>
+
+    {% if product_names %}
+    <section class="product-ticker" aria-label="Product name ticker">
+        <div class="ticker-track">
+            {% for name in product_names %}
+                <a class="ticker-item" href="{% url 'product_detail' name.id %}">{{ name.name }}</a>
+                <span class="ticker-sep" aria-hidden="true">◆</span>
+            {% endfor %}
+            {% for name in product_names %}
+                <a class="ticker-item" href="{% url 'product_detail' name.id %}" aria-hidden="true">{{ name.name }}</a>
+                <span class="ticker-sep" aria-hidden="true">◆</span>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
 
 {% endblock %}
 

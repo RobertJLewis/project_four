@@ -740,6 +740,12 @@ input[name='q']::placeholder {
     margin-top: 26px;
 }
 
+.bag-multibuy-applied {
+    margin-top: 6px;
+    font-size: 0.75rem;
+    color: #5f6368;
+}
+
 
 
 
