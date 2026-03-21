@@ -262,17 +262,17 @@ textarea.form-control {
     width: 90%;
     margin: 30px auto;
     overflow: hidden;
-    border-radius: 999px;
-    background: #fff;
-    border: 1px solid #e6e6e6;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
 }
 
 .ticker-track {
     display: inline-flex;
     align-items: center;
     gap: 36px;
-    padding: 10px 16px;
+    padding: 6px 0;
     white-space: nowrap;
     animation: ticker-scroll 506s linear infinite;
 }
@@ -658,7 +658,8 @@ input[name='q']::placeholder {
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;
-    right: 36px;
+    left: 50%;
+    transform: translateX(calc(-50% + 3px));
 }
 
 /* Convenience classes - colors copied from Bootstrap */
@@ -1080,7 +1081,7 @@ input[name='q']::placeholder {
 .home-carousel {
     background: #fff;
     padding: 72px 0;
-    border-top: 1px solid #e6e6e6;
+    border-top: 0;
 }
 
 .carousel-viewport {
