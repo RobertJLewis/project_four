@@ -64,7 +64,25 @@
                                     {% include "bag/product-image.html" %}
                                 </div>
                                 <div class="col-12 col-sm-6 mb-2">
-                                    {% include "bag/product-info.html" %}
+                                    <div class="bag-info-column">
+                                        {% include "bag/product-info.html" %}
+                                        {% if item.product.offers.first %}
+                                            <div class="bag-offer-tags">
+                                                <span class="badge badge-offer">
+                                                    Special Offer:
+                                                    {% if item.product.offers.first.multi_buy_qty and item.product.offers.first.multi_buy_price %}
+                                                        Any {{ item.product.offers.first.multi_buy_qty }} for ${{ item.product.offers.first.multi_buy_price }}
+                                                    {% else %}
+                                                        {{ item.product.offers.first.name }}
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                        {% elif item.product.has_discount %}
+                                            <div class="bag-offer-tags">
+                                                <span class="badge badge-sale">Sale {{ item.product.percent_off }}% Off</span>
+                                            </div>
+                                        {% endif %}
+                                    </div>
                                 </div>
                                 <div class="col-12 col-sm-6 order-sm-last">
                                     <p class="my-0">Price Each: ${{ item.price_each|floatformat:2 }}</p>
@@ -90,7 +108,25 @@
                                     {% include "bag/product-image.html" %}
                                 </div>
                                 <div class="col-12 col-md-4 mb-2">
-                                    {% include "bag/product-info.html" %}
+                                    <div class="bag-info-column">
+                                        {% include "bag/product-info.html" %}
+                                        {% if item.product.offers.first %}
+                                            <div class="bag-offer-tags">
+                                                <span class="badge badge-offer">
+                                                    Special Offer:
+                                                    {% if item.product.offers.first.multi_buy_qty and item.product.offers.first.multi_buy_price %}
+                                                        Any {{ item.product.offers.first.multi_buy_qty }} for ${{ item.product.offers.first.multi_buy_price }}
+                                                    {% else %}
+                                                        {{ item.product.offers.first.name }}
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                        {% elif item.product.has_discount %}
+                                            <div class="bag-offer-tags">
+                                                <span class="badge badge-sale">Sale {{ item.product.percent_off }}% Off</span>
+                                            </div>
+                                        {% endif %}
+                                    </div>
                                 </div>
                                 <div class="col-12 col-md-3">
                                     <p class="my-0">Price Each: ${{ item.price_each|floatformat:2 }}</p>
@@ -134,6 +170,16 @@
                     <div class="upsell-grid">
                         {% for product in upsell_products %}
                             <div class="upsell-card">
+                                {% if product.offers.first or product.has_discount %}
+                                <div class="upsell-badges">
+                                    {% if product.has_discount %}
+                                        <span class="badge badge-sale">Sale</span>
+                                    {% endif %}
+                                    {% if product.offers.first %}
+                                        <span class="badge badge-offer">Special Offer</span>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
                                 <a href="{% url 'product_detail' product.id %}" class="upsell-link">
                                     {% if product.image %}
                                         <img src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -142,6 +188,17 @@
                                     {% endif %}
                                     <div class="upsell-info">
                                         <p class="upsell-name">{{ product.name }}</p>
+                                        {% if product.offers.first %}
+                                            <span class="offer-text upsell-offer">
+                                                {% if product.offers.first.multi_buy_qty and product.offers.first.multi_buy_price %}
+                                                    Any {{ product.offers.first.multi_buy_qty }} for ${{ product.offers.first.multi_buy_price }}
+                                                {% else %}
+                                                    {{ product.offers.first.name }}
+                                                {% endif %}
+                                            </span>
+                                        {% elif product.has_discount %}
+                                            <span class="offer-text upsell-offer">On Sale</span>
+                                        {% endif %}
                                         {% if product.has_discount %}
                                             <span class="upsell-price">${{ product.sale_price|floatformat:2 }}</span>
                                         {% else %}
@@ -151,7 +208,7 @@
                                 </a>
                                 <form method="POST" action="{% url 'add_to_bag' product.id %}" class="upsell-actions">
                                     {% csrf_token %}
-                                    <input type="hidden" name="quantity" value="1">
+                                    <input class="upsell-qty" type="number" name="quantity" value="1" min="1" max="99" aria-label="Quantity">
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                     <button class="btn btn-black btn-sm" type="submit">Add to Bag</button>
                                 </form>
