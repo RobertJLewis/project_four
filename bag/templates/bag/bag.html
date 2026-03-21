@@ -13,8 +13,8 @@
 {% block content %}
     <div class="overlay"></div>
     <div class="container mb-2">
-        <div class="row">
-            <div class="col">
+        <div class="row align-items-center">
+            <div class="col-12">
                 <hr>
                 <h2 class="logo-font mb-4">Shopping Bag</h2>
                 <hr>
@@ -26,7 +26,28 @@
                 {% if bag_items %}
                 <div class="d-block d-md-none">
                     <div class="row">
-                        <div class="col">
+                        <div class="col bag-summary">
+                            <div class="shipping-tracker bag-shipping-tracker">
+                                <div class="shipping-tracker-banner">
+                                    Free shipping at ${{ free_delivery_threshold }}
+                                </div>
+                                {% if free_delivery_delta > 0 %}
+                                    <div class="shipping-tracker-message">
+                                        You are ${{ free_delivery_delta|floatformat:2 }} away from <strong>FREE SHIPPING</strong>!
+                                    </div>
+                                {% else %}
+                                    <div class="shipping-tracker-message">
+                                        You have unlocked <strong>FREE SHIPPING</strong>!
+                                    </div>
+                                {% endif %}
+                                <div class="shipping-tracker-bar">
+                                    {% if free_delivery_delta > 0 %}
+                                        <span class="shipping-tracker-fill" style="width: {% widthratio total free_delivery_threshold 100 %}%"></span>
+                                    {% else %}
+                                        <span class="shipping-tracker-fill" style="width: 100%"></span>
+                                    {% endif %}
+                                </div>
+                            </div>
                             {% include "bag/bag-total.html" %}
                         </div>
                     </div>
@@ -37,22 +58,23 @@
                         </div>
                     </div>
                     {% for item in bag_items %}
-                        <div class="row">
-                            <div class="col-12 col-sm-6 mb-2">
-                                {% include "bag/product-image.html" %}
-                            </div>
-                            <div class="col-12 col-sm-6 mb-2">
-                                {% include "bag/product-info.html" %}
-                            </div>
-                            <div class="col-12 col-sm-6 order-sm-last">
-                                <p class="my-0">Price Each: ${{ item.price_each|floatformat:2 }}</p>
-                                <p><strong>Subtotal: </strong>${{ item.price_each | calc_subtotal:item.quantity|floatformat:2 }}</p>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                {% include "bag/quantity-form.html" %}
+                        <div class="bag-item-card">
+                            <div class="row">
+                                <div class="col-12 col-sm-6 mb-2">
+                                    {% include "bag/product-image.html" %}
+                                </div>
+                                <div class="col-12 col-sm-6 mb-2">
+                                    {% include "bag/product-info.html" %}
+                                </div>
+                                <div class="col-12 col-sm-6 order-sm-last">
+                                    <p class="my-0">Price Each: ${{ item.price_each|floatformat:2 }}</p>
+                                    <p><strong>Subtotal: </strong>${{ item.price_each | calc_subtotal:item.quantity|floatformat:2 }}</p>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    {% include "bag/quantity-form.html" %}
+                                </div>
                             </div>
                         </div>
-                        <div class="row"><div class="col"><hr></div></div>
                     {% endfor %}
                     <div class="btt-button shadow-sm rounded-0 border border-black">
                         <a class="btt-link d-flex h-100">
@@ -60,49 +82,84 @@
                         </a>	
                     </div>
                 </div>
-                <div class="table-responsive rounded d-none d-md-block">
-                        <table class="table table-sm table-borderless">
-                            <thead class="text-black">
-                                <tr>
-                                    <th scope="col">Product Info</th>
-                                    <th scope="col"></th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Qty</th>
-                                    <th scope="col">Subtotal</th>
-                                </tr>
-                            </thead>
-
-                            {% for item in bag_items %}
-                                <tr>
-                                    <td class="p-3 w-25">
-                                        {% include "bag/product-image.html" %}
-                                    </td>
-                                    <td class="py-3">
-                                        {% include "bag/product-info.html" %}
-                                    </td>
-                                    <td class="py-3">
-                                        <p class="my-0">${{ item.price_each|floatformat:2 }}</p>
-                                    </td>
-                                    <td class="py-3 w-25">
-                                        {% include "bag/quantity-form.html" %}
-                                    </td>
-                                    <td class="py-3">
-                                        <p class="my-0">${{ item.price_each | calc_subtotal:item.quantity|floatformat:2 }}</p>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                            <tr>
-                                <td colspan="5" class="pt-5 text-right">
-                                    {% include "bag/bag-total.html" %}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-right">
-                                    {% include "bag/checkout-buttons.html" %}
-                                </td>
-                            </tr>
-                        </table>
+                <div class="d-none d-md-block">
+                    {% for item in bag_items %}
+                        <div class="bag-item-card">
+                            <div class="row">
+                                <div class="col-12 col-md-3 mb-2">
+                                    {% include "bag/product-image.html" %}
+                                </div>
+                                <div class="col-12 col-md-4 mb-2">
+                                    {% include "bag/product-info.html" %}
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <p class="my-0">Price Each: ${{ item.price_each|floatformat:2 }}</p>
+                                    <p><strong>Subtotal: </strong>${{ item.price_each | calc_subtotal:item.quantity|floatformat:2 }}</p>
+                                </div>
+                                <div class="col-12 col-md-2">
+                                    {% include "bag/quantity-form.html" %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="bag-summary text-right pt-4">
+                        <div class="shipping-tracker bag-shipping-tracker">
+                            <div class="shipping-tracker-banner">
+                                Free shipping at ${{ free_delivery_threshold }}
+                            </div>
+                            {% if free_delivery_delta > 0 %}
+                                <div class="shipping-tracker-message">
+                                    You are ${{ free_delivery_delta|floatformat:2 }} away from <strong>FREE SHIPPING</strong>!
+                                </div>
+                            {% else %}
+                                <div class="shipping-tracker-message">
+                                    You have unlocked <strong>FREE SHIPPING</strong>!
+                                </div>
+                            {% endif %}
+                            <div class="shipping-tracker-bar">
+                                {% if free_delivery_delta > 0 %}
+                                    <span class="shipping-tracker-fill" style="width: {% widthratio total free_delivery_threshold 100 %}%"></span>
+                                {% else %}
+                                    <span class="shipping-tracker-fill" style="width: 100%"></span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% include "bag/bag-total.html" %}
+                        {% include "bag/checkout-buttons.html" %}
                     </div>
+                </div>
+                {% if upsell_products %}
+                <section class="upsell-section">
+                    <h4 class="upsell-title">You might also like</h4>
+                    <div class="upsell-grid">
+                        {% for product in upsell_products %}
+                            <div class="upsell-card">
+                                <a href="{% url 'product_detail' product.id %}" class="upsell-link">
+                                    {% if product.image %}
+                                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    {% else %}
+                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    {% endif %}
+                                    <div class="upsell-info">
+                                        <p class="upsell-name">{{ product.name }}</p>
+                                        {% if product.has_discount %}
+                                            <span class="upsell-price">${{ product.sale_price|floatformat:2 }}</span>
+                                        {% else %}
+                                            <span class="upsell-price">${{ product.price|floatformat:2 }}</span>
+                                        {% endif %}
+                                    </div>
+                                </a>
+                                <form method="POST" action="{% url 'add_to_bag' product.id %}" class="upsell-actions">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="quantity" value="1">
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    <button class="btn btn-black btn-sm" type="submit">Add to Bag</button>
+                                </form>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+                {% endif %}
                 {% else %}
                     <p class="lead mb-5">Your bag is empty.</p>
                     <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">

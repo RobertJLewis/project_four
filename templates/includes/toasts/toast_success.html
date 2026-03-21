@@ -1,27 +1,7 @@
 <div class="toast custom-toast rounded-0 border-top-0 toast-rounded" data-autohide="false">
     <div class="arrow-up arrow-success"></div>
     <div class="w-100 toast-capper bg-success"></div>
-    <div class="shipping-tracker">
-            <div class="shipping-tracker-banner">
-                Free shipping at ${{ free_delivery_threshold }}
-            </div>
-            {% if free_delivery_delta > 0 %}
-                <div class="shipping-tracker-message">
-                    You are ${{ free_delivery_delta|floatformat:2 }} away from <strong>FREE SHIPPING</strong>!
-                </div>
-            {% else %}
-                <div class="shipping-tracker-message">
-                    You have unlocked <strong>FREE SHIPPING</strong>!
-                </div>
-            {% endif %}
-            <div class="shipping-tracker-bar">
-                {% if free_delivery_delta > 0 %}
-                    <span class="shipping-tracker-fill" style="width: {% widthratio total free_delivery_threshold 100 %}%"></span>
-                {% else %}
-                    <span class="shipping-tracker-fill" style="width: 100%"></span>
-                {% endif %}
-            </div>
-        </div>
+    
     <div class="toast-header bg-white text-dark">
         <strong class="mr-auto">Success!</strong>
         <button type="button" class="ml-2 mb-1 close text-dark" data-dismiss="toast" aria-label="Close">

@@ -8,7 +8,18 @@ from products.models import Product
 def view_bag(request):
     """ A view that renders the bag contents page """
 
-    return render(request, 'bag/bag.html')
+    bag = request.session.get('bag', {})
+    bag_ids = [int(item_id) for item_id in bag.keys()]
+    upsell_products = (
+        Product.objects.exclude(id__in=bag_ids)
+        .order_by('?')[:4]
+    )
+
+    context = {
+        'upsell_products': upsell_products,
+    }
+
+    return render(request, 'bag/bag.html', context)
 
 
 def add_to_bag(request, item_id):

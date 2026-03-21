@@ -46,6 +46,39 @@ select option[value=""] {
     color: #aab7c4 !important;
 }
 
+.receipt-card {
+  background: #fff;
+  border: 2px dashed #d6d6d6 !important;
+  border-radius: 22px;
+  padding: 36px 48px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+.receipt-card .row {
+  padding: 4px 0;
+}
+
+.receipt-card small.text-muted {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+}
+
+.receipt-card p {
+    letter-spacing: 0.02em;
+    font-size: 0.85rem;
+}
+
+
+.receipt-card .receipt-section {
+  padding-top: 22px;
+}
+
+.receipt-dash {
+  border-top: 1px dashed #d6d6d6;
+  margin: 8px -24px 0;
+}
+
 
 #loading-overlay {
 	display: none;

@@ -10,6 +10,10 @@ body {
     font-family: 'Iosevka Charon', sans-serif;
 }
 
+.page-content {
+    padding-bottom: 40px;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -427,7 +431,7 @@ textarea.form-control {
     color: #fff;
     font-size: 0.65rem;
     padding: 4px 6px;
-    border-radius: 10px;
+    border-radius: 22px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
@@ -520,7 +524,7 @@ input[name='q']::placeholder {
 .toast-warning {
     background: #fff3cd;
     border: 1px solid #ffeeba;
-    border-radius: 10px;
+    border-radius: 22px;
 }
 
 .shipping-tracker {
@@ -530,6 +534,34 @@ input[name='q']::placeholder {
     border: 2px solid #000;
     overflow: hidden;
 }
+
+.bag-shipping-tracker {
+    margin: 0;
+    max-width: 320px;
+    margin-left: auto;
+}
+
+.bag-summary .bag-shipping-tracker {
+    max-width: 100%;
+    margin: 0 auto 16px;
+}
+
+.bag-shipping-tracker .shipping-tracker-banner {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    width: 100%;
+}
+
+.bag-shipping-tracker .shipping-tracker-message {
+    font-size: 0.8rem;
+    padding: 6px 10px 4px;
+}
+
+.bag-shipping-tracker .shipping-tracker-bar {
+    height: 6px;
+    margin: 0 12px 12px;
+}
+
 
 .shipping-tracker-banner {
     background: #000;
@@ -630,6 +662,146 @@ input[name='q']::placeholder {
     height: 160px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.bag-item-card {
+    background: #fff;
+    border: 2px solid #d6d6d6;
+    border-radius: 22px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.bag-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+    max-width: 340px;
+    margin-left: auto;
+    padding: 20px 20px;
+    background: #fff;
+    border: 2px dashed #d6d6d6;
+    border-radius: 10px;
+}
+
+.bag-summary h6,
+.bag-summary h4,
+.bag-summary p {
+    margin: 0;
+}
+
+.receipt-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+
+.receipt-total {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.receipt-separator {
+    border-top: 2px dashed #d6d6d6;
+    margin: 6px 0;
+}
+
+.receipt-note {
+    margin-top: 6px;
+    font-size: 0.85rem;
+}
+
+.bag-summary .btn {
+    margin-right: 8px;
+}
+
+.bag-summary .btn:last-child {
+    margin-right: 0;
+}
+
+.upsell-section {
+    margin-top: 24px;
+    padding-top: 48px;
+    padding-bottom: 144px;
+}
+
+.upsell-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.upsell-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 16px;
+}
+
+.upsell-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-decoration: none;
+    background: #fff;
+    border: 2px solid #e1e1e1;
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.upsell-link {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.upsell-link:hover,
+.upsell-link:focus {
+    text-decoration: none;
+    color: inherit;
+}
+
+.upsell-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.1);
+}
+
+.upsell-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: contain;
+    border-radius: 14px;
+}
+
+.upsell-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.upsell-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #111;
+    margin: 0;
+}
+
+.upsell-price {
+    font-size: 0.85rem;
+    color: #111;
+    font-weight: 700;
+}
+
+.upsell-actions {
+    margin-top: auto;
 }
 
 /* -------------------------------- Media Queries */
