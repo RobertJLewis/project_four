@@ -262,7 +262,10 @@
                                             </p>
                                             {% endif %}
                                     {% if product.rating %}
-                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                        <div class="rating-display" aria-label="Rated {{ product.rating }} out of 5">
+                                            <span class="rating-text">{{ product.rating|floatformat:1 }}</span>
+                                            <span class="star-rating" style="--rating: {{ product.rating|floatformat:1 }};"></span>
+                                        </div>
                                     {% else %}
                                         <small class="text-muted">No Rating</small>
                                     {% endif %}
@@ -271,7 +274,7 @@
                                             {% csrf_token %}
                                             <input class="form-control form-control-sm mr-2" type="number" name="quantity" value="1" min="1" max="99" aria-label="Quantity" style="width: 34%;">
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                            <button class="btn btn-black btn-sm" type="submit">Add to Cart</button>
+                                            <button class="btn btn-black btn-sm" type="submit">Add to Bag</button>
                                         </form>
                                     </div>
                                     {% if request.user.is_superuser %}
