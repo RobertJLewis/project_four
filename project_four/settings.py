@@ -226,6 +226,9 @@ if USE_AWS:
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
+    # For static files:
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+
     # Media files only (leave static files on WhiteNoise/collectstatic)
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     MEDIAFILES_LOCATION = '' # it was 'media' but had error with images - dont repeat!
