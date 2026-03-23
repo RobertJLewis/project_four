@@ -2,21 +2,44 @@
 
 ## Introduction
 
-**Project 4** is a full-stack e-commerce web application designed to deliver a seamless online shopping experience for food products. Built with user-centric design and modern development practices, the platform allows customers to browse, filter, and purchase food items intuitively—whether they're looking for everyday essentials or special treats.
+**Project 4** is a full-stack e-commerce web application designed to provide a modern and seamless online shopping experience for food products. Unlike the original course walkthrough project it was initially based on, this version has been fully **redesigned with custom styling, navigation, and features**, creating a unique and user-focused platform.
 
-The store is structured around four main browsing paths visible in the navigation bar:
-- **Foods**: Filter by category — *Frozen*, *Whole Foods*, *Meat & Poultry*, or view *All Foods*
-- **Drinks**: Choose between *Hot Beverages* and *Cold Drinks*, or see *All Drinks*
-- **All Products**: Sort and explore everything by *Price*, *Rating*, *Category*, or view *All Products*
-- **Special Offers**: Discover *New Arrivals*, *Deals*, *Clearance*, or browse *All Specials*
+### Navigation & Browsing
 
-These filters are not just visual—they’re backed by dynamic frontend logic and a robust backend that supports real-time sorting and responsive data handling. Every interaction is designed to reduce friction and enhance usability, ensuring shoppers can find what they need quickly and confidently.
+The store features an intuitive navigation bar with the following categories:  
 
-From strategy and wireframing to database design, authentication, testing, and deployment, **Project 4** demonstrates a complete implementation of full-stack development principles. This README serves as a comprehensive technical and design documentation of the entire project—covering goals, architecture, features, technologies used, and future enhancements.
+- All Products  
+- Whole Foods  
+- Frozen  
+- Meat & Poultry  
+- Hot Beverages  
+- Cold Drinks  
+- All Foods  
+- All Drinks  
+- Deals  
 
-Welcome to **Project 4**—where digital convenience meets everyday nourishment.
+Each category is powered by dynamic filtering logic that updates product listings in real time. The backend supports responsive data handling, while the frontend ensures a smooth and user-friendly shopping experience. Customers can browse products efficiently, view detailed product pages, and manage their cart seamlessly.
+
+### Full-Stack Features
+
+Project 4 demonstrates full-stack development best practices, including:  
+
+- Custom database design and models  
+- User authentication and admin controls  
+- CRUD operations for managing products, including image uploads  
+- Responsive design for both desktop and mobile  
+- Deployment to a cloud platform with secure environment variables  
+
+### Documentation Purpose
+
+This README provides **comprehensive technical and design documentation** of the project—including goals, architecture, features, technologies, and future enhancements—showcasing the transformation from a template-based project to a fully customised e-commerce application.
+
+Welcome to **Project 4** — where thoughtful design meets practical online food shopping.
 
 <img src="media/wireframes_mockup.png" alt="wireframes">
+
+
+
 
 ## Table of Contents
 
@@ -81,26 +104,104 @@ Welcome to **Project 4**—where digital convenience meets everyday nourishment.
 18. [Future Enhancements](#future-enhancements)
 19. [Credits & Acknowledgments](#credits--acknowledgments)
 
-## Strategy Plane
+
+## Strategy Plan
+
+## Skeleton Plane (Wireframes)
+
+
+
+
+
+
+
 
 ### Project Goals
-
 The primary goals of **Project 4** are to:
+
 - Deliver a fully functional, responsive e-commerce platform focused exclusively on food and beverage products.
 - Provide an intuitive user experience with clear navigation, dynamic filtering, and seamless product discovery.
 - Implement secure user authentication, persistent shopping carts, and reliable data handling.
 - Demonstrate mastery of full-stack development principles—including frontend interactivity, API integration, database modelling, and deployment best practices.
 - Create a scalable foundation that can support future enhancements such as user reviews, inventory management, or email notifications.
 
-### Target Audience
+---
+
+### Target Audience & Product Categories
 
 **Project 4** is designed for everyday consumers who value convenience, variety, and clarity when shopping for food online. Key user groups include:
+
 - **Busy professionals** seeking quick, reliable access to groceries without visiting physical stores.
 - **Students and young adults** looking for affordable, easy-to-prepare meals and snacks.
 - **Health-conscious shoppers** interested in whole foods, fresh produce, and transparent categorisation.
 - **Casual browsers** exploring deals, new arrivals, or seasonal offers.
 
 The interface prioritises simplicity, fast loading, and mobile-friendly design to accommodate users across devices and technical comfort levels.
+
+| User Segment           | Needs / Goals                         | Features Supporting Them                  |
+|------------------------|--------------------------------------|------------------------------------------|
+| Everyday Shoppers      | Quick access to essentials           | All Products, Deals, Cart, Search        |
+| Health-Conscious Users | High-quality fresh and organic foods | Whole Foods, Fresh Produce, Sorting      |
+| Beverage Lovers        | Hot & cold drink selection            | Hot Beverages, Cold Drinks               |
+| Budget Shoppers        | Discounts and promotions              | Deals, Filter & Sort by Price            |
+
+---
+
+### User Journey / Flow
+
+Users can navigate the website as follows:
+
+1. **Homepage → Browse Categories → View Product → Add to Cart → Checkout → Order Confirmation**
+2. Registered users can save their cart, view past orders, and update account details.
+3. Admin users can add, update, or remove products, and manage user orders.
+
+![Customer Account](media/customer_history_account_detail.png)
+
+---
+
+### Key Screenshots
+
+**Homepage**  
+![Homepage Screenshot](media/home_page_view.png)
+
+**Navigation & Filters**  
+![Search Function](media/search.png)
+![Burger Menu](media/burger_icon.png)
+![Category Filter](media/circle_search.png)
+
+**Shopping Cart & Checkout**  
+![Cart Screenshot](media/checkout_view.png)
+
+---
+
+### SWOT Analysis
+
+| Factor        | Details                                      |
+|---------------|----------------------------------------------|
+| Strengths     | Custom design, full-stack functionality     |
+| Weaknesses    | Small product catalog (initially)           |
+| Opportunities | Expansion into delivery, loyalty program    |
+| Threats       | Competitors like Tesco, ASDA, Sainsbury's  |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Problem Statement
 
