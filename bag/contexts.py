@@ -88,11 +88,14 @@ def bag_contents(request):
     if offer_savings > 0:
         total -= offer_savings
 
-    if total < settings.FREE_DELIVERY_THRESHOLD:
+    if total == 0:
+        delivery = Decimal('0.00')
+        free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD
+    elif total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = Decimal('2.99')
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
-        delivery = 0
+        delivery = Decimal('0.00')
         free_delivery_delta = 0
     
     grand_total = delivery + total
