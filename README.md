@@ -1,11 +1,10 @@
 # Project 4 – Food E-Commerce Store
 
 ## Introduction
-
 **Project 4** is a full-stack e-commerce web application designed to provide a modern and seamless online shopping experience for food products. Unlike the original course walkthrough project it was initially based on, this version has been fully **redesigned with custom styling, navigation, and features**, creating a unique and user-focused platform.
 
-### Navigation & Browsing
 
+### Navigation & Browsing
 The store features an intuitive navigation bar with the following categories:  
 
 - All Products  
@@ -20,8 +19,8 @@ The store features an intuitive navigation bar with the following categories:
 
 Each category is powered by dynamic filtering logic that updates product listings in real time. The backend supports responsive data handling, while the frontend ensures a smooth and user-friendly shopping experience. Customers can browse products efficiently, view detailed product pages, and manage their cart seamlessly.
 
-### Full-Stack Features
 
+### Full-Stack Features
 Project 4 demonstrates full-stack development best practices, including:  
 
 - Custom database design and models  
@@ -30,8 +29,8 @@ Project 4 demonstrates full-stack development best practices, including:
 - Responsive design for both desktop and mobile  
 - Deployment to a cloud platform with secure environment variables  
 
-### Documentation Purpose
 
+### Documentation Purpose
 This README provides **comprehensive technical and design documentation** of the project—including goals, architecture, features, technologies, and future enhancements—showcasing the transformation from a template-based project to a fully customised e-commerce application.
 
 Welcome to **Project 4** — where thoughtful design meets practical online food shopping.
@@ -39,81 +38,98 @@ Welcome to **Project 4** — where thoughtful design meets practical online food
 <img src="media/wireframes_mockup.png" alt="wireframes">
 
 
-
-
 ## Table of Contents
-
 1. [Introduction](#introduction)
 2. [Strategy Plane](#strategy-plane)
    - [Project Goals](#project-goals)
-   - [Target Audience](#target-audience)
+   - [Target Audience](#target-audience--product-categories)
    - [Problem Statement](#problem-statement)
    - [Key Features](#key-features)
 3. [Scope Plane](#scope-plane)
    - [Feature Planning](#feature-planning)
    - [Minimum Viable Product (MVP)](#minimum-viable-product-mvp)
+   - [Customisation & Improvements](#customisation--improvements)
 4. [Structure Plane](#structure-plane)
    - [User Stories](#user-stories)
    - [User Flow Diagram](#user-flow-diagram)
+   - [User Flow Image](#user-flow-image)
 5. [System Architecture](#system-architecture)
    - [Frontend Architecture](#frontend-architecture)
    - [Backend Architecture](#backend-architecture)
-   - [API Design & Endpoints](#api-design--endpoints)
-6. [Database Design](#database-design)
-   - [Database Schema](#database-schema)
+   - [MVT Layer Mapping](#mvt-layer-mapping)
+   - [External Integrations](#external-integrations)
+   - [Tech Stack Summary](#tech-stack-summary)
+   - [Architecture Diagram](#architecture-diagram)
+   - [Notes on Performance & Scalability](#notes-on-performance--scalability)
+6. [API Design & Endpoints](#api-design--endpoints)
+   - [Stripe API](#1-stripe-api)
+   - [Gmail API](#2-gmail-api-via-google-oauth)
+7. [Database Design](#database-design)
+   - [Schema Overview](#schema-overview)
    - [Models & Relationships](#models--relationships)
    - [Data Validation & Integrity](#data-validation--integrity)
    - [Schema Diagram](#schema-diagram)
-7. [Authentication & Authorization](#authentication--authorization)
+   - [Notes](#notes)
+8. [Authentication & Authorization](#authentication--authorisation)
    - [User Registration & Login](#user-registration--login)
    - [Permissions & Access Control](#permissions--access-control)
-8. [Skeleton Plane (Wireframes)](#skeleton-plane-wireframes)
-   - [Wireframes](#wireframes)
-9. [Surface Plane (UI Design)](#surface-plane-ui-design)
-   - [Colour Scheme](#colour-scheme)
-   - [Typography](#typography)
-   - [Imagery & Icons](#imagery--icons)
-10. [Features](#features)
+9. [Skeleton Plane (Wireframes)](#skeleton-plane-wireframes)
+   - [Wireframes Overview](#wireframes-overview)
+   - [Wireframe Images](#wireframe-images)
+10. [Surface Plane (UI Design)](#surface-plane-ui-design)
+    - [Mobile-First Design](#mobile-first-design)
+    - [Colour Scheme](#colour-scheme)
+    - [Typography](#typography)
+    - [Imagery & Icons](#imagery--icons)
+11. [Features](#features)
     - [User Dashboard](#user-dashboard)
-    - [Search, Filter](#search-filter)
+    - [Search & Filter](#search--filter)
     - [Error Handling & Feedback](#error-handling--feedback)
-11. [Frontend Implementation](#frontend-implementation)
+12. [Frontend Implementation](#frontend-implementation)
     - [Templates & Components](#templates--components)
     - [Client-Side Logic](#client-side-logic)
-12. [Backend Implementation](#backend-implementation)
+13. [Backend Implementation](#backend-implementation)
     - [Views / Controllers](#views--controllers)
     - [Business Logic](#business-logic)
-13. [Testing](#testing)
+14. [Testing](#testing)
     - [Manual Testing](#manual-testing)
     - [Automated Testing](#automated-testing)
     - [Validation Testing](#validation-testing)
-14. [Security Considerations](#security-considerations)
-    - [Data Protection](#data-protection)
-    - [Environment Variables](#environment-variables)
-15. [Accessibility](#accessibility)
-16. [Deployment & Local Development](#deployment--local-development)
-    - [Deployment](#deployment)
-    - [Environment Configuration](#environment-configuration)
-    - [Local Development Setup](#local-development-setup)
-      - [How to Fork](#how-to-fork)
-      - [How to Clone](#how-to-clone)
-17. [Technologies Used](#technologies-used)
+15. [Security, Deployment & Technology](#security-deployment--technology)
+    - [Security Considerations](#security-considerations)
+      - [Data Protection](#data-protection)
+      - [Environment Variables](#environment-variables)
+    - [Accessibility](#accessibility)
+    - [Deployment & Local Development](#deployment--local-development)
+      - [Deployment](#deployment)
+      - [Deployment Diagram](#deployment-diagram)
+      - [Environment Configuration](#environment-configuration)
+      - [Local Development Setup](#local-development-setup)
+        - [How to Fork](#how-to-fork)
+        - [How to Clone](#how-to-clone)
+16. [Technologies Used](#technologies-used)
     - [Languages](#languages)
     - [Frameworks & Libraries](#frameworks--libraries)
     - [Tools & Services](#tools--services)
-18. [Future Enhancements](#future-enhancements)
-19. [Credits & Acknowledgments](#credits--acknowledgments)
+17. [Future Enhancements](#future-enhancements)
+18. [Credits & Acknowledgments](#credits--acknowledgments)
 
 
 ## Strategy Plan
-
 ## Skeleton Plane (Wireframes)
+Wireframes were created to map out the **core layout and user interactions** for Project 4 before development began. They follow a **mobile-first, low-fidelity approach**, focusing on clarity, hierarchy, and usability rather than visual polish. 
+
+- **Homepage Wireframe**: Full-width hero image with persistent top navigation bar and minimal content to encourage exploration via category links.
+- **Product Listing Page**: Responsive grid of product cards showing **image, name, price, and rating**. Filters are displayed in the navigation bar or sidebar.
+- **Product Detail Page**: Includes a larger product image, detailed description, price, and an “Add to Cart” button.
+- **Checkout Flow**: Cart summary followed by secure card input via **Stripe Elements**.
 
 
+### Wireframe Images
+<img src="media/wireframes_one.png" alt="Project 4 homepage and product listing wireframe">
+<img src="media/wireframes_two.png" alt="Project 4 checkout and product detail wireframe">
 
-
-
-
+> These wireframes acted as a blueprint for development, ensuring the HTML and Django templates aligned with intended user flows and functionality.
 
 
 ### Project Goals
@@ -128,7 +144,6 @@ The primary goals of **Project 4** are to:
 ---
 
 ### Target Audience & Product Categories
-
 **Project 4** is designed for everyday consumers who value convenience, variety, and clarity when shopping for food online. Key user groups include:
 
 - **Busy professionals** seeking quick, reliable access to groceries without visiting physical stores.
@@ -148,19 +163,17 @@ The interface prioritises simplicity, fast loading, and mobile-friendly design t
 ---
 
 ### User Journey / Flow
-
 Users can navigate the website as follows:
 
 1. **Homepage → Browse Categories → View Product → Add to Cart → Checkout → Order Confirmation**
-2. Registered users can save their cart, view past orders, and update account details.
-3. Admin users can add, update, or remove products, and manage user orders.
+2. Registered users can view past orders, and update account details.
+3. Admin users can add, update, or remove products, and manage user orders.(CRUD)
 
 ![Customer Account](media/customer_history_account_detail.png)
 
 ---
 
 ### Key Screenshots
-
 **Homepage**  
 ![Homepage Screenshot](media/home_page_view.png)
 
@@ -184,45 +197,26 @@ Users can navigate the website as follows:
 | Threats       | Competitors like Tesco, ASDA, Sainsbury's  |
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### Problem Statement
-
 Many existing food e-commerce platforms suffer from cluttered interfaces, poor filtering logic, or overwhelming product lists that make it difficult for users to find what they need quickly. Smaller or concept-focused stores often lack robust technical foundations, leading to slow performance, inconsistent navigation, or limited functionality.
 
-**Project 4** addresses these issues by offering a streamlined, category-driven shopping experience with smart filters (e.g., by price, rating, food type) and a clean information architecture—ensuring users can browse, compare, and select products with confidence and ease.
+Additionally, template-based implementations can result in generic user experiences with limited customisation and unclear product discovery pathways.
+
+**Project 4** addresses these issues by focusing on a simplified, category-driven shopping experience with clear navigation and structured product discovery—allowing users to browse efficiently and complete purchases with minimal friction.
+
 
 ### Key Features
+- **Custom Category-Based Navigation**: Structured browsing using clearly defined categories such as *Whole Foods*, *Frozen*, *Meat & Poultry*, *Drinks*, and *Deals*.
+- **Dynamic Filtering & Sorting**: Server-side filtering and sorting by category, price, and rating using Django views and ORM queries.
+- **Responsive Product Listings**: Consistent card-based UI displaying product image, name, price, and rating across all devices.
+- **User Authentication**: Secure registration and login system using Django’s built-in authentication framework.
+- **Session-Based Shopping Cart**: Persistent cart functionality using Django sessions, allowing users to maintain state across page reloads.
+- **Streamlined Checkout Flow**: Integrated Stripe payment system with secure payment handling and order confirmation.
+- **Mobile-First Design**: Fully responsive layout optimised for mobile, tablet, and desktop users.
 
-- **Category-Based Navigation**: Organised browsing via *Foods*, *Drinks*, *All Products*, and *Special Offers*.
-- **Dynamic Filtering & Sorting**: Users can filter by subcategory (e.g., *Frozen*, *Meat & Poultry*) and sort by *Price* or *Rating*.
-- **Responsive Product Listings**: Clean, consistent card-based layout with product images, names, prices, and ratings.
-- **User Authentication**: Secure sign-up and login system to manage accounts and preferences.
-- **Persistent Shopping Cart**: Items remain in the cart across sessions (via Django sessions or authenticated user data).
-- **Structured Discovery**: Clear pathways to explore new arrivals, deals, and clearance items.
-- **Mobile-First Design**: Fully responsive UI that works seamlessly on desktops, tablets, and smartphones.
 
 ## Scope Plane
-
 ### Feature Planning
-
 To maintain focus and ensure timely delivery, features for **Project 4** were prioritised based on user needs, technical feasibility, and assignment requirements. The planned features are grouped as follows:
 
 **Core Features (Included in MVP):**
@@ -238,36 +232,81 @@ To maintain focus and ensure timely delivery, features for **Project 4** were pr
 - Form validation for user registration and checkout inputs
 - Error handling and user feedback (e.g., “Item added to cart”, “Payment successful”)
 - Mobile-responsive design using hand-written CSS
+- Email notifications: Automated order confirmation emails are sent after successful Stripe payments using the Gmail API, with secure OAuth 2.0 authentication
 - Basic order association for authenticated users
+
+
+### Feature Justification
+
+| Feature              | Purpose                          | Technical Implementation        | User Benefit                          |
+|---------------------|----------------------------------|---------------------------------|---------------------------------------|
+| Category Navigation | Organise products                | Django views + URL routing      | Faster browsing                       |
+| Dynamic Filtering   | Sort products                    | Django ORM queries              | Relevant product discovery            |
+| Session-Based Cart  | Store cart state                 | Django sessions                 | Seamless shopping                     |
+| Stripe Checkout     | Handle payments                  | Stripe API + webhooks           | Secure transactions                   |
+| Authentication      | Control access                   | Django auth system              | Account security & order tracking     |
 
 **Out-of-Scope (Not Implemented in This Version):**
 - Admin dashboard for managing products (product data is seeded via fixtures or Django admin only)
 - User reviews or ratings submission
-- Email notifications (e.g., order confirmations via email)
 - Inventory/stock-level tracking
 - Password reset or advanced account management
 
-This structured approach ensures a robust, secure, and user-friendly e-commerce experience while staying within project boundaries.
+This structured approach ensures a robust, secure, and user-focused e-commerce experience while maintaining clear project scope and development boundaries.
+
+---
+
+
+### Customisation & Improvements
+Built from an initial course template, Project 4 has been fully redesigned with custom styling, navigation, and features, delivering a unique and user-focused shopping experience.
+
+- Redesigned navigation structure to support supermarket-style browsing
+- Simplified homepage to focus on category-driven discovery
+- Custom product categorisation (e.g., Whole Foods, Frozen, Meat & Poultry)
+- Streamlined checkout flow with reduced steps
+- Improved UI with a minimal black-and-white design for clarity and accessibility
+
+These changes demonstrate a clear departure from the original walkthrough project, showing a fully customised implementation tailored specifically to a food e-commerce use case.
+
+---
+
 
 ### Minimum Viable Product (MVP)
+The **Minimum Viable Product (MVP)** for **Project 4** focuses on delivering a complete end-to-end e-commerce workflow, from product discovery to payment processing.
 
-The **Minimum Viable Product (MVP)** for **Project 4** is a fully functional food e-commerce store built with **Django** and integrated with **Stripe** for real payment processing. It enables users to:
-1. **Browse and filter** food and drink products through intuitive navigation (mirroring the live UI shown in the app).
-2. **View product details** including name, image, price, and category.
-3. **Add items to a shopping cart** that persists during the session and survives page reloads.
-4. **Authenticate securely** to maintain cart state and access order-related features.
-5. **Complete a real checkout flow** using **Stripe Elements**, where:
-   - A payment intent is created server-side in Django
-   - The user enters test card details via Stripe’s secure form
-   - On success, the user sees an order confirmation; on cancellation, they’re redirected appropriately
+The MVP includes the following core components:
 
-Unlike basic demos, this MVP includes **end-to-end payment integration**, making it a production-ready foundation for a real food retail platform. All data is managed through a relational database (SQLite for development), and the application follows Django best practices for security, structure, and scalability.
+1. **Product Discovery**
+   - Category-based navigation using Django views and URL routing
+   - Server-side filtering via ORM queries
+
+2. **Product Interaction**
+   - Product detail pages rendered dynamically from database models
+   - Add-to-cart functionality using Django sessions
+
+3. **User Authentication**
+   - Secure login and registration via Django’s authentication system
+   - Restricted access to checkout for authenticated users
+
+4. **Checkout & Payment**
+   - Stripe PaymentIntent created server-side
+   - Secure card input handled via Stripe Elements
+   - Webhook verification to confirm successful transactions
+
+5. **Order Handling**
+   - Order records created only after verified payment
+   - User linked to each order for future scalability
+   - Automated email confirmation sent to the user after successful payment
+
+This MVP ensures that all critical e-commerce functionality is implemented securely and reliably, forming a strong foundation for future expansion.
+
+This scoped approach ensured that development remained focused on delivering a complete and functional e-commerce experience, while also establishing a clear foundation for future improvements and scalability.
+
 
 ## Structure Plane
-
 ### User Stories
-
-User stories capture the core functionality of **Project 4** from the perspective of real users. Each story follows the format: *“As a [type of user], I want to [perform an action] so that [I achieve a goal].”*
+User stories capture the core functionality of **Project 4** from the perspective of real users. Each story follows the format:  
+*"As a [type of user], I want to [perform an action] so that [I achieve a goal]."*
 
 - **As a guest shopper**, I want to see a clean landing page with clear navigation so I can quickly choose what to browse.
 - **As a visitor**, I want to explore food and drink categories directly from the navbar (e.g., *Foods*, *Drinks*, *Special Offers*) so I don’t have to search blindly.
@@ -275,206 +314,348 @@ User stories capture the core functionality of **Project 4** from the perspectiv
 - **As a returning user**, I want to log in so my cart and session data are preserved.
 - **As a new user**, I want to register easily so I can proceed to checkout securely.
 - **As a customer**, I want to add products to my cart and review them before paying.
-- **As a buyer**, I want to complete payment using Stripe so my transaction is secure and reliable.
+- **As a buyer**, I want to complete payment using **Stripe** so my transaction is secure and reliable.
 - **As a mobile user**, I want the navigation and filters to work smoothly on small screens so I can shop anywhere.
 
-These stories ensured the interface remained focused, intuitive, and aligned with actual shopping behaviour.
+These stories ensured the interface remained **focused, intuitive, and aligned with actual shopping behaviour**.
+
+---
+
 
 ### User Flow Diagram
-
-The user journey in **Project 4** begins with a streamlined landing experience and progresses through intentional browsing—no overwhelming product grids on entry.
+The user journey in **Project 4** begins with a streamlined landing experience and progresses through intentional browsing—avoiding overwhelming product grids on entry.
 
 1. **Landing Page**  
    → User sees only a **hero image** and the **navigation bar**.  
-   → No products are displayed yet—this encourages purposeful exploration via categories.
+   → No products are displayed initially on the landing page—encouraging exploration via categories.
 
 2. **Category Selection**  
    → User clicks a top-level nav item:  
-     - **Foods** → reveals subcategories: *Frozen*, *Whole Foods*, *Meat & Poultry*, or *All Foods*  
-     - **Drinks** → reveals: *Hot Beverages*, *Cold Drinks*, or *All Drinks*  
-     - **All Products** → shows full catalog with sort options (*Price*, *Rating*, *Category*)  
-     - **Special Offers** → displays *New Arrivals*, *Deals*, *Clearance*, or *All Specials*
+   - **Foods** → reveals subcategories: *Frozen*, *Whole Foods*, *Meat & Poultry*, or *All Foods*  
+   - **Drinks** → reveals: *Hot Beverages*, *Cold Drinks*, or *All Drinks*  
+   - **All Products** → shows full catalog with sort options (*Price*, *Rating*, *Category*)  
+   - **Special Offers** → displays, *Deals*, or *SPecial Offers*
 
 3. **Product Listing View**  
-   → After selecting a category/subcategory, the user sees a responsive grid of relevant products with images, names, prices, and ratings.
+   → Displays a responsive grid of relevant products with **images, names, prices, and ratings**.
 
 4. **Product Detail View**  
-   → Clicking a product opens its detail page with full information.
+   → Clicking a product opens its detail page with **full information**.
 
 5. **Cart Management**  
-   → User adds items to cart; cart updates in real time (persisted via session or user account).
+   → User adds items to cart; cart updates in real time (**persisted via session or user account**).
 
 6. **Authentication (Before Checkout)**  
-   → To proceed to payment, the user must be logged in (new users can register at this stage).
+   → Users must log in to proceed to payment. New users can register at this stage.
 
 7. **Stripe Checkout**  
-   → User is taken to a secure checkout page powered by **Stripe Elements**.  
-   → Payment is processed in test mode during development.
+   → User is taken to a **secure checkout page** powered by Stripe Elements.  
+   → Payments are processed securely (test mode during development).
 
 8. **Post-Payment**  
-   - **Success**: User sees a confirmation page with order summary.  
-   - **Cancel/Fail**: User returns to cart with helpful feedback.
+   - **Success**: User sees a confirmation page with **order summary**.  
+   - **Cancel/Fail**: User returns to cart with helpful **feedback message**.
 
 9. **Navigation Freedom**  
-   → At any point, the user can return to the landing state or switch categories using the persistent navbar.
+   → Users can return to the landing page or switch categories at any point using the **persistent navbar**.
 
-This flow prioritises **clarity over clutter**, guiding users from intention (“I want meat”) to action (“I’ve bought it”) without unnecessary steps.
+This flow prioritises **clarity over clutter**, guiding users from intention (“I want meat”) to action (“I’ve bought it”) efficiently and intuitively.
+
+---
+
+
+### User Flow Image
+A visual representation of this flow can be found below:
+
+![User Flow Diagram](media/user_flow_diagram.png)
+
 
 ## System Architecture
-
 ### Frontend Architecture
+The frontend of **Project 4** is built using only core web technologies: **HTML5**, **CSS3**, and **vanilla JavaScript**—with no external UI frameworks. All pages are rendered server-side using Django templates for fast initial loads and maintainability.
 
-The frontend of **Project 4** is built using only core web technologies: **HTML5**, **CSS3**, and **vanilla JavaScript**—with no external UI libraries or frameworks.
+- **HTML**: Provides semantic structure for all pages, including the minimal homepage (hero image + navigation bar) and product/category views.  
+- **CSS**: Handles styling and layout, including custom product cards, buttons, and form elements. Fully responsive across mobile, tablet, and desktop.  
+- **JavaScript**: Used selectively for enhanced interactivity:
+  - Initialising **Stripe Elements** on the checkout page  
+  - Updating cart item counts dynamically  
+  - Providing form validation feedback  
 
-- **HTML** provides semantic structure for all pages, including the minimal homepage (hero image + navigation bar) and product/category views.
-- **CSS** handles all styling, including responsive layouts for mobile and desktop, with custom-designed product cards, buttons, and form elements.
-- **JavaScript** is used sparingly and only where necessary:
-  - Initialising **Stripe Elements** on the checkout page
-  - Basic DOM updates (e.g., cart item count)
-  - Form validation feedback
-- No client-side routing or data fetching—most interactions trigger full page loads via standard HTML forms.
+No client-side routing or complex frameworks are used. Most interactions trigger full page loads through standard HTML forms.
 
-All content is rendered server-side by Django templates, ensuring fast initial load and straightforward maintenance.
+---
 
 ### Backend Architecture
+The backend is built with **Python** and the **Django** web framework, following the **Model-View-Template (MVT)** design pattern.  
 
-The backend is built with **Python** and the **Django** web framework, following the Model-View-Template (MVT) pattern.
-
-- **Models** define the core data:
-  - `Product`: name, description, price, category (e.g., "Foods"), subcategory (e.g., "Frozen"), image URL, rating
-  - `User`: Django’s built-in authentication system
-  - `Order`: stores completed purchases, linked to user and Stripe payment ID
-- **Views** handle all logic using function-based views:
-  - Render homepage, category pages, and product details
-  - Process user registration/login via POST forms
-  - Manage cart state using Django sessions (for guests) or user accounts
-  - Initiate Stripe checkout and handle redirects
-- **URLs** are clean and intuitive:
+- **Models**: Define core data structures
+  - `Product`: name, description, price, category, subcategory, image URL, rating  
+  - `User`: Django’s built-in authentication system  
+  - `Order`: stores completed purchases, linked to the user and Stripe payment ID  
+- **Views**: Handle business logic via function-based views
+  - Render homepage, category pages, and product details  
+  - Process user registration/login via POST forms  
+  - Manage cart state (via Django sessions for guests or user accounts)  
+  - Initiate Stripe checkout and handle post-payment redirects  
+- **URLs**: Clean, semantic, and user-friendly
   - `/` → homepage  
   - `/foods/frozen/` → frozen food listings  
-  - `/checkout/` → payment page
+  - `/checkout/` → payment page  
 - **Security**:
-  - CSRF protection on all forms
-  - Passwords hashed automatically
-  - Sensitive keys (e.g., Stripe, Gmail) stored in environment variables
-- **Database**: SQLite for development, defined entirely through Django models.
+  - CSRF protection on all forms  
+  - Passwords hashed automatically using Django’s authentication system  
+  - Sensitive keys (Stripe, Gmail API) stored securely in environment variables  
+- **Database**: SQLite used for development; all schema defined via Django models  
 
-### API Design & Endpoints
+---
 
-**Project 4 does not expose a public REST API** for products, users, or cart management. Instead, it uses **two external APIs** for specific functionality:
 
-1. **Stripe API**  
-   Used to process payments securely:
-   - **`/create-checkout-session/`** (POST):  
-     Server-side view that creates a Stripe PaymentIntent using the Stripe Python SDK. Returns a session ID or `client_secret` to the frontend.
-   - **`/webhook/stripe/`** (POST):  
-     Receives signed events from Stripe (e.g., `payment_intent.succeeded`). Verifies the signature and updates the order status accordingly.
+### MVT Layer Mapping
 
-2. **Gmail API (via Google OAuth)**  
-   Used to send automated order confirmation emails:
-   - After a successful payment, the backend uses the **Gmail API** (authenticated via a service account or OAuth 2.0) to send a formatted email to the customer.
-   - This avoids relying on third-party email services and leverages Google’s secure email infrastructure.
+| Layer      | Responsibility | Example |
+|-----------|----------------|---------|
+| **Model**     | Data structure | `Product`, `Order`, `User` |
+| **View**      | Business logic | Category page rendering, Stripe checkout |
+| **Template**  | Presentation   | Homepage, product detail pages, cart view |
 
-> No internal JSON APIs were built for product listing or cart updates—all data is rendered directly in HTML templates. This keeps the architecture simple, secure, and focused on the core e-commerce flow.
+---
+
+
+### External Integrations
+- **Stripe API**: Handles secure payments via PaymentIntent and webhooks  
+- **Gmail API**: Sends automated order confirmation emails using OAuth 2.0 authentication  
+
+---
+
+### Tech Stack Summary
+
+| Layer         | Technologies Used                  |
+|---------------|-----------------------------------|
+| Frontend      | HTML5, CSS3, vanilla JavaScript   |
+| Backend       | Python, Django (MVT)              |
+| Database      | SQLite (development)              |
+| Payments      | Stripe API                        |
+| Emails        | Gmail API with OAuth 2.0          |
+| Hosting       | Heroku                             |
+
+---
+
+
+### Architecture Diagram
+![System Architecture](media/system_architecture.png)  
+*Placeholder diagram showing frontend, backend, database, and external integrations.*  
+
+---
+
+
+### Notes on Performance & Scalability
+- Server-side rendering ensures fast initial page loads and simple caching.  
+- The architecture can scale to PostgreSQL or another relational database for production.  
+- Future improvements may include caching product queries, load balancing, or integrating a REST API for headless frontend usage.  
+
+
+## API Design & Endpoints
+**Project 4 does not expose a public REST API** for products, users, or cart management. Instead, it relies on **two external APIs** for essential functionality:
+
+
+### 1. Stripe API
+Handles secure payment processing:
+
+| Endpoint                    | Method | Description |
+|------------------------------|--------|-------------|
+| `/create-checkout-session/`  | POST   | Creates a Stripe PaymentIntent via the Stripe Python SDK. Returns a session ID or `client_secret` to the frontend. |
+| `/webhook/stripe/`           | POST   | Receives signed Stripe events (e.g., `payment_intent.succeeded`). Verifies the signature and updates order status. |
+
+> All payment logic is server-side to prevent exposing sensitive keys or logic on the frontend.
+
+
+### 2. Gmail API (via Google OAuth)
+Sends automated order confirmation emails:
+
+- Triggered after successful Stripe payments.
+- Uses Gmail API with OAuth 2.0 to send formatted emails to customers.
+- Avoids reliance on third-party email services and leverages Google’s secure infrastructure.
+
+> No internal JSON APIs exist for product listing or cart updates—all content is rendered directly via **Django templates** for simplicity and security.
+
+---
+
 
 ## Database Design
+### Schema Overview
+Project 4 uses a **relational database** managed through Django’s ORM (SQLite for development). The core tables are:
 
-### Database Schema
+| Table                  | Purpose |
+|------------------------|---------|
+| `auth_user`            | Built-in Django user model for authentication |
+| `products_product`     | Stores product details (name, category, subcategory, price, image URL, rating) |
+| `orders_order`         | Stores completed orders linked to authenticated users and Stripe payment IDs |
 
-Project 4 uses a lightweight relational database managed by Django’s ORM with SQLite as the development backend. The schema is intentionally minimal and centres around three core tables: `auth_user` (Django’s built-in user model), `products_product`, and `orders_order`. All tables are defined through Django models and created via standard migrations, ensuring consistency between code and database structure without manual SQL.
+> Cart data is session-based and transformed into an `Order` record upon successful payment. Guest users cannot create permanent orders.
+
+---
+
 
 ### Models & Relationships
+- **User ↔ Order**: One-to-many; each user may have multiple orders.  
+- **Order ↔ Product**: Indirect many-to-many via session-based cart at checkout.  
+- **Product**: Standalone reference table containing all food and drink items.  
+- **Cart**: No separate model; stored in session until checkout, simplifying the database.
 
-The `Product` model stores essential food and drink item details including name, description, price, category (e.g., "Foods" or "Drinks"), subcategory (such as "Frozen", "Meat & Poultry", or "Hot Beverages"), an image URL, and a numerical rating—fields that directly enable the navigation and filtering seen in the live interface. The `Order` model is created only after a successful Stripe payment and includes the unique `stripe_payment_intent_id`, total amount, currency, status, timestamp, and a foreign key linking to the authenticated user. Guest users are supported via session-based cart management, but orders are only finalised for logged-in users to ensure account association. There is no separate `Cart` or `OrderItem` model; instead, cart contents are held in Django sessions until checkout, at which point a single `Order` record is created, keeping the data model simple and focused.
+---
+
 
 ### Data Validation & Integrity
+- Django model validators enforce:
+  - Non-negative prices (`MinValueValidator`)  
+  - Ratings restricted to 1–5 range  
+  - Required fields (`name`, `price`) cannot be empty
+- Stripe webhook safeguards:
+  - Event signatures verified  
+  - Duplicate orders prevented via `payment_intent_id` idempotency  
+- Session data securely signed to prevent tampering.
 
-Data integrity is enforced at the model level using Django’s built-in validation. Prices are restricted to non-negative values using `MinValueValidator`, ratings are constrained to a 1–5 range, and critical fields like `name` and `price` are marked as required. The Stripe webhook endpoint (`/webhook/stripe/`) further safeguards data consistency by verifying incoming event signatures with Stripe’s official library and checking whether a `payment_intent_id` has already been processed before creating a new order—this idempotency measure prevents duplicate orders in case of webhook retries. Session data for guest carts is securely signed and stored server-side by default, protecting against tampering.
+---
+
 
 ### Schema Diagram
+![Database Schema](media/database_schema_p4.png)  
+*Visual representation of core tables, relationships, and associations in Project 4.*
 
-While a visual entity-relationship diagram was not generated programmatically, the logical structure is straightforward: the `User` table (from Django auth) has a one-to-many relationship with `Order`; each `Order` references one or more products indirectly via session data at checkout; and `Product` stands as a standalone reference table with no outgoing foreign keys. This clean, minimal design supports all required functionality—browsing, filtering, authentication, cart persistence, and secure payment—without unnecessary complexity.
+---
+
+
+### Notes
+- The schema is **minimal and secure**, supporting all core functionality: browsing, filtering, authentication, cart persistence, and payments.  
+- Future scalability: can accommodate reviews, inventory tracking, multiple payment providers, or migration to PostgreSQL/MySQL for production.
+
 
 ## Authentication & Authorisation
+### User Registration & Logic
+Project 4 implements user authentication using Django’s built-in `auth` system, providing **secure and standards-compliant registration and login functionality**.
 
-### User Registration & Login
+- **Registration**: Users create an account by submitting a form with a username, email, and password.  
+  - Passwords are **hashed automatically using PBKDF2** before storage.  
+  - Sensitive credentials are **never saved in plain text**.  
+- **Login**: Validates credentials against the database and establishes an authenticated session using Django’s session framework.  
+- **Security Features**:  
+  - CSRF protection is enabled on all forms.  
+  - Error messages provide helpful, non-revealing feedback for failed attempts.  
+  - Sessions expire after inactivity in line with Django defaults.  
+- All authentication views are served via **server-rendered templates**; form submissions use standard POST requests.
 
-Project 4 implements user authentication using Django’s built-in `auth` system, providing secure and standards-compliant registration and login functionality. New users can create an account by submitting a registration form that collects a username, email, and password; passwords are automatically hashed using PBKDF2 before storage, ensuring sensitive credentials are never saved in plain text. The login process validates credentials against the database and establishes an authenticated session using Django’s session framework. All authentication views are served via server-rendered templates, with form submissions handled through standard POST requests. CSRF protection is enabled by default on all forms to prevent cross-site request forgery attacks, and error messages provide helpful—but not overly revealing—feedback in case of failed attempts.
 
 ### Permissions & Access Control
+Project 4 uses a **role-based access model**:
 
-Access control in Project 4 follows a simple but effective role-based model: all visitors can browse products and add items to a session-based cart, but only authenticated users can proceed to checkout and complete a payment via Stripe. This ensures that every order is linked to a verified user account, enabling future features like order history or account management. No administrative or staff roles are implemented in this version, so there are no elevated permissions beyond standard user access. Sensitive views—such as the checkout page and order confirmation—are protected using Django’s `@login_required` decorator, which redirects unauthenticated users to the login page. Session data is managed securely using signed cookies, and user sessions expire after a period of inactivity, in line with Django’s default security settings. Overall, the approach balances usability with security, granting open access to browsing while reserving critical actions for verified users.
+- **Guest users**: Can browse products and add items to a session-based cart.  
+- **Authenticated users**: Required to proceed to checkout and complete Stripe payments, ensuring each order is linked to a verified user account.  
+- **Sensitive Views**: Checkout and order confirmation pages are protected with Django’s `@login_required` decorator.  
+- **Session Management**: Session data is stored securely using signed cookies.  
+
+> This approach balances usability with security, granting open browsing while restricting critical actions to verified users.
+
+---
+
 
 ## Skeleton Plane (Wireframes)
+### Wireframes Overview
+Wireframes were developed early in the design process to map core user interactions and layout structure **before coding**. They follow a **mobile-first, low-fidelity approach**, prioritising clarity, hierarchy, and usability.
 
-### Wireframes
+- **Homepage Wireframe**: Full-width hero image with a persistent top navigation bar. Minimal content to encourage exploration via category links.  
+- **Product Listing Pages**: Responsive grid of product cards with **name, image, price, and rating**. Filtering options appear in the top navigation.  
+- **Product Detail Page**: Larger image, detailed description, price, and “Add to Cart” button.  
+- **Checkout Flow**: Cart summary followed by secure card input using **Stripe Elements**.
 
-<img src="media/wireframes_one.png" alt="wireframes number one">
-<img src="media/wireframes_two.png" alt="wireframes number two">
+### Wireframe Images
 
-The wireframes for Project 4 were developed early in the design process to map out core user interactions and layout structure before any code was written. They reflect a mobile-first approach, prioritising clarity, usability, and alignment with the intended navigation flow. The homepage wireframe features only a full-width hero image and a persistent top navigation bar—intentionally minimal to encourage users to explore via category links rather than overwhelming them with content. Subsequent wireframes detail the product listing pages, showing a responsive grid of product cards displaying name, image, price, and rating, with filtering options accessible through the same navigation bar used on the homepage. The product detail page wireframe includes space for a larger image, description, price, and an “Add to Cart” button. The checkout flow is represented by a single dedicated screen that integrates Stripe Elements for secure card input, preceded by a cart summary view. All wireframes were sketched digitally using basic shapes and placeholders to focus on layout, hierarchy, and user flow—not visual design. These low-fidelity blueprints ensured that development remained focused on functionality and user experience, directly informing the final HTML structure and Django template organisation.
+<img src="media/wireframes_one.png" alt="Project 4 homepage and product listing wireframe">
+<img src="media/wireframes_two.png" alt="Project 4 checkout and product detail wireframe">
 
+> These low-fidelity blueprints guided development, ensuring HTML and Django templates aligned with intended navigation and user flows.
 
+---
 
 
 ## Surface Plane (UI Design)
-
-<img src="media/mobile_first_design.png" alt="mobile first design">
-<img src="media/search_feature.png" alt="search feature">
-<img src="media/verify_email_address.png" alt="verify email">
-<img src="media/dynamic_filtering.png" alt="filtering feature">
-<img src="media/all_products_nav.png" alt="all products">
+### Mobile-First Design
+- Fully responsive across **mobile, tablet, and desktop**.  
+- Interactive elements like filters and cart updates work seamlessly on small screens.  
+- Wireframes informed final HTML and CSS layout structures.
 
 
-media/verify_email_address.png
 ### Colour Scheme
+- **Primary palette**: White (#FFFFFF) and Black (#000000) for maximum contrast.  
+- **Accent**: Vibrant yellow hero image on the homepage as a visual anchor.  
+- Minimalist palette improves **readability, focus, and accessibility**. 
 
-The colour scheme for Project 4 is intentionally minimal and high-contrast, built primarily around **pure white (#FFFFFF) and black (#000000)** to create a clean, modern, and distraction-free shopping experience. This stark palette ensures maximum readability and puts full focus on product content and navigation. The only deliberate accent is a **vibrant yellow hero image** on the homepage, which serves as a bold visual anchor and emotional hook—evoking energy, freshness, and appetite without introducing additional UI colours. No other coloured elements are used in buttons, text, or backgrounds; interactive states (like hover effects) are indicated through subtle changes in opacity or underlines rather than colour shifts. This restrained approach reinforces simplicity, aligns with the project’s minimalist philosophy, and ensures strong accessibility through consistent contrast.
 
 ### Typography
+- System fonts: `system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`.  
+- Clear hierarchy:  
+  - Headings: 24–28px bold  
+  - Product names: 18px bold  
+  - Body text: 16px regular  
+- No decorative fonts, italics, or unnecessary styles. Focused purely on **clarity and usability**.
 
-Typography follows a no-frills, highly legible approach using system-default fonts to maintain performance and consistency across devices. The font stack is defined as `system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`, ensuring native rendering without external dependencies. All text appears in **black on a white background**, with clear hierarchy established through size and weight alone: headings use bold 24–28px type, product names appear at 18px bold, and body text (including prices and descriptions) is set at 16px regular weight. Line spacing and generous padding prevent visual crowding, especially on product listing pages. No custom fonts, italics, or decorative styles are used—typography exists purely to communicate information clearly and efficiently.
 
 ### Imagery & Icons
+- **Hero image**: Bright yellow, minimal graphics.  
+- Product photography: Plain white background, consistent lighting.  
+- No external icon libraries used; functional cues via **text labels or Unicode symbols**.  
 
-Imagery is used purposefully and sparingly. The **hero image—a bright yellow background with minimal or no additional graphics—dominates the homepage**, creating immediate visual impact while keeping the layout uncluttered. Product pages feature simple, consistent photography: each item is displayed against a plain white background with even lighting to ensure clarity and uniformity across the catalogue. No icons from external libraries are used; instead, functional cues are conveyed through text labels (e.g., “Add to Cart”) or basic Unicode symbols where appropriate. Buttons and navigation rely on typography and spacing—not iconography—to signal interactivity. This disciplined use of imagery keeps load times low and maintains the project’s focus on usability over decoration.
+<img src="media/mobile_first_design.png" alt="Mobile-first homepage design">
+<img src="media/search_feature.png" alt="Search and filter feature">
+<img src="media/verify_email_address.png" alt="Email verification process">
+<img src="media/dynamic_filtering.png" alt="Dynamic filtering feature">
+<img src="media/all_products_nav.png" alt="All Products navigation layout">
+
+---
+
 
 ## Features
-
 ### User Dashboard
+- No traditional dashboard implemented in this version.  
+- After authentication, users proceed directly to checkout and receive an **order confirmation**.  
+- Streamlined approach prioritises the **core shopping journey**.  
+- Future iterations may include order history or saved preferences.
 
-Project 4 does not include a traditional user dashboard with order history or account management. Instead, after successful authentication, users are able to proceed directly to checkout and receive immediate confirmation of their purchase on a dedicated success page. This streamlined approach prioritises the core shopping journey over secondary features, keeping the scope focused and development manageable. While future iterations could introduce a dashboard to display past orders or saved preferences, the current version ensures that user accounts serve their essential purpose: enabling secure, traceable transactions linked to a verified identity.
 
-### Search, Filter
+### Search & Filter
+- **Category-driven filtering** via top navigation: Foods, Drinks, All Products, Special Offers.  
+- Subcategory options appear on click or hover (e.g., Frozen, Meat & Poultry).  
+- Sort products by **price (low to high)** or **customer rating**.  
+- Server-side filtering ensures **fast and reliable results** without client-side complexity.  
 
-Navigation and filtering are central to the user experience in Project 4. Rather than a general search bar, the interface uses a **structured, category-driven filtering system** accessible through the persistent top navigation bar. Users can browse by main categories—**Foods**, **Drinks**, **All Products**, and **Special Offers**—each revealing relevant subcategories on click or hover (e.g., *Frozen*, *Meat & Poultry* under Foods; *Hot Beverages*, *Cold Drinks* under Drinks). On the “All Products” and “Special Offers” pages, users can further sort items by **price (low to high)** or **customer rating**. This intentional design reduces cognitive load by guiding users through logical pathways instead of overwhelming them with open-ended search, aligning with the minimalist ethos of the site. All filtering is handled server-side via Django views, ensuring fast, reliable results without client-side complexity.
 
 ### Error Handling & Feedback
+- **Forms**: Inline error messages for missing fields or password mismatches.  
+- **Checkout**: Failed or cancelled Stripe payments redirect users to the cart with **descriptive alerts**.  
+- **Success messages**: Adding to cart or completing purchases triggers immediate feedback.  
+- Edge cases handled gracefully (404 pages, unauthenticated access prompts).
 
-Clear and helpful feedback is provided at key interaction points to enhance usability and prevent confusion. Form errors—such as mismatched passwords during registration or missing fields—are displayed inline with descriptive messages. During checkout, if a Stripe payment fails or is cancelled, the user is redirected back to the cart with a visible alert explaining what happened. Successful actions, like adding an item to the cart or completing a purchase, trigger immediate visual confirmation—either through page-level success messages or a dedicated order confirmation screen. The site also handles edge cases gracefully: invalid URLs return a standard 404 page, and unauthenticated users attempting to access checkout are redirected to the login page with a contextual prompt. These measures ensure that users always understand the system’s state and can recover from mistakes easily.
+> These measures ensure users always understand the system state and can recover from mistakes easily.
+
 
 ## Frontend Implementation
-
 ### Templates & Components
-
 The frontend of Project 4 is built entirely using **Django’s templating system** with hand-written **HTML5 and CSS3**. There are no external UI libraries or component frameworks—every element is crafted from scratch to ensure full control and minimal overhead. A base template (`base.html`) defines the shared structure, including the persistent navigation bar and consistent page layout, which all other pages extend using Django’s `{% extends %}` and `{% block %}` syntax. The homepage template renders only a full-width hero image and the navigation bar, reflecting the intentional minimalism of the landing experience. Product listing and detail pages dynamically inject content into this structure using context data passed from Django views, ensuring that category filters, product cards, and pricing are rendered server-side with no client-side data fetching. Each product card follows a uniform design—image, name, price, and rating—styled consistently through a single CSS file. This template-driven approach keeps the frontend simple, fast-loading, and tightly integrated with the backend logic.
 
-### Client-Side Logic
 
+### Client-Side Logic
 Client-side interactivity is limited to essential enhancements using **vanilla JavaScript**, with no dependencies or build tools. A small script is included only on the checkout page to initialise **Stripe Elements**, securely loading Stripe’s JavaScript library from their official CDN and mounting the card input field. Elsewhere, JavaScript is used sparingly: a lightweight function toggles the mobile menu on smaller screens, and another updates the cart item count in the navigation bar when items are added (via DOM manipulation after form submission). Form validation for registration and login is handled primarily by Django server-side, but basic front-end checks (e.g., password length, required fields) provide immediate feedback without full page reloads. No AJAX calls are used for product browsing or cart updates—all interactions rely on standard HTML form submissions and full-page rendering, prioritising simplicity and reliability over dynamic behaviour. This restrained use of client-side logic ensures the site remains accessible, maintainable, and performant across all devices.
 
+
 ## Backend Implementation
-
 ### Views / Controllers
-
 The backend of Project 4 is implemented using **Django’s function-based views**, which handle all routing and rendering logic in a clear and maintainable way. Each URL path maps directly to a view that processes the request, retrieves or manipulates data, and returns an appropriate HTTP response. The homepage view renders only the hero image and navigation bar, while category-specific views—such as `foods_view`, `drinks_view`, or `specials_view`—filter products by category and subcategory using simple ORM queries (e.g., `Product.objects.filter(category='Foods', subcategory='Frozen')`). The product detail view fetches a single item by ID, and the checkout view handles both cart display and Stripe session creation. Authentication views leverage Django’s built-in `LoginView` and custom registration logic, ensuring secure user handling without reinventing core functionality. All views pass contextual data to templates using standard Python dictionaries, keeping the separation between logic and presentation clean and readable.
 
-### Business Logic
 
+### Business Logic
 Core business logic is embedded within views and model methods, following Django best practices for simplicity and testability. Cart management is handled through **Django sessions**: when a user adds an item, the product ID and quantity are stored in the session dictionary, and this data persists across page loads until checkout. During checkout, the system validates that the cart is not empty and that the user is authenticated before proceeding. The Stripe integration is managed entirely server-side: the `/create-checkout-session/` view uses the Stripe Python SDK to create a `PaymentIntent` with the correct amount and currency, then returns the client secret to the frontend for confirmation. After payment, the Stripe webhook endpoint verifies the event signature and, upon receiving a `payment_intent.succeeded` event, creates a permanent `Order` record linked to the user and payment intent ID. This ensures that orders are only recorded for genuine, verified transactions. No complex workflows or external services are used—business rules remain focused, auditable, and tightly coupled to the actual user journey.
 
-## Testing
 
+## Testing
 A comprehensive testing strategy was applied throughout the development of Project 4 to ensure reliability, usability, and correctness. Full details of all test activities—including manual test cases, automated unit/integration tests, and front-end validation checks—are documented in a dedicated file:
 
 ➡️ **[View full testing report](TESTING.md)**
@@ -486,65 +667,134 @@ This includes:
 
 The `testing.md` file serves as the complete audit trail for quality assurance in this project.
 
-## Security Considerations
 
-### Data Protection
+## Security, Deployment & Technology
+### Security Considerations
+#### Data Protection
+Project 4 follows core web security best practices to protect user data and maintain system integrity:
 
-Project 4 follows core web security best practices to protect user data and maintain system integrity. All user passwords are automatically hashed using Django’s default PBKDF2 algorithm—never stored in plain text. Sensitive operations, such as login and registration, are protected against cross-site request forgery (CSRF) using Django’s built-in middleware, which validates tokens on all POST requests. Session data—including guest cart contents—is stored securely using signed cookies, preventing client-side tampering. The Stripe integration is implemented in a PCI-compliant manner: payment details are entered directly into Stripe Elements (loaded from Stripe’s official CDN), meaning **no card data ever touches the Django application or database**. Orders are only created after verifying Stripe webhook signatures using the `stripe.Webhook.construct_event()` method, ensuring that payment events originate from Stripe and not a malicious source. Additionally, all user-facing forms include basic validation to prevent malformed or excessive input, reducing the risk of injection attacks.
-
-### Environment Variables
-
-All sensitive configuration data is kept out of the codebase and managed through environment variables. This includes the Django `SECRET_KEY`, `DEBUG` setting, database credentials (if used in production), Stripe API keys (`STRIPE_PUBLIC_KEY` and `STRIPE_SECRET_KEY`), and Gmail API credentials (such as OAuth client ID or service account details). These values are loaded at runtime using Python’s `os.getenv()` or a lightweight package like `python-decouple` (if used), ensuring that secrets are never committed to version control. A `.env.example` file is included in the repository to document required variables without exposing actual values. This approach aligns with the Twelve-Factor App methodology and significantly reduces the risk of accidental credential leakage during development or deployment.
-
-## Accessibility
-
-Project 4 prioritises basic web accessibility to ensure the site is usable by as many people as possible. The markup follows semantic HTML5 principles: headings are used in a logical hierarchy (`<h1>` for page titles, `<h2>` for sections), navigation is wrapped in a `<nav>` element, and product listings are structured within `<main>` and `<section>` tags. All interactive elements—such as links and buttons—are keyboard-navigable and display visible focus states using default browser outlines or custom CSS that maintains sufficient contrast. Form labels are explicitly associated with their inputs using the `for` and `id` attributes, ensuring screen readers can correctly announce field purposes. Images include descriptive `alt` attributes (e.g., “Organic bananas, bunch of six”); decorative images like the yellow hero background use empty `alt=""` to be ignored by assistive technology. Colour contrast between text and background meets WCAG AA standards, leveraging the high-contrast black-on-white palette for optimal readability. While advanced ARIA roles or dynamic announcements (e.g., for cart updates) were not implemented due to the project’s scope, the foundation remains solid, semantic, and compatible with standard screen readers and assistive tools.
-
-## Deployment & Local Development
-
-### Deployment
-
-Project 4 is designed to be deployable to any platform that supports Python and Django applications, such as **Render**, **Railway**, or **Heroku**. The current setup uses **SQLite** for development, but the settings are structured to easily switch to **PostgreSQL** in production by updating the `DATABASES` configuration. Static files (CSS, images) are served via Django’s built-in static file handling during development and can be configured for CDN or cloud storage in production. Environment variables are used for all sensitive settings, ensuring secrets like `SECRET_KEY` and `STRIPE_SECRET_KEY` are never exposed in code. The application includes a `requirements.txt` file listing all Python dependencies, enabling one-command installation in any environment. While not yet deployed publicly, the project follows deployment-ready conventions, including proper `.gitignore` rules and separation of settings for different environments.
-
-### Environment Configuration
-
-All sensitive and environment-specific values are managed through **environment variables**, not hardcoded in source files. These include `SECRET_KEY`, `DEBUG`, `STRIPE_PUBLIC_KEY`, `STRIPE_SECRET_KEY`, and Gmail API credentials. A `.env.example` file is included in the repository to document required variables, while the actual `.env` file is excluded from version control via `.gitignore`. At runtime, these values are loaded using Python’s `os.getenv()` (or a minimal loader like `python-decouple` if used). The `DEBUG` setting is explicitly set to `False` in production-like configurations to prevent leakage of internal system details. This approach ensures the same codebase can run securely across local, staging, and production environments with only configuration changes.
-
-### Local Development Setup
-
-To run Project 4 locally, you’ll need Python 3.10+ and pip installed on your machine. The project uses a virtual environment to isolate dependencies, ensuring consistent behaviour across systems.
-
-#### How to Fork
-
-To create your own copy of the repository, go to the project’s GitHub page and click the **Fork** button in the top-right corner. This will create a personal copy under your GitHub account, allowing you to make changes without affecting the original.
+- **Password Security**: All user passwords are hashed using Django’s PBKDF2 algorithm—never stored in plain text.
+- **CSRF Protection**: All sensitive operations (login, registration) are protected via Django’s built-in CSRF middleware.
+- **Session Security**: Guest cart data is stored in signed cookies, preventing client-side tampering.
+- **PCI Compliance**: Stripe Elements handles all card input; no payment data is stored on the server or in the database.
+- **Webhook Verification**: Stripe webhook events are verified using `stripe.Webhook.construct_event()` to prevent fraudulent order creation.
+- **Input Validation**: All forms include server-side validation; front-end checks provide instant feedback on invalid inputs.
 
 
-#### How to Clone
+#### Environment Variables
+All sensitive configuration data is kept outside the codebase and loaded at runtime using `os.getenv()` or optionally `python-decouple`:
 
-Once forked (or if cloning the original), open your terminal and run:  
--bash
-git clone https://github.com/your-username/project_four_2025.git
-cd project-4
+- Django `SECRET_KEY` and `DEBUG`
+- Database credentials (for production)
+- Stripe API keys (`STRIPE_PUBLIC_KEY`, `STRIPE_SECRET_KEY`)
+- Gmail API OAuth credentials
+
+A `.env.example` file documents required variables without exposing actual secrets.
+
+---
+
+
+### Accessibility
+Project 4 follows basic web accessibility standards:
+
+- Semantic HTML5 structure (`<h1>`, `<h2>`, `<nav>`, `<main>`, `<section>`)
+- Keyboard-navigable elements with visible focus states
+- Explicit `<label>` associations for form fields
+- Descriptive `alt` attributes for images; decorative images use `alt=""`
+- High-contrast black-on-white colour scheme for readability and WCAG AA compliance
+- Foundations support screen readers and assistive technologies
+
+---
+
+
+### Deployment & Local Development
+#### Deployment
+Project 4 can be deployed to any platform supporting Python/Django (e.g., **Render**, **Railway**, **Heroku**):
+
+- **Database**: SQLite for development; easily switchable to PostgreSQL for production.
+- **Static Files**: Served via Django during development; configurable for CDN/cloud storage in production.
+- **Dependencies**: Listed in `requirements.txt` for one-command installation.
+- **Environment Variables**: Used for all sensitive keys, never exposed in code.
+- Deployment-ready conventions applied (proper `.gitignore`, environment separation).
+
+
+#### Deployment Diagram
+![Deployment Diagram](media/p4_deployemnt.png)
+*Illustrates local development, environment variables, staging/production, and external integrations (Stripe, Gmail API).*
+
+
+#### Local Development Setup
+To run Project 4 locally:
+
+1. Fork the repository on GitHub or clone directly:
+   ```bash
+   git clone https://github.com/your-username/project_four_2025.git
+   cd project_four_2025
+
+2. Create and activate a virtual environment:
+   python -m venv venv
+   source venv/bin/activate   # macOS/Linux
+
+3. Install dependencies:
+   pip install -r requirements.txt
+
+4. Apply migrations:
+   python manage.py migrate
+
+5. Run the development server:
+python manage.py runserver
+
+6. Access the project at http://127.0.0.1:8000/.
+<img src="media/p4_deployment_diagram.png" alt="Django Development Diagram">
 
 
 ## Technologies Used
-
 ### Languages
+- **Python**: Backend logic and Django framework  
+- **HTML5**: Semantic document structure  
+- **CSS3**: Styling and responsive layouts  
+- **Vanilla JavaScript**: Minimal client-side interactivity (mobile menu toggle, cart updates, Stripe Elements)  
 
-Project 4 is built using core web languages: **Python** for all backend logic and server-side processing, **HTML5** for semantic document structure, **CSS3** for styling and responsive layout, and **vanilla JavaScript** for minimal client-side interactivity. No transpiled or alternative languages—such as TypeScript, Sass, or JSX—were used, ensuring the codebase remains transparent, accessible, and straightforward to debug. Python drives Django’s models, views, and URL routing, while HTML, CSS, and JavaScript work in harmony to deliver a fast, semantic, and mobile-friendly user interface.
 
 ### Frameworks & Libraries
+- **Django 5.x**: Backend, ORM, templating, authentication, security  
+- **Stripe Python SDK + Stripe.js (v3)**: Payment processing  
+- **Python-Decouple (optional)**: Environment variable management  
+- No frontend frameworks (React/Vue) or UI libraries (Bootstrap/Tailwind) used  
 
-The project relies exclusively on **Django 5.x** as the backend framework, leveraging its built-in features for authentication, ORM, templating, and security. Payment functionality is implemented using the official **Stripe Python SDK** to create and verify payment intents server-side, while **Stripe.js (v3)** is loaded securely from Stripe’s CDN on the checkout page to handle card input without exposing sensitive data. No frontend frameworks (e.g., React or Vue) or UI libraries (e.g., Bootstrap or Tailwind CSS) are used—styling is hand-coded in plain CSS to maintain full control and minimise dependencies. Similarly, only essential Python packages are included (notably `stripe` and optionally `python-decouple` for environment variable management), keeping the project lightweight and focused.
 
 ### Tools & Services
+- **Visual Studio Code**: Development  
+- **Git & GitHub**: Version control  
+- **SQLite**: Local development database  
+- **Stripe API**: Payment processing  
+- **Gmail API (OAuth 2.0)**: Order confirmation emails  
 
-Development was carried out in **Visual Studio Code**, with Git integration for version control via **GitHub**. The application uses **SQLite** as the local database during development, with schema changes managed entirely through Django migrations. For external services, **Stripe** handles all payment processing in test mode, and the **Gmail API** (authenticated via Google Cloud OAuth) is used to send order confirmation emails. Sensitive configuration is stored in a `.env` file (excluded from version control), and project dependencies are clearly listed in `requirements.txt`. The workflow remains deliberately simple—no bundlers, linters, or CI/CD pipelines were implemented—to prioritise clarity and core full-stack learning outcomes.
+---
+
 
 ## Future Enhancements
+- **User Dashboard**: View order history, save favourites, manage accounts  
+- **Global Search Bar**: Keyword search across products  
+- **Persistent Guest Cart**: Local storage or database-backed sessions  
+- **Inventory Tracking**: Real-time stock levels  
+- **User Reviews & Ratings**: Collect feedback and display ratings  
+- **Enhanced Admin Interface**: Allow non-technical staff to manage products  
+- **Production Database**: Migrate to PostgreSQL  
+- **Automated Testing & CI/CD**: Expand coverage, automate deployment  
 
-While Project 4 delivers a complete and functional food e-commerce experience, several enhancements could be introduced in future iterations to improve usability, scalability, and user engagement. A dedicated **user dashboard** would allow customers to view order history, save favourite items, and manage account details. Adding a **global search bar** would enable keyword-based discovery across all product categories. The cart system could be enhanced to support **persistent storage for guest users** using browser local storage or a lightweight database-backed session model, and **real-time inventory tracking** could prevent overselling of popular items. Additional features might include **user-submitted reviews and ratings**, **automated email notifications** (via the Gmail API) for order confirmations and shipping updates, and a custom **admin interface** for non-technical team members to manage products. On the technical side, migrating to **PostgreSQL** for production, expanding **automated test coverage**, and introducing a basic **CI/CD pipeline** would further strengthen reliability and maintainability—all while preserving the project’s clean, minimalist architecture.
+> All enhancements will maintain the minimalist, user-focused architecture.  
+
+---
+
 
 ## Credits & Acknowledgments
+Project 4 was developed independently as part of a full-stack web development assignment. Special thanks to:
 
-Project 4 was developed independently as part of a full-stack web development assignment. I would like to acknowledge the open-source communities behind **Django**, **Python**, and **Stripe** for providing robust, well-documented, and secure tools that made this project possible. Special thanks to the creators of **Visual Studio Code** for an excellent, accessible development environment, and to **Google** for the clear documentation and reliable infrastructure of the **Gmail API** and **OAuth 2.0** system. All product images used in the application are either original placeholders or sourced from royalty-free repositories for educational purposes only. This project reflects my own implementation, problem-solving, and understanding of full-stack principles—built with care, attention to detail, and a commitment to both user experience and technical integrity.
+- **Django & Python**: Robust, secure frameworks  
+- **Stripe**: PCI-compliant payment infrastructure  
+- **Visual Studio Code**: Development environment  
+- **Google & Gmail API**: Secure email automation  
+- Product images are placeholders or royalty-free sources  
+
+This project reflects a personal implementation with **emphasis on usability, security, and maintainable full-stack architecture**.
