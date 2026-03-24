@@ -1,7 +1,7 @@
 # Project 4 – Food E-Commerce Store
 
 ## Introduction
-<img src="media/banner_header_readme.png" alt="grocery store with phone">
+<img src="media/banner_header_readme_supermarket.png" alt="grocery store with phone">
 
 
 **Project 4** is a full-stack e-commerce web application designed to provide a modern and seamless online shopping experience for food products. Unlike the original course walkthrough project it was initially based on, this version has been fully **redesigned with custom styling, navigation, and features**, creating a unique and user-focused platform.
