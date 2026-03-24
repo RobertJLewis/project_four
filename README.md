@@ -795,6 +795,10 @@ Project 4 was developed independently as part of a full-stack web development as
 - **Stripe**: PCI-compliant payment infrastructure  
 - **Visual Studio Code**: Development environment  
 - **Google & Gmail API**: Secure email automation  
+- **Spencer** – Code Institute Mentor  
+- **Ax de Klerk, Jordan Acomba & Steve Powell** – Fellow Code Institute cohort members  
+- **Code Institute Slack channel Peer Code Review** – For reviewing the site and providing feedback  
+
 - Product images are placeholders or royalty-free sources  
 
 This project reflects a personal implementation with **emphasis on usability, security, and maintainable full-stack architecture**.
