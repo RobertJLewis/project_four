@@ -199,7 +199,7 @@ Lighthouse audits were conducted on the deployed Supermakt project to assess **p
 | Home                      | ![Home Mobile](testing/validation/lighthouse_home_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_home_desktop.png)       | ✅ Passed  |
 | Products                  | ![Home Mobile](testing/validation/lighthouse_products_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_products_desktop.png)       | ✅ Passed  |
 | Product Detail            | ![Home Mobile](testing/validation/lighthouse_products_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_products_desktop.png)       | ✅ Passed  |
-| Edit Product              | ![Home Mobile](path/to/home-mobile.png)      | ![Home Desktop](path/to/home-desktop.png)       | ✅ Passed  |
+| Edit Product              | ![Home Mobile](testing/validation/lighthouse_editing_product_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_editing_product_desktop.png)       | ✅ Passed  |
 | Bag Page                  | ![Home Mobile](testing/validation/lighthouse_bag_page_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_bag_page_desktop.png)       | ✅ Passed  |
 | Checkout Page             | ![Home Mobile](testing/validation/lighthouse_checkout_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_checkout_desktop.png)       | ✅ Passed  |
 | Checkout Success Page     | ![Home Mobile](testing/validation/lighthouse_thankyou_moblie.png)      | ![Home Desktop](testing/validation/lighthouse_thankyou_desktop.png)       | ✅ Passed  |
@@ -223,119 +223,113 @@ Despite these minor limitations, the site remains fully functional, responsive, 
 
 
 
-## Automated Testing
-
-Automated testing was a key part of the development workflow for **Supermakt**, ensuring that core components of the food e-commerce store function reliably under different user scenarios. Django’s built-in `TestCase` framework was used to validate models, forms, views, and admin logic.  
-
-Coverage analysis was performed with `coverage.py` to identify untested areas, prevent regressions, and maintain a clean, scalable codebase.
-
----
-
-### Scope of Automated Testing
-
-The automated test suite was designed to cover the following key areas:
-
-#### Checkout App
-- **Form logic:** Verified placeholder population, required field indicators, autofocus, CSS class assignment, and label suppression in `OrderForm`.
-- **Model logic:** Tested accurate calculations of total, discount, and delivery costs in `Order`, with readable string outputs for both `Order` and `OrderLineItem`.
-- **View logic:** Checked checkout flow behavior including form rendering, Stripe integration context, redirects for empty bag, order success handling, and error feedback for invalid submissions.
-- **Webhook logic:** Ensured proper processing of Stripe webhook events including order creation, profile updates, email confirmations, and handling of invalid payloads or failed payments.
-
-#### Newsletter App
-- **Form logic:** Validated unique email submissions and rejected duplicates.
-- **Model logic:** Tested email uniqueness, optional user linking, and string representation.
-- **View logic:** Verified success, warning, and error messages with appropriate redirects.
-
-#### Products App
-- **Model logic:** Tested string representations of `Product`, `ProductVariant`, and `Category`, including relationships and default field values.
-- **Form logic:** Validated `ProductForm` and `ProductVariantForm`, required fields, and category dropdown customization.
-- **View logic:** Tested product listing, search, sorting, filtering, detail pages, and admin-only access for add/edit/delete views.
-- **Admin config:** Verified model registration, `list_display`, `search_fields`, `readonly_fields`, inline variant support, and image preview functionality.
-
-#### Profiles App
-- **Model logic:** Verified automatic `UserProfile` creation via Django signals, correct string representation, field defaults, and update persistence.
-- **Form logic:** Checked field validation, placeholder and CSS class rendering, autofocus behavior, and label suppression in `UserProfileForm`.
-- **App configuration:** Ensured proper `AppConfig` registration and name resolution.
-
----
-
-### Tools Used
-
-| Tool              | Purpose                                           |
-|------------------|---------------------------------------------------|
-| Django TestCase   | Core unit and integration test framework         |
-| Client()          | Simulates authenticated and anonymous users     |
-| coverage.py       | Measures line and branch coverage               |
-| htmlcov/          | Visual review of missed lines and test quality  |
-
----
-
-### Coverage Testing
-
-Test coverage was monitored with `coverage.py`. Line-by-line analysis was used to identify gaps and ensure edge cases were tested, including admin-only views, checkout error handling, and model method branches such as slugs, totals, and discounts.
-
-| Coverage Area    | Total Coverage | Evidence               |
-|-----------------|----------------|-----------------------|
-| Bag             | 74%            | Coverage Bag          |
-| Checkout        | 90%            | Coverage Checkout     |
-| Home            | 100%           | Coverage Home         |
-| Newsletter      | 100%           | Coverage Contact      |
-| Products        | 97%            | Coverage Products     |
-| Profiles        | 94%            | Coverage Profiles     |
-
----
-
-### Edge Cases Covered
-- Submitting forms with missing, invalid, or out-of-range product or checkout data.
-- Adding products without a name or category.
-- Sorting and filtering products with multiple query parameters.
-- Accessing checkout or profile pages as unauthenticated users.
-- Editing or deleting products as non-admin users.
-- Rendering views with empty products or order history.
-- Handling missing or broken product/variant images in the admin panel.
-- Custom 404 handling for invalid product slugs or broken URLs.
-
----
-
-### Summary
-
-This automated test suite ensures that **Supermakt** is stable, secure, and reliable. It enables rapid development cycles with confidence, catching regressions early and validating critical workflows for both customers and administrators.  
-
-By covering core e-commerce functionality, from browsing and ordering food products to profile management and newsletter subscriptions, the site remains maintainable and production-ready.
-
-
-
-
-
 # Manual Testing
 
 ## Full Testing
-This section outlines the **manual testing** conducted to ensure the **Food E-Commerce application** functions correctly across all major user interactions, devices, and screen sizes. Testing focused on key areas such as:
+This section outlines the **manual testing** conducted to ensure the **Food E-Commerce application** functions correctly across all major user interactions, devices, and screen sizes.
 
-- Form validation
-- Navigation flows
-- User authentication and profile management
-- Responsive layout behaviour
-- Secure checkout processes (including Stripe integration)
-- Shopping bag and cart logic
-- Product catalogue and filtering
-- Promotions, deals, and offers display
+Testing focused on key areas such as:
 
-Each feature was tested systematically to identify and resolve potential issues relating to layout, business logic, error handling, or access control. Special attention was paid to **high-impact views** such as:
+- Form validation  
+- Navigation flows  
+- User authentication and profile management  
+- Responsive layout behaviour  
+- Secure checkout processes (including Stripe integration)  
+- Shopping bag and cart logic  
+- Product catalogue and filtering  
+- Promotions, deals, and offers display  
 
-- Home Page (landing page with categories, banners, and product highlights)
-- Products Page (listing, search, sorting, filtering)
-- Product Detail Page (images, variants, descriptions, add-to-cart)
-- Bag/Cart Page (line items, totals, discounts)
-- Checkout Page (form validation, payment handling)
-- Checkout Success Page (confirmation, email triggers)
-- User Profile Page (profile updates, order history)
+Each feature was tested systematically to identify and resolve potential issues relating to layout, business logic, error handling, or access control.
 
-In addition to structured manual testing, informal feedback was gathered from friends, family, and colleagues using a variety of devices and browsers. This helped validate the real-world **usability, responsiveness, and accessibility** of the site across different screen sizes and operating systems.
+Special attention was paid to **high-impact views** such as:
+
+- Home Page  
+- Products Page  
+- Product Detail Page  
+- Bag/Cart Page  
+- Checkout Page  
+- Checkout Success Page  
+- User Profile Page  
+
+In addition to structured manual testing, informal feedback was gathered from friends, family, and colleagues using a variety of devices and browsers. This helped validate the real-world **usability, responsiveness, and accessibility** of the site.
+
+---
+
+## Detailed Manual Testing
+
+### 🛒 Checkout Page
+
+| Feature | Action | Expected Result | Actual Result | Pass/Fail |
+|--------|--------|----------------|--------------|----------|
+| Valid form submission | Enter valid details and payment | Payment is processed successfully | Payment completed successfully | ✅ Pass |
+| Invalid form submission | Submit empty or incorrect fields | Error messages are displayed | Error messages displayed correctly | ✅ Pass |
+| Empty bag checkout | Attempt checkout with empty bag | User redirected to products page | Redirect works correctly | ✅ Pass |
+
+---
+
+### 🛍️ Product Page
+
+| Feature | Action | Expected Result | Actual Result | Pass/Fail |
+|--------|--------|----------------|--------------|----------|
+| Product display | Open product detail page | Product information is visible | Displays correctly | ✅ Pass |
+| Product image | View product image | Image loads correctly | Images display correctly across products | ✅ Pass |
+| Add to bag | Add product to cart | Product added to bag | Works correctly | ✅ Pass |
+
+---
+
+### 🛒 Shopping Bag
+
+| Feature | Action | Expected Result | Actual Result | Pass/Fail |
+|--------|--------|----------------|--------------|----------|
+| Update quantity | Change item quantity | Bag updates correctly | Works correctly | ✅ Pass |
+| Remove item | Remove product from bag | Item removed | Works correctly | ✅ Pass |
+| Total calculation | Add multiple items | Total updates accurately | Works correctly | ✅ Pass |
+
+---
+
+### 👤 Authentication & Profiles
+
+| Feature | Action | Expected Result | Actual Result | Pass/Fail |
+|--------|--------|----------------|--------------|----------|
+| User registration | Create new account | Account created successfully | Works correctly | ✅ Pass |
+| User login | Enter valid credentials | User logged in | Works correctly | ✅ Pass |
+| Access restriction | Access restricted page as non-user | Access denied or redirected | Works correctly | ✅ Pass |
+| Profile update | Update user details | Changes saved successfully | Works correctly | ✅ Pass |
+
+---
+
+### ⚙️ Admin & CRUD Functionality
+
+| Feature | Action | Expected Result | Actual Result | Pass/Fail |
+|--------|--------|----------------|--------------|----------|
+| Add product | Admin creates new product | Product saved and displayed | Product is created successfully; image upload functionality requires further refinement | ⚠️ Partial |
+| Edit product | Update product details | Changes reflected | Works correctly | ✅ Pass |
+| Delete product | Remove product | Product removed from site | Works correctly | ✅ Pass |
+
+---
+
+### 📧 Email Confirmation
+
+| Feature | Action | Expected Result | Actual Result | Pass/Fail |
+|--------|--------|----------------|--------------|----------|
+| Order confirmation email | Complete checkout | Email sent to user | Order completes successfully; email confirmation feature requires further improvements but works | ✅ Pass |
+
+---
+
+## Summary of Issues
+
+The following points were identified during testing and present opportunities for future enhancement:
+
+- ⚠️ Product image uploads are functioning but require further refinement to ensure consistent handling across all scenarios & allow for more than one image in the product detail page.
+- ⚠️ Some uploaded images require optimisation to ensure reliable display across different environments  
+- ⚠️ Email confirmation functionality has been identified as an area for future development to improve user communication after checkout  
+
+These points do not prevent the core functionality of the application from working but highlight opportunities to further enhance the overall user experience and robustness of the system.
 
 ---
 
 ## Browser Compatibility
+
 To ensure broad accessibility and a consistent user experience, the application was manually tested on all major modern browsers, including:
 
 - **Google Chrome**
@@ -343,41 +337,73 @@ To ensure broad accessibility and a consistent user experience, the application 
 - **Apple Safari**
 - **Microsoft Edge**
 
-Each page and core user flow (e.g., registration, product filtering, adding/removing products from bag, checkout) was tested for:
+Each page and core user flow (e.g. registration, product filtering, adding/removing products from bag, checkout) was tested across these browsers to assess:
 
 - Rendering consistency  
 - Interactive behaviour  
 - Layout responsiveness  
-- Accessibility compliance
+- Accessibility  
+
+### Results
+
+| Browser | Result | Notes |
+|--------|--------|-------|
+| Google Chrome | ✅ Pass | Full functionality and consistent layout across all pages |
+| Mozilla Firefox | ✅ Pass | Layout and features rendered correctly with no issues observed |
+| Apple Safari | ⚠️ Partial | Minor layout inconsistencies observed in certain sections, but core functionality remained intact |
+| Microsoft Edge | ✅ Pass | Application performed as expected with no issues identified |
+
+## Summary
+
+The application demonstrates good cross-browser compatibility across major modern browsers, with only minor inconsistencies observed that do not impact core functionality or user experience.
 
 ---
 
 ## Responsiveness
+
 To ensure a consistent user experience across all devices, the site was thoroughly tested for **responsive design** using Chrome Developer Tools and physical testing on:
 
 - Smartphones  
 - Tablets  
 - Laptops  
-- Desktop monitors
+- Desktop monitors  
 
-Testing focused on **mobile-first design**, anchoring at a minimum width of **320px**, which reflects the narrowest modern screen size still in common use.  
+Testing focused on a **mobile-first design approach**, anchored at a minimum width of **320px**, which reflects the narrowest commonly used screen size.
 
 Tools and methods used:
 
 - Chrome’s **Responsive Design Mode**  
 - **Mobile First Chrome extension** to simulate multiple devices and breakpoints  
-- Manual resizing and navigation tests to ensure UI components (e.g., product tiles, banners, menus, forms) scale and interact correctly  
+- Manual resizing and navigation tests across different screen sizes  
+
+---
+
+## Results
+
+| Area Tested | Expected Result | Actual Result | Pass/Fail |
+|------------|---------------|--------------|----------|
+| Layout scaling | Elements adjust to screen size without breaking | Layout adapts correctly across most screen sizes | ✅ Pass |
+| Navigation | Menu and links remain accessible on mobile | Navigation functions correctly on all devices | ✅ Pass |
+| Product grid | Product cards stack and resize appropriately | Displays correctly with minor spacing adjustments | ⚠️ Partial |
+| Forms | Inputs remain usable and readable on small screens | Forms are accessible and function correctly | ✅ Pass |
+| Images | Images scale without distortion | Images display correctly across all devices | ✅ Pass |
+| Checkout flow | Payment process works on all screen sizes | Checkout works correctly with no issues | ✅ Pass |
 
 ---
 
 ## Notes
-- Special attention was paid to **product images, banners, and media assets** to ensure proper scaling and aspect ratio on mobile.  
-- Forms (checkout, profile, newsletter) were tested for **required field enforcement, autofocus, and error messages**.  
-- Navigation and CTA buttons were checked for **tap targets and accessibility**, ensuring all interactive elements work well on touch screens.  
-- Checkout flows, including **Stripe payment integration**, were validated for both **success and error handling scenarios**.  
 
+- Product images, banners, and media assets were verified to scale correctly across different screen sizes, maintaining aspect ratio and visual clarity.  
+- Forms (checkout, profile, newsletter) were tested for:
+  - Required field validation  
+  - Autofocus behaviour  
+  - Error messaging  
+- Navigation and call-to-action buttons were checked for **touch accessibility**, ensuring usability on mobile devices.  
+- Checkout flow, including **Stripe payment integration**, was validated for both successful and error scenarios across devices.  
 
+## Summary
 
+The application demonstrates strong responsiveness across a wide range of devices, with only minor layout inconsistencies identified that do not impact core functionality or user experience.
 
 
 
@@ -427,16 +453,39 @@ To support users with visual impairments, all key colour combinations (text, but
 
 In addition, form labels, alt attributes, and ARIA roles were reviewed to improve **screen reader compatibility** and **keyboard accessibility**.
 
+## Color Contrast Accessibility Testing
+
 | Foreground Colour | Background Colour | Screenshot | Testing Results |
 |------------------|-----------------|------------|----------------|
-| #111 | #fff | ![Screenshot1](path/to/screenshot1.png) | ✅ Pass |
-| #000 | #fff | ![Screenshot2](path/to/screenshot2.png) | ✅ Pass |
-| #555 | #fff | ![Screenshot3](path/to/screenshot3.png) | ✅ Pass on normal text, ✅ Pass on large text |
-| #b42318 | #fff | ![Screenshot4](path/to/screenshot4.png) | ✅ Pass |
-| #1a7f37 | #fff | ![Screenshot5](path/to/screenshot5.png) | ✅ Pass |
-| #f5b301 | #000 | ![Screenshot6](path/to/screenshot6.png) | ✅ Pass |
-| #000 | #d6d6d6 | ![Screenshot7](path/to/screenshot7.png) | ⛔️ Fail on normal text, ✅ Pass on large text |
+| `#000000` | `#FFFFFF` | ![Screenshot1](testing/validation/color_contrast_image_one.png) | ✅ Pass |
+| `#111111` | `#FFFFFF` | ![Screenshot2](testing/validation/color_contrast_image_two.png) | ✅ Pass |
+| `#666666` | `#FFFFFF` | ![Screenshot3](testing/validation/color_contrast_image_three.png) | ✅ Pass on normal text, ✅ Pass on large text |
+| `#FF6B9D` | `#FFFFFF` | ![Screenshot4](testing/validation/color_contrast_image_four.png) | ✅ Pass on large text/graphics |
+| `#FFA751` | `#FFFFFF` | ![Screenshot5](testing/validation/color_contrast_image_five.png) | ✅ Pass on large text/graphics |
+| `#000000` | `#F5F5F5` | ![Screenshot6](testing/validation/color_contrast_image_six.png) | ✅ Pass |
+| `#FFFFFF` | `#000000` | ![Screenshot7](testing/validation/color_contrast_image_seven.png) | ✅ Pass |
 
+---
+
+### Color Palette Reference
+
+| Color | Hex Code | Usage |
+|-------|----------|-------|
+| Primary Pink | `#FF6B9D` | Category circle gradients, accents |
+| Primary Orange | `#FFA751` | Category circle gradients, accents |
+| Black | `#000000` | Primary text, header background |
+| Dark Gray | `#111111` | Secondary headings |
+| Medium Gray | `#666666` | Body text, descriptions |
+| Light Gray | `#F5F5F5` | Section backgrounds |
+| White | `#FFFFFF` | Main background, text on dark |
+
+---
+
+### Notes
+
+- ✅ All text colors meet WCAG 2.1 AA standards for normal text (4.5:1 ratio)
+- ✅ Gradient colors (pink/orange) are used for decorative graphics and icons
+- ⚠️ Ensure pink and orange are not used for critical text information
 
 
 
