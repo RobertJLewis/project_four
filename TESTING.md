@@ -82,9 +82,9 @@ The **W3C CSS Validator** was used to validate all custom CSS files within **Pro
 
 | File Tested                              | Result | Evidence |
 |------------------------------------------|--------|----------|
-| `static/css/base.css`                    | Pass   | base.css validation |
-| `checkout/static/checkout/css/checkout.css` | Pass   | checkout.css validation |
-| `profiles/static/profiles/css/profile.css` | Pass   | profile.css validation |
+| `testing/validation/base_css.png`                    | Pass   | base.css validation |
+| `testing/validation/checkout_css.png` | Pass   | checkout.css validation |
+| `testing/validation/profile_css.png` | Pass   | profile.css validation |
 
 > All stylesheets passed validation with no critical errors, confirming clean, standards-compliant CSS and consistent rendering across modern browsers.
 
@@ -96,8 +96,9 @@ The **W3C CSS Validator** was used to validate all custom CSS files within **Pro
 All custom JavaScript files were validated using **JSHint** to ensure proper syntax, code quality, and adherence to modern best practices.
 
 | File Tested                                      | Result | Evidence             | Notes |
-|--------------------------------------------------|--------|----------------------|-------|
-| `checkout/static/checkout/js/stripe-elements.js` | Pass   | stripe-elements.js   | Initial warnings related to ES6 template literals were resolved by updating the JSHint configuration to ES8 using `/* jshint esversion: 8 */`. |
+|--------------------------------------------------|--------|--------------------|-------|
+| `testing/validation/stripe_js.png`              | Pass   | stripe-elements.js  | Initial warnings related to ES6 template literals were resolved by updating the JSHint configuration to ES8 using `/* jshint esversion: 8 */`. |
+| `testing/validation/ig_ring_js.png`             | Pass   | lightning_ring.js   | IIFE encapsulated, ES6 syntax valid, no console errors. Performance-friendly with throttled requestAnimationFrame and ResizeObserver. Minor notes: uses modern APIs, some magic numbers for visuals, shadowBlur could affect low-end devices. Overall safe and works as intended. |
 
 > All JavaScript files passed validation after minor configuration adjustments, ensuring clean, maintainable, and standards-compliant client-side code.
 
@@ -113,8 +114,8 @@ All Python code was validated using the **Code Institute Python Linter**, ensuri
 
 | File                          | Result | Evidence |
 |-------------------------------|--------|----------|
-| `project_four/settings.py`    | Pass   | settings.py validation |
-| `project_four/urls.py`        | Pass   | urls.py validation |
+| `testing/validation/root_settings_py.png`    | Pass   | settings.py validation |
+| `testing/validation/root_urls_py.png`        | Pass   | urls.py validation |
 
 ---
 
@@ -122,11 +123,11 @@ All Python code was validated using the **Code Institute Python Linter**, ensuri
 
 | File                                      | Result | Evidence |
 |-------------------------------------------|--------|----------|
-| `bag/apps.py`                             | Pass   | apps.py validation |
-| `bag/contexts.py`                         | Pass   | contexts.py validation |
-| `bag/urls.py`                             | Pass   | urls.py validation |
-| `bag/views.py`                            | Pass   | views.py validation |
-| `bag/templatetags/bag_tools.py`           | Pass   | bag_tools.py validation |
+| `testing/validation/bag_apps_py.png`                             | Pass   | apps.py validation |
+| `testing/validation/bag_contexts_py.png`                         | Pass   | contexts.py validation |
+| `testing/validation/bag_urls_py.png`                             | Pass   | urls.py validation |
+| `testing/validation/bag_views_py.png`                            | Pass   | views.py validation |
+| `testing/validation/bag_models_py.png`           | Pass   | models.py validation |
 
 ---
 
