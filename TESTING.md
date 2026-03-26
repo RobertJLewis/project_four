@@ -135,17 +135,16 @@ All Python code was validated using the **Code Institute Python Linter**, ensuri
 
 | File                                      | Result | Evidence |
 |-------------------------------------------|--------|----------|
-| `checkout/admin.py`                       | Pass   | admin.py validation |
-| `checkout/apps.py`                        | Pass   | apps.py validation |
-| `checkout/forms.py`                       | Pass   | forms.py validation |
-| `checkout/models.py`                      | Pass   | models.py validation |
-| `checkout/signals.py`                     | Pass   | signals.py validation |
-| `checkout/urls.py`                        | Pass   | urls.py validation |
-| `checkout/views.py`                       | Pass   | views.py validation |
-| `checkout/webhook_handler.py`             | Pass   | webhook_handler.py validation |
-| `checkout/webhooks.py`                    | Pass   | webhooks.py validation |
-| `checkout/tests/test_forms.py`            | Pass   | test_forms.py validation |
-| `checkout/tests/test_models.py`           | Pass   | test_models.py validation |
+| `testing/validation/checkout_admin_py.png`                       | Pass   | admin.py validation |
+| `testing/validation/checkout_apps_py.png`                        | Pass   | apps.py validation |
+| `testing/validation/checkout_forms_py.png`                       | Pass   | forms.py validation |
+| `testing/validation/checkout_models_py.png`                      | Pass   | models.py validation |
+| `testing/validation/checkout_signals_py.png`                     | Pass   | signals.py validation |
+| `testing/validation/checkout_urls_py.png`                        | Pass   | urls.py validation |
+| `testing/validation/checkout_views_py.png`                       | Pass   | views.py validation |
+| `testing/validation/checkout_webhooks_handler_py.png`             | Pass   | webhook_handler.py validation |
+| `testing/validation/checkout_webhooks_py.png`                    | Pass   | webhooks.py validation |
+
 
 ---
 
@@ -153,9 +152,9 @@ All Python code was validated using the **Code Institute Python Linter**, ensuri
 
 | File              | Result | Evidence |
 |-------------------|--------|----------|
-| `home/apps.py`    | Pass   | apps.py validation |
-| `home/urls.py`    | Pass   | urls.py validation |
-| `home/views.py`   | Pass   | views.py validation |
+| `testing/validation/home_apps_py.png`    | Pass   | apps.py validation |
+| `testing/validation/home_urls_py.png`    | Pass   | urls.py validation |
+| `testing/validation/home_views_py.png`   | Pass   | views.py validation |
 
 ---
 
@@ -163,16 +162,13 @@ All Python code was validated using the **Code Institute Python Linter**, ensuri
 
 | File                          | Result | Evidence |
 |-------------------------------|--------|----------|
-| `products/admin.py`           | Pass   | admin.py validation |
-| `products/apps.py`            | Pass   | apps.py validation |
-| `products/forms.py`           | Pass   | forms.py validation |
-| `products/models.py`          | Pass   | models.py validation |
-| `products/urls.py`            | Pass   | urls.py validation |
-| `products/views.py`           | Pass   | views.py validation |
-| `products/widgets.py`         | Pass   | widgets.py validation |
-| `products/test_admin.py`      | Pass   | test_admin.py validation |
-| `products/test_models.py`     | Pass   | test_models.py validation |
-| `products/test_views.py`      | Pass   | test_views.py validation |
+| `testing/validation/products_admin_py.png`           | Pass   | admin.py validation |
+| `testing/validation/products_apps_py.png`            | Pass   | apps.py validation |
+| `testing/validation/products_forms_py.png`           | Pass   | forms.py validation |
+| `testing/validation/products_models_py.png`          | Pass   | models.py validation |
+| `testing/validation/products_urls_py.png`            | Pass   | urls.py validation |
+| `testing/validation/products_views_py.png`           | Pass   | views.py validation |
+| `testing/validation/products_widget_py.png`         | Pass   | widgets.py validation |
 
 ---
 
@@ -180,30 +176,14 @@ All Python code was validated using the **Code Institute Python Linter**, ensuri
 
 | File                          | Result | Evidence |
 |-------------------------------|--------|----------|
-| `profiles/apps.py`            | Pass   | apps.py validation |
-| `profiles/forms.py`           | Pass   | forms.py validation |
-| `profiles/models.py`          | Pass   | models.py validation |
-| `profiles/urls.py`            | Pass   | urls.py validation |
-| `profiles/views.py`           | Pass   | views.py validation |
-| `profiles/test_forms.py`      | Pass   | test_forms.py validation |
-| `profiles/test_models.py`     | Pass   | test_models.py validation |
-| `profiles/test_views.py`      | Pass   | test_views.py validation |
+| `testing/validation/profiles_apps_py.png`            | Pass   | apps.py validation |
+| `testing/validation/profiles_forms_py.png`           | Pass   | forms.py validation |
+| `testing/validation/profiles_models_py.png`          | Pass   | models.py validation |
+| `testing/validation/profiles_urls_py.png`            | Pass   | urls.py validation |
+| `testing/validation/profiles_views_py.png`           | Pass   | views.py validation |
 
 ---
 
-#### Contact / Newsletter App
-
-| File                          | Result | Evidence |
-|-------------------------------|--------|----------|
-| `contact/apps.py`             | Pass   | apps.py validation |
-| `contact/forms.py`            | Pass   | forms.py validation |
-| `contact/models.py`           | Pass   | models.py validation |
-| `contact/urls.py`             | Pass   | urls.py validation |
-| `contact/views.py`            | Pass   | views.py validation |
-| `contact/test_forms.py`       | Pass   | test_forms.py validation |
-| `contact/test_views.py`       | Pass   | test_views.py validation |
-
----
 
 > All Python files passed validation with no critical PEP8 errors, confirming a clean, consistent, and maintainable codebase across the entire project.
 
@@ -216,18 +196,17 @@ Lighthouse audits were conducted on the deployed Supermakt project to assess **p
 
 | Page                     | Mobile Screenshot | Desktop Screenshot | Notes      |
 |---------------------------|-----------------|------------------|------------|
-| Home                      | ![Home Mobile](path/to/home-mobile.png)      | ![Home Desktop](path/to/home-desktop.png)       | ✅ Passed  |
-| Products                  | ![Home Mobile](path/to/home-mobile.png)      | ![Home Desktop](path/to/home-desktop.png)       | ✅ Passed  |
-| Product Detail            | ![Home Mobile](path/to/home-mobile.png)      | ![Home Desktop](path/to/home-desktop.png)       | ✅ Passed  |
-| Add Product               | ![Home Mobile](path/to/home-mobile.png)      | ![Home Desktop](path/to/home-desktop.png)       | ✅ Passed  |
+| Home                      | ![Home Mobile](testing/validation/lighthouse_home_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_home_desktop.png)       | ✅ Passed  |
+| Products                  | ![Home Mobile](testing/validation/lighthouse_products_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_products_desktop.png)       | ✅ Passed  |
+| Product Detail            | ![Home Mobile](testing/validation/lighthouse_products_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_products_desktop.png)       | ✅ Passed  |
 | Edit Product              | ![Home Mobile](path/to/home-mobile.png)      | ![Home Desktop](path/to/home-desktop.png)       | ✅ Passed  |
-| Bag Page                  | ![Home Mobile](path/to/home-mobile.png)      | ![Home Desktop](path/to/home-desktop.png)       | ✅ Passed  |
-| Checkout Page             | ![Home Mobile](path/to/home-mobile.png)      | ![Home Desktop](path/to/home-desktop.png)       | ✅ Passed  |
-| Checkout Success Page     | ![Home Mobile](path/to/home-mobile.png)      | ![Home Desktop](path/to/home-desktop.png)       | ✅ Passed  |
-| Profile Page              | ![Home Mobile](path/to/home-mobile.png)      | ![Home Desktop](path/to/home-desktop.png)       | ✅ Passed  |
-| Privacy Policy Page       | ![Home Mobile](path/to/home-mobile.png)      | ![Home Desktop](path/to/home-desktop.png)       | ✅ Passed  |
-| Terms & Conditions Page   | ![Home Mobile](path/to/home-mobile.png)      | ![Home Desktop](path/to/home-desktop.png)       | ✅ Passed  |
-| Shipping Policy Page      | ![Home Mobile](path/to/home-mobile.png)      | ![Home Desktop](path/to/home-desktop.png)       | ✅ Passed  |
+| Bag Page                  | ![Home Mobile](testing/validation/lighthouse_bag_page_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_bag_page_desktop.png)       | ✅ Passed  |
+| Checkout Page             | ![Home Mobile](testing/validation/lighthouse_checkout_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_checkout_desktop.png)       | ✅ Passed  |
+| Checkout Success Page     | ![Home Mobile](testing/validation/lighthouse_thankyou_moblie.png)      | ![Home Desktop](testing/validation/lighthouse_thankyou_desktop.png)       | ✅ Passed  |
+| Profile Page              | ![Home Mobile](testing/validation/lighthouse_profile_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_profile_desktop.png)       | ✅ Passed  |
+| Privacy Policy Page       | ![Home Mobile](testing/validation/lighthouse_privicy_policy_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_privicy_policy_desktop.png)       | ✅ Passed  |
+| Terms & Conditions Page   | ![Home Mobile](testing/validation/lighthouse_terms_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_terms_desktop.png)       | ✅ Passed  |
+| About Us      | ![Home Mobile](testing/validation/lighthouse_about_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_about_desktop.png)       | ✅ Passed  |
 
 **Notes & Observations:**
 

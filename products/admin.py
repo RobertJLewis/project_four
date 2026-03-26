@@ -1,7 +1,7 @@
 from django.contrib import admin
+
 from .models import Product, Category, Offer
 
-# Register your models here.
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
@@ -21,13 +21,22 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
     ordering = ('sku',)
-    list_editable = ('is_featured', 'is_deal_of_day', 'is_highlighted', 'is_on_sale', 'is_new')
+
+    list_editable = (
+        'is_featured',
+        'is_deal_of_day',
+        'is_highlighted',
+        'is_on_sale',
+        'is_new',
+    )
+
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
     )
+
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
