@@ -1,5 +1,4 @@
 ## Testing Overview
-
 This document outlines the testing strategy, process, and results for **Project 4 – Food E-Commerce Store**. It verifies that the application’s core functionality operates correctly, delivers a responsive and accessible user experience, and meets the acceptance criteria defined by the project’s user stories and feature plan.
 
 Testing was carried out throughout development using both **manual and automated approaches**, covering functionality, responsiveness, browser compatibility, accessibility, and data validation. Django’s built-in testing framework was used for backend validation, while real devices and browser developer tools were used to assess front-end behaviour.
@@ -14,29 +13,38 @@ This file includes:
 - **Known issues and limitations (if applicable)**  
 
 
-
-
 ## Table of Contents
-
-1. [Validation Testing](#validation-testing)
-2. [Automated Testing](#automated-testing)
-3. [Manual Testing](#manual-testing)
-   - [Full Application Testing](#full-application-testing)
+1. [Testing Overview](#testing-overview)
+2. [Testing Approach](#testing-approach)
+3. [Validation Testing](#validation-testing)
+   - [W3C Markup Validation](#w3c-markup-validation)
+   - [W3C CSS Validation](#w3c-css-validation)
+   - [JavaScript Validation](#javascript-validation)
+   - [Python Validation](#python-validation)
+4. [Lighthouse Testing](#lighthouse-testing)
+5. [Manual Testing](#manual-testing)
+   - [Full Testing](#full-testing)
+   - [Detailed Manual Testing](#detailed-manual-testing)
    - [Browser Compatibility](#browser-compatibility)
    - [Responsiveness](#responsiveness)
+   - [Device Testing](#device-testing)
    - [Accessibility](#accessibility)
-   - [User Story Testing](#user-story-testing)
-   - [Feature Testing](#feature-testing)
-   - [Manual Feature Testing](#manual-feature-testing)
-4. [Issues & Bug Tracking](#issues--bug-tracking)
-   - [Resolved Issues](#resolved-issues)
-   - [Known Issues](#known-issues)
-5. [Conclusion](#conclusion)
-
+6. [User Story Testing](#testing-user-stories--supermarket-e-commerce-store)
+7. [Feature Testing](#manual-features-testing--supermarket-e-commerce-store)
+   - [Navbar (Header)](#navbar-header--basehtml)
+   - [Homepage Content](#homepage-content-public--indexhtml)
+   - [Footer](#footer-basehtml)
+   - [Products Page](#products-page--producthtml)
+   - [Product Detail Page](#product-detail-page--product_detailhtml)
+   - [Bag Page](#bag-page--baghtml)
+   - [Checkout Page](#checkout-page--checkouthtml)
+8. [Issues & Bug Tracking](#solved-issues--bugs--supermarket-store)
+   - [Resolved Issues](#solved-issues--bugs--supermarket-store)
+   - [Known Issues](#summary-of-issues)
+9. [Conclusion](#conclusion)
 
 
 ## Testing Approach
-
 Testing was a critical part of the **Project 4 – Food E-Commerce Store** development workflow, ensuring the application remained robust, responsive, and user-friendly throughout each stage of development. Continuous testing enabled early identification and resolution of issues, improving both development efficiency and overall site reliability.
 
 A range of tools and methods were used to validate the application’s functionality and presentation. **Chrome Developer Tools** were used extensively to test responsiveness, inspect layout behaviour, debug JavaScript interactions, and evaluate performance across different viewport sizes. These tools were essential for refining the user experience across devices.
@@ -97,8 +105,8 @@ All Python code was validated using the **Code Institute Python Linter**, ensuri
 
 ---
 
-#### Core Project Files
 
+#### Core Project Files
 | File                          | Result | Evidence |
 |-------------------------------|--------|----------|
 | `testing/validation/root_settings_py.png`    | Pass   | settings.py validation |
@@ -106,8 +114,8 @@ All Python code was validated using the **Code Institute Python Linter**, ensuri
 
 ---
 
-#### Cart / Bag App
 
+#### Cart / Bag App
 | File                                      | Result | Evidence |
 |-------------------------------------------|--------|----------|
 | `testing/validation/bag_apps_py.png`                             | Pass   | apps.py validation |
@@ -118,8 +126,8 @@ All Python code was validated using the **Code Institute Python Linter**, ensuri
 
 ---
 
-#### Checkout App
 
+#### Checkout App
 | File                                      | Result | Evidence |
 |-------------------------------------------|--------|----------|
 | `testing/validation/checkout_admin_py.png`                       | Pass   | admin.py validation |
@@ -135,8 +143,8 @@ All Python code was validated using the **Code Institute Python Linter**, ensuri
 
 ---
 
-#### Home App
 
+#### Home App
 | File              | Result | Evidence |
 |-------------------|--------|----------|
 | `testing/validation/home_apps_py.png`    | Pass   | apps.py validation |
@@ -145,8 +153,8 @@ All Python code was validated using the **Code Institute Python Linter**, ensuri
 
 ---
 
-#### Products App
 
+#### Products App
 | File                          | Result | Evidence |
 |-------------------------------|--------|----------|
 | `testing/validation/products_admin_py.png`           | Pass   | admin.py validation |
@@ -159,8 +167,8 @@ All Python code was validated using the **Code Institute Python Linter**, ensuri
 
 ---
 
-#### Profiles App
 
+#### Profiles App
 | File                          | Result | Evidence |
 |-------------------------------|--------|----------|
 | `testing/validation/profiles_apps_py.png`            | Pass   | apps.py validation |
