@@ -455,12 +455,13 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | Light Gray | `#F5F5F5` | Section backgrounds |
 | White | `#FFFFFF` | Main background, text on dark |
 
----
-
 ### Notes
 - ✅ All text colors meet WCAG 2.1 AA standards for normal text (4.5:1 ratio)
 - ✅ Gradient colors (pink/orange) are used for decorative graphics and icons
 - ⚠️ Ensure pink and orange are not used for critical text information
+
+---
+
 
 # Testing User Stories – Supermarket E-commerce Store
 ## Guest User Stories
