@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
+import logging
 
 from .models import Order, OrderLineItem
 from products.models import Product
@@ -9,6 +10,8 @@ from profiles.models import UserProfile
 
 import json
 import time
+
+logger = logging.getLogger(__name__)
 
 
 class StripeWH_Handler:
@@ -139,7 +142,14 @@ class StripeWH_Handler:
                 time.sleep(1)
 
         if order_exists:
-            self._send_confirmation_email(order)
+            try:
+                self._send_confirmation_email(order)
+            except Exception as e:
+                logger.exception(
+                    "Order email failed for %s: %s",
+                    order.order_number,
+                    e
+                )
 
             return HttpResponse(
                 content=(
@@ -202,7 +212,14 @@ class StripeWH_Handler:
                 status=500
             )
 
-        self._send_confirmation_email(order)
+        try:
+            self._send_confirmation_email(order)
+        except Exception as e:
+            logger.exception(
+                "Order email failed for %s: %s",
+                order.order_number,
+                e
+            )
 
         return HttpResponse(
             content=(
