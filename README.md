@@ -722,7 +722,7 @@ Project 4 can be deployed to any platform supporting Python/Django (e.g., **Rend
 
 
 #### Deployment Diagram
-![Deployment Diagram](media/p4_deployemnt.png)
+![Deployment Diagram](media/p4_deployment.png)
 *Illustrates local development, environment variables, staging/production, and external integrations (Stripe, Gmail API).*
 
 
@@ -749,6 +749,16 @@ python manage.py runserver
 
 6. Access the project at http://127.0.0.1:8000/.
 <img src="media/p4_deployment_diagram.png" alt="Django Development Diagram">
+
+
+### Environment Variables
+SECRET_KEY=your_secret_key
+DEBUG=True
+DATABASE_URL=your_database_url
+STRIPE_PUBLIC_KEY=your_stripe_public_key
+STRIPE_SECRET_KEY=your_stripe_secret_key
+EMAIL_HOST_USER=your_email_address
+EMAIL_HOST_PASSWORD=your_email_password
 
 
 ## Technologies Used
