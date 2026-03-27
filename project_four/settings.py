@@ -231,7 +231,7 @@ if USE_AWS:
 
     # Media files only (leave static files on WhiteNoise/collectstatic)
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    MEDIAFILES_LOCATION = '' # it was 'media' but had error with images - dont repeat!
+    MEDIAFILES_LOCATION = ''
 
     # Override media URL in production
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
