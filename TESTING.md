@@ -46,13 +46,8 @@ Throughout the project, **ChatGPT** was used to support testing strategies, clar
 To ensure the application is fully responsive and accessible, all pages and interactive elements were manually tested using Chrome’s responsive design mode, as well as on physical devices including desktops, laptops, tablets, and smartphones. Key user journeys—such as browsing products, adding items to the cart, and completing the checkout process—were tested across multiple screen sizes to ensure a seamless and consistent experience for all users.
 
 
-
-
-
 ## Validation Testing
-
 ### W3C Markup Validation
-
 The **W3C Markup Validation Service** was used to validate the HTML output across all key pages of **Project 4 – Food E-Commerce Store**. 
 
 As the project uses Django templates with dynamic content and template tags (e.g. `{% %}`, `{{ }}`), validation was performed on the fully rendered HTML by copying the page source from the browser into the validator. This ensures the final output—what users and browsers actually receive—complies with **HTML5 standards**.
@@ -74,10 +69,7 @@ As the project uses Django templates with dynamic content and template tags (e.g
 > All tested pages successfully passed validation with no critical errors, confirming compliance with modern web standards and ensuring consistent rendering across browsers.
 
 
-
-
 ### W3C CSS Validation
-
 The **W3C CSS Validator** was used to validate all custom CSS files within **Project 4 – Food E-Commerce Store**. Each stylesheet was tested individually to ensure compliance with **CSS3 standards**, proper syntax, and cross-browser compatibility.
 
 | File Tested                              | Result | Evidence |
@@ -89,10 +81,7 @@ The **W3C CSS Validator** was used to validate all custom CSS files within **Pro
 > All stylesheets passed validation with no critical errors, confirming clean, standards-compliant CSS and consistent rendering across modern browsers.
 
 
-
-
 ### JavaScript Validation
-
 All custom JavaScript files were validated using **JSHint** to ensure proper syntax, code quality, and adherence to modern best practices.
 
 | File Tested                                      | Result | Evidence             | Notes |
@@ -103,9 +92,7 @@ All custom JavaScript files were validated using **JSHint** to ensure proper syn
 > All JavaScript files passed validation after minor configuration adjustments, ensuring clean, maintainable, and standards-compliant client-side code.
 
 
-
 ### Python Validation
-
 All Python code was validated using the **Code Institute Python Linter**, ensuring compliance with **PEP8 (Python Enhancement Proposal 8)** — the official Python style guide. This guarantees consistent formatting, readability, and maintainable code across the entire project.
 
 ---
@@ -188,10 +175,7 @@ All Python code was validated using the **Code Institute Python Linter**, ensuri
 > All Python files passed validation with no critical PEP8 errors, confirming a clean, consistent, and maintainable codebase across the entire project.
 
 
-
-
 ## Lighthouse Testing
-
 Lighthouse audits were conducted on the deployed Supermakt project to assess **performance, accessibility, best practices, and SEO** across all key pages. This helped ensure a fast, responsive, and user-friendly experience on both mobile and desktop devices.
 
 | Page                     | Mobile Screenshot | Desktop Screenshot | Notes      |
@@ -209,7 +193,6 @@ Lighthouse audits were conducted on the deployed Supermakt project to assess **p
 | About Us      | ![Home Mobile](testing/validation/lighthouse_about_mobile.png)      | ![Home Desktop](testing/validation/lighthouse_about_desktop.png)       | ✅ Passed  |
 
 **Notes & Observations:**
-
 While the results were generally positive, a few scores — particularly in the **Performance** and **Best Practices** categories — appeared lower than desired. These were largely influenced by factors such as uncompressed media assets, render-blocking CSS/JS, and third-party scripts (e.g., Stripe and Cloudinary integrations).
 
 Given more development time, I would have focused on optimising these areas further by:
@@ -222,9 +205,7 @@ Given more development time, I would have focused on optimising these areas furt
 Despite these minor limitations, the site remains fully functional, responsive, and accessible, with all key user stories and project requirements met. The current results provide a solid foundation for future optimisation.
 
 
-
 # Manual Testing
-
 ## Full Testing
 This section outlines the **manual testing** conducted to ensure the **Food E-Commerce application** functions correctly across all major user interactions, devices, and screen sizes.
 
@@ -255,8 +236,8 @@ In addition to structured manual testing, informal feedback was gathered from fr
 
 ---
 
-## Detailed Manual Testing
 
+## Detailed Manual Testing
 ### 🛒 Checkout Page
 
 | Feature | Action | Expected Result | Actual Result | Pass/Fail |
@@ -328,8 +309,8 @@ These points do not prevent the core functionality of the application from worki
 
 ---
 
-## Browser Compatibility
 
+## Browser Compatibility
 To ensure broad accessibility and a consistent user experience, the application was manually tested on all major modern browsers, including:
 
 - **Google Chrome**
@@ -354,13 +335,11 @@ Each page and core user flow (e.g. registration, product filtering, adding/remov
 | Microsoft Edge | ✅ Pass | Application performed as expected with no issues identified |
 
 ## Summary
-
 The application demonstrates good cross-browser compatibility across major modern browsers, with only minor inconsistencies observed that do not impact core functionality or user experience.
 
 ---
 
 ## Responsiveness
-
 To ensure a consistent user experience across all devices, the site was thoroughly tested for **responsive design** using Chrome Developer Tools and physical testing on:
 
 - Smartphones  
@@ -379,7 +358,6 @@ Tools and methods used:
 ---
 
 ## Results
-
 | Area Tested | Expected Result | Actual Result | Pass/Fail |
 |------------|---------------|--------------|----------|
 | Layout scaling | Elements adjust to screen size without breaking | Layout adapts correctly across most screen sizes | ✅ Pass |
@@ -392,9 +370,8 @@ Tools and methods used:
 ---
 
 ## Notes
-
 - Product images, banners, and media assets were verified to scale correctly across different screen sizes, maintaining aspect ratio and visual clarity.  
-- Forms (checkout, profile, newsletter) were tested for:
+- Forms (checkout, profile ) were tested for:
   - Required field validation  
   - Autofocus behaviour  
   - Error messaging  
@@ -402,17 +379,10 @@ Tools and methods used:
 - Checkout flow, including **Stripe payment integration**, was validated for both successful and error scenarios across devices.  
 
 ## Summary
-
 The application demonstrates strong responsiveness across a wide range of devices, with only minor layout inconsistencies identified that do not impact core functionality or user experience.
 
 
-
-
-
-
-
 ## Device Testing
-
 ### Mobile Devices
 | Device Tested | Screen Width (px) | Screen Height (px) | Result | Notes (Issues Found) |
 |---------------|-----------------|------------------|--------|--------------------|
@@ -445,7 +415,6 @@ The application demonstrates strong responsiveness across a wide range of device
 
 
 ## Accessibility
-
 Accessibility was a key consideration throughout the development of the Food E-Commerce site, ensuring usability for people of all abilities and assistive needs. The goal was to meet **WCAG 2.1 AA** standards wherever possible, with particular focus on **navigation**, **colour contrast**, and **form usage**.
 
 ### Colour Contrast Compliance
@@ -468,7 +437,6 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 ---
 
 ### Color Palette Reference
-
 | Color | Hex Code | Usage |
 |-------|----------|-------|
 | Primary Pink | `#FF6B9D` | Category circle gradients, accents |
@@ -482,17 +450,12 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 ---
 
 ### Notes
-
 - ✅ All text colors meet WCAG 2.1 AA standards for normal text (4.5:1 ratio)
 - ✅ Gradient colors (pink/orange) are used for decorative graphics and icons
 - ⚠️ Ensure pink and orange are not used for critical text information
 
 
-
-
-
 # Testing User Stories – Supermarket E-commerce Store
-
 | User Story ID | As a/an | I want to be able to ... | So that I can ... | How is this achieved? | Evidence | Pass/Fail | Notes |
 |---------------|---------|-------------------------|-----------------|---------------------|---------|-----------|-------|
 
@@ -542,16 +505,8 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 
 
 
-
-
-
-
-
-
-
 # Manual Features Testing – Supermarket E-commerce Store
 **Navbar (Header) – base.html**
-
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |---------|-----------------|-----------------|--------|-----------|
 | Store Logo (mobile & desktop) | Clicking the logo navigates to the home page (/) | Clicked the logo in both desktop and mobile views | Home page rendered successfully | ✅ Pass |
@@ -576,17 +531,13 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | Shopping Bag Icon | Navigates to /bag/ | Clicked the shopping bag icon in the navbar | Redirected to the bag page | ✅ Pass |
 
 
-
-
 # ⛔️ Navbar (Header) – Negative Testing Scenarios
-
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |---------|-----------------|-----------------|--------|-----------|
 | Navbar links for unauthenticated users | Should only show Login/Register | Logged out and viewed navbar | Correct links displayed | ✅ Pass |
 | Broken navigation | Manually edited link in DevTools to non-existent route | Got 404 error page | ✅ Pass |
 
 # Homepage Content (Public) – index.html
-
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |---------|-----------------|-----------------|--------|-----------|
 | Shop Now CTA (Hero Banner) | Navigates to /products/ | Clicked Shop Now in the hero section | Redirected to /products/ | ✅ Pass |
@@ -597,75 +548,62 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | Hot Beverages Category Image | Navigates to /products/?category=hot-beverages | Clicked Hot Beverages image card | Products filtered by Hot Beverages | ✅ Pass |
 | Cold Drinks Category Image | Navigates to /products/?category=cold-drinks | Clicked Cold Drinks image card | Products filtered by Cold Drinks | ✅ Pass |
 | Deals Category Image | Navigates to /products/?category=deals | Clicked Deals image card | Products filtered by Deals | ✅ Pass |
-| Newsletter Signup (valid email) | Submitting valid email shows toast confirmation | Entered valid email and clicked sign up | Toast message: Success! Thanks for signing up to our newsletter | ✅ Pass |
+
 | Carousel controls: Previous button | Scrolls to previous slide | Clicked the previous arrow | Previous carousel slide shown | ✅ Pass |
 | Carousel controls: Next button | Scrolls to next slide | Clicked the next arrow | Next carousel slide shown | ✅ Pass |
-| Carousel indicators (dots) | Navigates to the correct slide | Clicked each dot below the carousel | Corresponding slide shown | ✅ Pass |
-
-
 
 
 # ⛔️ Homepage Content (Public) – Negative Testing Scenarios
-
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |---------|-----------------|-----------------|--------|-----------|
 | Unauthenticated access | Site loads fully without login | Accessed homepage while logged out | All public sections loaded successfully | ✅ Pass |
-| Newsletter Signup – No Input | Inline browser validation prevents submission | Clicked submit without entering email | Browser showed “Please fill in this field” | ✅ Pass |
-| Newsletter Signup – Blank Space | Inline browser validation prevents submission | Entered space and clicked submit | Browser showed “Please fill in this field” | ✅ Pass |
+
 
 # Footer (base.html)
-
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-|---------|-----------------|-----------------|--------|-----------|
-| Website Link (Join Today / Branding) | Opens official store website in new tab | Clicked website link | Store website opened in a new browser tab | ✅ Pass |
-| Email Link (Join Today section) | Opens default mail client with store email | Clicked store email link | Default mail client opened with address prefilled | ✅ Pass |
-| Address Link (Join Today section) | Opens Google Maps location in new tab | Clicked store address link | Google Maps opened in a new browser tab | ✅ Pass |
-| Shipping Policy Link (Helpful Links) | Navigates to /shipping | Clicked Shipping Policy under Helpful Links | Redirected to /shipping page | ✅ Pass |
-| Facebook Icon (Follow Us) | Opens store Facebook page in new tab | Clicked Facebook icon | Facebook page opened in a new tab | ✅ Pass |
-| Instagram Icon (Follow Us) | Opens store Instagram page in new tab | Clicked Instagram icon | Instagram page opened in a new tab | ✅ Pass |
-| Terms & Conditions Link | Navigates to /terms | Clicked Terms & Conditions in footer | Redirected to /terms page | ✅ Pass |
-| Privacy Policy Link | Navigates to /privacy | Clicked Privacy Policy in footer | Redirected to /privacy page | ✅ Pass |
-| GitHub Link | Opens developer’s GitHub profile in new tab | Clicked GitHub link in footer | GitHub profile opened in new tab | ✅ Pass |
+|---------|-----------------|-------------------|--------|-----------|
+| Logo/Branding Link (Project Four ©) | Navigates to homepage or opens official website in new tab | Clicked on Project Four logo/branding | Homepage loaded or website opened in new tab | ✅ Pass |
+| Home Link | Navigates to homepage (/) | Clicked Home link in footer | Redirected to homepage successfully | ✅ Pass |
+| About Link | Navigates to /about page | Clicked About link in footer | Redirected to /about page | ✅ Pass |
+| Privacy Policy Link | Navigates to /privacy-policy or /privacy page | Clicked Privacy Policy link in footer | Redirected to privacy policy page | ✅ Pass |
+| Terms Link | Navigates to /terms page | Clicked Terms link in footer | Redirected to /terms page | ✅ Pass |
+| Facebook Icon | Opens Project Four Facebook page in new tab | Clicked Facebook icon | Facebook page opened in a new browser tab | ✅ Pass |
+| Instagram Icon | Opens Project Four Instagram page in new tab | Clicked Instagram icon | Instagram page opened in a new browser tab | ✅ Pass |
+| YouTube Icon | Opens Project Four YouTube channel in new tab | Clicked YouTube icon | YouTube channel opened in a new browser tab | ✅ Pass |
+| Twitter Icon | Opens Project Four Twitter/X profile in new tab | Clicked Twitter icon | Twitter profile opened in a new browser tab | ✅ Pass |
+| WhatsApp Icon | Opens WhatsApp chat/contact in new tab or app | Clicked WhatsApp icon | WhatsApp opened in new tab or desktop app | ✅ Pass |
 
 # ⛔️ Footer – Negative Testing Scenarios
-
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-|---------|-----------------|-----------------|--------|-----------|
-| External links | All external links open in a new browser tab without affecting current session | Clicked each external link (store site, address, Facebook, Instagram, GitHub) | Each opened in a new tab and the original session remained intact | ✅ Pass |
-| mailto: link | Opens user's default mail client without page reload or error | Clicked store email link | Mail app opened; no page disruption | ✅ Pass |
-| Inactive or broken links | No broken or inactive links in footer | Manually clicked each footer link to confirm navigation | All links routed correctly; no 404 or inactive anchors found | ✅ Pass |
-| Layout stability | Clicking footer links should not break layout or styling | Tested navigation back and forth from linked pages | Footer retained consistent styling across all linked pages | ✅ Pass |
-
-
-
-
-
+|---------|-----------------|-------------------|--------|-----------|
+| External social media links | All social media icons open in new tabs without affecting current session | Clicked each social media icon (Facebook, Instagram, YouTube, Twitter, WhatsApp) | Each opened in a new tab; original session remained intact | ✅ Pass |
+| Internal navigation links | Internal links (Home, About, Privacy Policy, Terms) navigate without opening new tabs | Clicked each navigation link | All navigated in same tab without spawning new windows | ✅ Pass |
+| Inactive or broken links | No broken or inactive links in footer | Manually clicked each footer link and icon | All links routed correctly; no 404 errors or dead anchors | ✅ Pass |
+| Layout stability | Clicking footer links should not break layout or styling | Tested navigation back and forth from linked pages | Footer retained consistent styling and positioning across all pages | ✅ Pass |
+| Icon alignment and spacing | Social media icons should be evenly spaced and properly aligned | Visually inspected footer on different screen sizes | Icons maintained proper spacing and alignment responsively | ✅ Pass |
+| Copyright symbol display | © symbol should render correctly in all browsers | Checked logo/branding text across multiple browsers | Copyright symbol displayed correctly in all tested browsers | ✅ Pass |
 
 
 # Products Page – (products.html)
-
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |---------|-----------------|-----------------|--------|-----------|
 | Sort By Dropdown | Selecting an option sorts the products accordingly (Name A–Z, Z–A, Price Low–High, High–Low) | Chose each sorting option and observed the order of displayed products | Products reordered as expected | ✅ Pass |
 | Product Image Click | Clicking a product image navigates to the correct product detail page | Clicked several product images | Each navigated to the correct product detail view | ✅ Pass |
 | Category Tag Click | Clicking a product's category tag filters products by that category | Clicked on category tags beneath products | Navigated to /products/?category=... and filtered view shown | ✅ Pass |
-| Back to Top Button | Clicking the button scrolls the page smoothly to the top | Scrolled down the page and clicked the button | Page returned to the top as expected | ✅ Pass |
+
 
 # Product Detail Page – (product_detail.html)
-
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |---------|-----------------|-----------------|--------|-----------|
 | Product Image Click | Clicking on the main product image opens it in a new tab | Clicked on product image | Full-size image opened in a new browser tab | ✅ Pass |
 | Category Tag Click | Navigates to /products/?category=... for that product's category | Clicked the category tag under the product name | Correct category page loaded | ✅ Pass |
-| Colour Dropdown | Selecting a colour updates the image preview (if available) | Selected each colour option | Correct image preview shown for each colour | ✅ Pass |
-| Size Dropdown | Selected size remains selected when chosen | Selected a size from dropdown | Selection was retained | ✅ Pass |
 | Quantity Plus Button | Increases quantity by 1 until stock level is reached, then disables | Clicked + repeatedly | Quantity increased and button disabled at stock limit | ✅ Pass |
 | Quantity Minus Button with Over-limit Value | Tooltip informs user to reduce quantity | Manually entered quantity above stock and hovered | Tooltip appeared instructing user to lower quantity | ✅ Pass |
 | Keep Shopping Button | Returns user to product list | Clicked on Keep Shopping | Redirected to /products/ | ✅ Pass |
 | Add to Bag Button | Adds item to bag and shows success toast | Selected options, clicked Add to Bag | Item added and toast confirmed quantity | ✅ Pass |
 
-# Bag Page – (bag.html)
 
+# Bag Page – (bag.html)
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |---------|-----------------|-----------------|--------|-----------|
 | Quantity Plus Button | Increases quantity by 1 until reaching stock limit; lowering quantity re-enables button | Clicked plus repeatedly until stock limit reached | Quantity increased correctly; button disabled at stock limit; lowering quantity re-enabled it | ✅ Pass |
@@ -677,8 +615,8 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | Secure Checkout Button | Takes user to checkout page | Clicked Secure Checkout | Redirected to /checkout/ | ✅ Pass |
 | Checkout Button (Toast) | Toast includes product info, bag total, free delivery message, Go to Checkout button | Added product to bag, clicked Checkout on toast | Toast displayed correct details; Go to Checkout button redirected to /bag/ | ✅ Pass |
 
-# Checkout Page – (checkout.html)
 
+# Checkout Page – (checkout.html)
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 |---------|-----------------|-----------------|--------|-----------|
 | Form validation | Submitting form with missing fields shows tooltip errors | Submitted form blank | Tooltip informed user to fill required fields | ✅ Pass |
@@ -687,29 +625,27 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 | Register link (not logged in) | Allows registration before checkout, retaining bag contents | Clicked Register, created account | Redirected to home, logged in, bag contents available | ✅ Pass |
 | Payment information validation | Invalid card numbers trigger real-time Stripe errors | Entered invalid test card number | Stripe displayed red error for invalid card | ✅ Pass |
 | Complete Order button | Shows loading overlay and redirects to success page | Filled form, clicked Complete Order | Overlay appeared, redirected to Checkout Success page | ✅ Pass |
-
-
-
+| Order Summary Display | Shows correct items, quantities, prices, and totals | Reviewed order summary section | All details displayed correctly (Birds Eye Supersweet Sweetcorn, $2.79, delivery $2.99, total $5.78) | ✅ Pass |
+| Adjust Bag Button | Returns user to shopping bag/cart page | Clicked Adjust Bag button | Redirected to bag/cart page | ✅ Pass |
 
 
 # Solved Issues & Bugs – Supermarket Store
+| No | Bug Description | Solution | Amended |
+|----|-----------------|---------|---------|
+| 1 | Discounted price not applied in basket totals | Cart showed full price even when product was on sale. Implemented `effective_price` property in cart context and totals calculation. | ✅ |
+| 2 | Multi-buy offers calculated incorrectly | Multi-buy pricing applied evenly or incorrectly per item. Changed logic to show a single "Multi-buy Savings" line in totals. | ✅ |
+| 3 | Stripe order totals didn't match cart totals | Order line items used default price instead of discounted price. Updated views to use `price_each` map from bag context when creating order line items. | ✅ |
+| 4 | Missing product images broke templates | Empty image field caused broken layout. Added fallback `noimage.png` in templates using `{% if product.image %}` conditional. | ✅ |
+| 5 | Invalid filter logic for "Deals" | Deals filter didn't include special offers. Updated filter to use `Q(is_on_sale=True) | Q(offers__is_active=True)` with `distinct()`. | ✅ |
+| 6 | Cart quantities not centered or misaligned | Quantity input looked wrong on mobile or alignment inconsistent. Added CSS for `.qty_input` to set width and text alignment. | ✅ |
+| 7 | Template block duplication error | `TemplateSyntaxError` because block defined twice. Combined duplicate blocks into single `{% block postloadjs %}`. | ✅ |
+| 8 | Delivery cost showing before cart had items | Delivery fee displayed as $2.99 even when bag empty. Set delivery to 0 if total == 0 in bag context. | ✅ |
+| 9 | Nav dropdown alignment on mobile | Burger or account dropdown opened off-screen. Added CSS to position dropdown to left/right correctly on mobile. | ✅ |
+| 10 | Allauth static errors (missing {% load static %}) | "Invalid block tag 'static'" error in templates. Added `{% load static %}` in base or affected templates. | ✅ |
+| 11 | Hero/banner width overflow on desktop | Hero image or carousel exceeded container width. Constrained width to 90%, adjusted max-width and padding. | ✅ |
 
-| No | Bug Description | Solution | Screenshot |
-|----|----------------|---------|-----------|
-| 1 | Users could submit form fields containing leading/trailing spaces (e.g., "  John " or " test@example.com "), causing validation inconsistencies or messy data storage. | Added a `clean()` method in the OrderForm to trim whitespace from all string fields before validation, ensuring consistent and clean data entry. | Screenshot |
-| 2 | Products without a colour field displayed an unnecessary dropdown on the product page. | Updated the template to show the colour dropdown only if colour variants exist. Admin inline forms now allow optional colour variants when creating/editing products. | Screenshot |
-| 3 | Hover image swap animation triggered on products with only a single image, causing flicker. | Template updated to include `.image-swap-wrapper` only when a back image exists, so animation only triggers with both front and back images. | Screenshot |
-| 4 | Product detail and listing pages showed incomplete pricing; variant prices were not reflected dynamically. | Updated views to calculate `min_price` and `max_price` using Django’s Min/Max annotations. Prices now update dynamically with variant selection via `variant_price_map` JSON in JS. | N/A |
-| 5 | Adding non-variant products to the bag raised errors due to missing `.price` on Product objects. | Removed unused imports, adjusted logic to use `variant.price` where applicable, and added fallback for non-variant products. Lines split for clarity. | N/A |
-| 6 | Only the first variant item in the bag displayed a "Remove" button; others lacked it. | Moved remove button outside the `{% if variant_key %}` block and conditionally added variant data attributes only when present. | Screenshot |
-| 7 | Non-variant products (e.g., grocery items like cold drinks or hot beverages) missing displayed price, leaving blank space. | Added fallback to render `product.price` using `floatformat` or display “Price coming soon” if price is None, ensuring all products show a price. | Screenshot |
-| 8 | Submitting add product form with duplicate variant size/colour caused IntegrityError due to UNIQUE SKU constraint. | Added logic in `add_product` view to skip duplicate variant combinations before saving, so only unique variants are persisted. | Screenshot |
-| 9 | Deleting a product from product detail page triggered immediate deletion with only toast notification, unlike the product list. | Added Bootstrap confirmation modal to product detail page, matching product list behavior for user confirmation before deletion. | Screenshot |
-| 10 | Back-to-top arrow icon used `text-black`, invisible on dark footer backgrounds. | Changed icon class to `text-primary` for better contrast and visibility. | Screenshot |
-| 11 | On mobile/tablet, the account icon was not intuitive, lacking clear options for sign in/out or account management. | Added authenticated/guest account links (My Profile, Logout, Sign Up, Sign In) into mobile off-canvas menu to mirror desktop flyout behavior and improve UX clarity. | Screenshot |
 
 # Conclusion
-
-Through **validation tools, automated test coverage, manual device/browser testing, and accessibility checks**, the supermarket e-commerce site has been rigorously tested to ensure a robust, user-friendly, and inclusive experience across platforms.  
-
-**Areas for future improvement** include extended screen reader testing, broader JavaScript test coverage, and further optimisation of mobile navigation. Overall, the site meets the project’s functional and technical requirements, offering a **stable, scalable, and reliable foundation** for real-world online grocery shopping.
+Through **comprehensive manual testing, form validation checks, and cross-browser compatibility reviews**, the **Project Four** online grocery platform has been rigorously evaluated to ensure a robust, user-friendly, and secure shopping experience across all devices.  
+Key functionality—including **footer navigation, product variant selection, shopping bag management, and Stripe checkout integration**—was tested extensively to verify correct behaviour. Critical issues identified during development, such as **pricing calculation logic, mobile navigation alignment, and template rendering errors**, were successfully resolved to enhance stability and user experience.  
+**Areas for future improvement** include implementing automated unit tests for backend logic, extending accessibility testing for screen readers, and further optimisation of search and filtering capabilities. Overall, the site meets the project's functional and technical requirements, offering a **stable, scalable, and reliable foundation** for real-world e-commerce operations.
