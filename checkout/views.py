@@ -5,6 +5,8 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
@@ -237,30 +239,29 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-    send_mail(
-        subject=f'Order Confirmation - {order.order_number}',
-        message=(
-            f'Hi {order.full_name},\n\n'
-            f'Thank you for your order! '
-            f'Your order number is {order.order_number}.\n\n'
-            'Order Details:\n'
-            f'- Email: {order.email}\n'
-            f'- Phone: {order.phone_number}\n'
-            f'- Address: {order.street_address1}, '
-            f'{order.town_or_city}, {order.country}\n\n'
-            'We\'ll send you another email when your order ships.\n\n'
-            'Best,\nThe Team'
-        ),
-        from_email=settings.DEFAULT_FROM_EMAIL,
-        recipient_list=[order.email],
-        fail_silently=False,
-    )
-
     messages.success(
         request,
         f'Order successfully processed! '
         f'Your order number is {order_number}. '
         f'A confirmation email will be sent to {order.email}.'
+    )
+
+    subject = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_subject.txt',
+        {'order': order}
+    )
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_body.txt',
+        {
+            'order': order,
+            'contact_email': settings.DEFAULT_FROM_EMAIL
+        }
+    )
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [order.email]
     )
 
     if 'bag' in request.session:
