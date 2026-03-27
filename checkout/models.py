@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+from decimal import Decimal
 from django.db.models import Sum
 from django.conf import settings
 
@@ -81,11 +82,11 @@ class Order(models.Model):
         )
 
         if self.order_total == 0:
-            self.delivery_cost = 0
+            self.delivery_cost = Decimal('0.00')
         elif self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = 2.99
+            self.delivery_cost = Decimal('2.99')
         else:
-            self.delivery_cost = 0
+            self.delivery_cost = Decimal('0.00')
 
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
