@@ -462,55 +462,54 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 - ✅ Gradient colors (pink/orange) are used for decorative graphics and icons
 - ⚠️ Ensure pink and orange are not used for critical text information
 
-
 # Testing User Stories – Supermarket E-commerce Store
+## Guest User Stories
 | User Story ID | As a/an | I want to be able to ... | So that I can ... | How is this achieved? | Evidence | Pass/Fail | Notes |
 |---------------|---------|-------------------------|-----------------|---------------------|---------|-----------|-------|
+| 1 | Guest | Easily navigate the site | Find supermarket products and information quickly | Responsive navigation, structured layout, and intuitive page links | Navigate homepage, category pages, and product pages | | |
+| 2 | Guest | View a list of product categories | Browse items by type (All Products, Whole Foods, Frozen, Meat & Poultry, Hot Beverages, Cold Drinks, All Foods, All Drinks, Deals) | Homepage and navigation display category cards and links to filtered product pages | Clicking category cards navigates to correct filtered product listings | | |
+| 7 | Guest | Register for an account | Make purchases and view order history | Custom Allauth templates with signup form | Successful registration and confirmation email received | | |
+| 13 | Guest | Filter products by category or type | Quickly narrow down my search | Sidebar filters and query param filtering using categories: All Products, Whole Foods, Frozen, Meat & Poultry, Hot Beverages, Cold Drinks, All Foods, All Drinks, Deals | Filtering works correctly for each category | | |
+| 14 | Guest | Search for a product by name or keyword | Find specific items faster | Search bar with Q object matching against name and description | Search returns accurate product results | | |
+| 19 | Guest/Shopper | Checkout with or without an account | Make quick purchases when needed | Guest checkout enabled via session bag and order | Guest checkout works and creates order | | |
 
-## Viewing and Navigation
-1 | Guest | Easily navigate the site | Find supermarket products and information quickly | Responsive navigation, structured layout, and intuitive page links | Navigate homepage, category pages, and product pages | | |
-2 | Guest | View a list of product categories | Browse items by type (All Products, Whole Foods, Frozen, Meat & Poultry, Hot Beverages, Cold Drinks, All Foods, All Drinks, Deals) | Homepage and navigation display category cards and links to filtered product pages | Clicking category cards navigates to correct filtered product listings | | |
-3 | Shopper | View detailed product information | Decide if the item meets my needs | Product detail page shows product description, sizes, flavours, price, images, and stock availability | Product page correctly displays details | | |
-4 | Shopper | View my cart at any time | Track what I plan to purchase | Bag icon updates in real-time and links to bag summary page | Cart icon shows number of items, links to cart | | |
-5 | Shopper | See my cart total update in real-time | Track spending and avoid surprises at checkout | AJAX cart updates, mini bag on add-to-cart actions | Total price updates dynamically when items added/removed | | |
-6 | Shopper | Access the site easily on mobile | Shop from any device conveniently | Fully responsive design with mobile-first layout and off-canvas nav | Test site on multiple devices and screen sizes | | |
+## Shopper User Stories
+| User Story ID | As a/an | I want to be able to ... | So that I can ... | How is this achieved? | Evidence | Pass/Fail | Notes |
+|---------------|---------|-------------------------|-----------------|---------------------|---------|-----------|-------|
+| 3 | Shopper | View detailed product information | Decide if the item meets my needs | Product detail page shows product description, sizes, flavours, price, images, and stock availability | Product page correctly displays details | | |
+| 4 | Shopper | View my cart at any time | Track what I plan to purchase | Bag icon updates in real-time and links to bag summary page | Cart icon shows number of items, links to cart | | |
+| 5 | Shopper | See my cart total update in real-time | Track spending and avoid surprises at checkout | AJAX cart updates, mini bag on add-to-cart actions | Total price updates dynamically when items added/removed | | |
+| 6 | Shopper | Access the site easily on mobile | Shop from any device conveniently | Fully responsive design with mobile-first layout and off-canvas nav | Test site on multiple devices and screen sizes | | |
+| 8 | Shopper | Receive confirmation after registering | Know that my account is active | Success message on site and email confirmation | User receives confirmation email and sees success page | | |
+| 9 | Shopper | Log in and log out securely | Access my private information safely | Secure login/logout with redirect and CSRF protection | User can log in/out without errors | | |
+| 10 | Shopper | View and update my profile | Change delivery address and personal info | Profile page with update form and validation | Profile changes saved correctly | | |
+| 11 | Shopper | View my previous orders | Track what I've bought and reorder easily | Order history in profile, with links to past order receipts | User sees previous orders and details | | |
+| 12 | Shopper | Reset my password | Recover account access if I forget credentials | Allauth password reset flow with secure token emails | Password reset email received and link works | | |
+| 15 | Shopper | Sort products by price, name, or popularity | Choose the most relevant or affordable options | Sort dropdown updates results via query params | Sorting works correctly across all categories | | |
+| 16 | Shopper | Add items to my cart | Save products I intend to buy | Add to cart button with size/flavour/variant selection | Product added to cart correctly | | |
+| 17 | Shopper | Adjust quantities or remove items from cart | Finalise exactly what I want to purchase | Bag summary page allows quantity changes and deletions | Quantity changes update total correctly | | |
+| 18 | Shopper | Proceed to a secure checkout | Buy items with confidence | Stripe integration, CSRF-protected forms | Checkout process completes without errors | | |
+| 20 | Shopper | Enter payment details easily | Complete my order smoothly | Stripe card input with custom style, instant validation | Payment processed successfully | | |
+| 21 | Shopper | Receive on-screen and email confirmation | Ensure the order was successful | Checkout success page and order confirmation email | Confirmation page and email received | | |
+| 22 | Shopper | Know that my data is protected | Trust the site and continue using it | HTTPS, Stripe, and secure session handling | Secure checkout verified | | |
 
-## Registration & Accounts
-7 | Guest | Register for an account | Make purchases and view order history | Custom Allauth templates with signup form | Successful registration and confirmation email received | | |
-8 | Shopper | Receive confirmation after registering | Know that my account is active | Success message on site and email confirmation | User receives confirmation email and sees success page | | |
-9 | Shopper | Log in and log out securely | Access my private information safely | Secure login/logout with redirect and CSRF protection | User can log in/out without errors | | |
-10 | Shopper | View and update my profile | Change delivery address and personal info | Profile page with update form and validation | Profile changes saved correctly | | |
-11 | Shopper | View my previous orders | Track what I’ve bought and reorder easily | Order history in profile, with links to past order receipts | User sees previous orders and details | | |
-12 | Shopper | Reset my password | Recover account access if I forget credentials | Allauth password reset flow with secure token emails | Password reset email received and link works | | |
+## Admin User Stories
+| User Story ID | As a/an | I want to be able to ... | So that I can ... | How is this achieved? | Evidence | Pass/Fail | Notes |
+|---------------|---------|-------------------------|-----------------|---------------------|---------|-----------|-------|
+| 23 | Admin | Add new products to the store | Keep the shop up to date with new items | Admin panel product + variant forms with preview | Product appears on correct category page | | |
+| 24 | Admin | Edit or update product info | Correct mistakes or make improvements | Admin panel and edit views for products | Product updates reflected on frontend | | |
+| 25 | Admin | Delete a product | Remove items that are no longer for sale | Delete button in product admin with confirmation modal | Product removed from site | | |
+| 26 | Admin | Monitor and manage product stock | Ensure products don't oversell | Stock managed at variant level and updated per order | Inventory levels reflect orders correctly | | |
+| 27 | Admin | View and manage incoming orders | Fulfil customer purchases efficiently | Orders visible in Django admin with line item breakdowns | Admin sees all order details | | |
+| 28 | Admin | Access the admin panel securely | Manage store operations without public access | Admin login via Django admin with superuser access only | Admin login successful | | |
 
-## Searching & Filtering
-13 | Guest | Filter products by category or type | Quickly narrow down my search | Sidebar filters and query param filtering using categories: All Products, Whole Foods, Frozen, Meat & Poultry, Hot Beverages, Cold Drinks, All Foods, All Drinks, Deals | Filtering works correctly for each category | | |
-14 | Guest | Search for a product by name or keyword | Find specific items faster | Search bar with Q object matching against name and description | Search returns accurate product results | | |
-15 | Shopper | Sort products by price, name, or popularity | Choose the most relevant or affordable options | Sort dropdown updates results via query params | Sorting works correctly across all categories | | |
-
-## Cart & Checkout
-16 | Shopper | Add items to my cart | Save products I intend to buy | Add to cart button with size/flavour/variant selection | Product added to cart correctly | | |
-17 | Shopper | Adjust quantities or remove items from cart | Finalise exactly what I want to purchase | Bag summary page allows quantity changes and deletions | Quantity changes update total correctly | | |
-18 | Shopper | Proceed to a secure checkout | Buy items with confidence | Stripe integration, CSRF-protected forms | Checkout process completes without errors | | |
-19 | Guest/Shopper | Checkout with or without an account | Make quick purchases when needed | Guest checkout enabled via session bag and order | Guest checkout works and creates order | | |
-20 | Shopper | Enter payment details easily | Complete my order smoothly | Stripe card input with custom style, instant validation | Payment processed successfully | | |
-21 | Shopper | Receive on-screen and email confirmation | Ensure the order was successful | Checkout success page and order confirmation email | Confirmation page and email received | | |
-22 | Shopper | Know that my data is protected | Trust the site and continue using it | HTTPS, Stripe, and secure session handling | Secure checkout verified | | |
-
-## Admin & Store Management
-23 | Admin | Add new products to the store | Keep the shop up to date with new items | Admin panel product + variant forms with preview | Product appears on correct category page | | |
-24 | Admin | Edit or update product info | Correct mistakes or make improvements | Admin panel and edit views for products | Product updates reflected on frontend | | |
-25 | Admin | Delete a product | Remove items that are no longer for sale | Delete button in product admin with confirmation modal | Product removed from site | | |
-26 | Admin | Monitor and manage product stock | Ensure products don’t oversell | Stock managed at variant level and updated per order | Inventory levels reflect orders correctly | | |
-27 | Admin | View and manage incoming orders | Fulfil customer purchases efficiently | Orders visible in Django admin with line item breakdowns | Admin sees all order details | | |
-28 | Admin | Access the admin panel securely | Manage store operations without public access | Admin login via Django admin with superuser access only | Admin login successful | | |
-
-## Experience & Compliance
-29 | All users | View accessibility-friendly content | Navigate the site with any device or ability | Contrast-checked colour palette, semantic HTML, alt text on images | Passes accessibility audit | | |
-30 | All users | Receive clear feedback when something goes wrong | Know how to fix errors and complete actions | Flash messages and form validation feedback | Form errors and success messages displayed | | |
-31 | All users | Contact the store via a form | Ask questions or report issues | Contact form with success/error messaging | Form submissions received correctly | | |
-32 | All users | Read Terms & Conditions and Privacy Policy | Understand how my data is used and my rights | Dedicated privacy.html and terms.html pages, linked in footer | Pages accessible and readable | | |
-
+## All Users User Stories
+| User Story ID | As a/an | I want to be able to ... | So that I can ... | How is this achieved? | Evidence | Pass/Fail | Notes |
+|---------------|---------|-------------------------|-----------------|---------------------|---------|-----------|-------|
+| 29 | All users | View accessibility-friendly content | Navigate the site with any device or ability | Contrast-checked colour palette, semantic HTML, alt text on images | Passes accessibility audit | | |
+| 30 | All users | Receive clear feedback when something goes wrong | Know how to fix errors and complete actions | Flash messages and form validation feedback | Form errors and success messages displayed | | |
+| 31 | All users | Contact the store via a form | Ask questions or report issues | Contact form with success/error messaging | Form submissions received correctly | | |
+| 32 | All users | Read Terms & Conditions and Privacy Policy | Understand how my data is used and my rights | Dedicated privacy.html and terms.html pages, linked in footer | Pages accessible and readable | | |
 
 
 # Manual Features Testing – Supermarket E-commerce Store
@@ -655,5 +654,5 @@ In addition, form labels, alt attributes, and ARIA roles were reviewed to improv
 
 # Conclusion
 Through **comprehensive manual testing, form validation checks, and cross-browser compatibility reviews**, the **Project Four** online grocery platform has been rigorously evaluated to ensure a robust, user-friendly, and secure shopping experience across all devices.  
-Key functionality—including **footer navigation, product variant selection, shopping bag management, and Stripe checkout integration**—was tested extensively to verify correct behaviour. Critical issues identified during development, such as **pricing calculation logic, mobile navigation alignment, and template rendering errors**, were successfully resolved to enhance stability and user experience.  
+Key functionality including **footer navigation, product variant selection, shopping bag management, and Stripe checkout integration**—was tested extensively to verify correct behaviour. Critical issues identified during development, such as **pricing calculation logic, mobile navigation alignment, and template rendering errors**, were successfully resolved to enhance stability and user experience.  
 **Areas for future improvement** include implementing automated unit tests for backend logic, extending accessibility testing for screen readers, and further optimisation of search and filtering capabilities. Overall, the site meets the project's functional and technical requirements, offering a **stable, scalable, and reliable foundation** for real-world e-commerce operations.
