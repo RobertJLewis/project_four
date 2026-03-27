@@ -1051,11 +1051,24 @@ input[name='q']::placeholder {
     text-transform: uppercase;
     margin: 0 !important;
     padding: 4px 0 !important;
+    display: inline-block;
+    white-space: nowrap;
+    animation: bannerMarquee 10s linear infinite;
 }
 
 #delivery-banner {
     padding: 0;
     background: #000;
+    overflow: hidden;
+}
+
+@keyframes bannerMarquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 @media (min-width: 992px) {
